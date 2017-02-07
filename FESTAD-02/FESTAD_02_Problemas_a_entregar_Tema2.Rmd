@@ -1,0 +1,250 @@
+---
+title: "FESTAD - Tema 2 - Problemas Entrega"
+author: "Jerónimo Carranza Carranza"
+date: "12 de diciembre de 2016"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    depth: 3
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problema 1. ChickWeight.
+
+Considerar el conjunto de datos ChickWeight de R (data(ChickWeight)), que contiene el peso frente a la edad de 50 polluelos en diferentes días en cuatro dietas. La variable weight indica el peso, la variable Time indica la edad en días (a los 0 días, 2,4,...,20 y 21, si vive), la variable Chick indica el polluelo bajo estudio y la variable Diet indica la dieta seguida.
+
+```{r ChickWeight}
+data("ChickWeight")
+attach(ChickWeight)
+summary(ChickWeight)
+```
+
+Se pide:
+
+1.__Calcular la tabla de frecuencias absolutas de cada una de las variables que componen los datos.__
+
+```{r table}
+table(Chick)
+table(Diet)
+table(Time)
+table(weight)
+table(cut(weight,breaks=10))
+```
+
+2.__Estudiar los posibles outliers en el peso, dentro de cada edad.__
+
+```{r outliers}
+bpwT = boxplot(weight~Time)
+points(bpwT$group,bpwT$out,col="red",pch=3)
+bpwT
+cbind(bpwT$group,bpwT$out)
+
+```
+
+3.__Calcular la tabla de frecuencias conjuntas (absolutas y relativas) del número de datos de cada polluelo en cada dieta. Añadir las frecuencias marginales.__
+
+```{r freq conjunta y marginal Chick - dieta}
+Tabs = addmargins(table(Chick,Diet))
+Trel = addmargins(round(prop.table(table(Chick,Diet))*100,2))
+cbind2(Tabs,Trel)
+
+```
+
+4.__Calcular el histograma del peso (6 grupos) en cada grupo de edad.__
+
++ Con la biblioteca ggplot2:
+
+```{r hist w/ ggplot2}
+library (ggplot2)
+Ftime = factor(Time)
+df = data.frame(Ftime, weight)
+p=ggplot(df, aes(x=weight))+
+  geom_histogram(color="blue", fill="cyan", bins = 6)+
+  facet_grid(Ftime ~ .)
+p
+```
+
++ Con la biblioteca lattice:
+
+```{r hist w/ lattice}
+library(lattice)
+histogram(~ weight | factor(Time), nint = 6 )
+
+```
+
+```{r fin ChickWeight}
+detach(ChickWeight)
+```
+## Problema 2. Trees.
+
+Considerar el conjunto de datos trees de R (data(trees)), que contiene la circunferencia, altura y volumen de cerezos.
+
+```{r trees}
+data(trees)
+attach(trees)
+str(trees)
+```
+
+Se pide:
+
+1.__Dividir las alturas en tres grupos y realizar un histograma de las restantes variables en cada grupo definido.__
+
+```{r Histogramas por grupos de altura}
+library(lattice)
+FH3 = factor(cut (Height, breaks = 3))
+histogram(~ Girth | FH3)
+histogram(~ Volume | FH3)
+```
+
+2.__Realizar un diagrama de dispersión de la circunferencia frente al volumen diferenciando los grupos definidos por la altura.__
+
+```{r Diagrama de dispersión V vs. G by H}
+library(ggplot2)
+qplot(Girth,Volume,col=FH3)
+```
+
+3.__Realizar un gráfico de dispersión y una regresión de cada par de variables y valorar la relación existente entre ellas.__
+
+```{r Regresiones}
+mVG = lm(Volume ~ Girth)
+plot(Girth, Volume)
+abline(mVG,col='red')
+summary(mVG)
+cor(Volume, Girth)
+
+mVH = lm(Volume ~ Height)
+plot(Height, Volume)
+abline(mVH,col='red')
+summary(mVH)
+cor(Volume,Height)
+
+mHG = lm(Height ~ Girth)
+plot(Girth, Height)
+abline(mHG,col='red')
+summary(mHG)
+cor(Girth,Height)
+
+```
+
+Existe una relación lineal positiva entre todos los pares de variables.
+
+La relación lineal de mayor intensidad se da entre las variables Perímetro y Volumen con un nivel de significación próximo a cero y coeficientes de regresión y correlación lineal muy próximos a 1.
+
+Le sigue en intensidad aunque a bastante distancia la relación Altura y Volumen con un nivel de significación también muy bajo, pero con coeficientes de regresión y correlación muy alejados de 1.
+
+Por último la relación entre Perímetro y Altura es también significativa pero con una intensidad aún inferior.
+
+```{r fin Trees}
+detach(trees)
+```
+
+## Problema 3. Datos libres.
+
+Seleccionar un fichero de datos adecuado en R para aplicar cada uno de los siguientes análisis:
+
+```{r DL}
+data("airquality")
+attach(airquality)
+str(airquality)
+```
+
+1.__Calcular la tabla de frecuencias absolutas de al menos dos variables. Obtener una tabla formateada para latex con ayuda del paquete knitr.__
+
+```{r FAbs knitr}
+library(knitr)
+TAbWind = table(Wind)
+TAbWind
+TAbTemp = table(Temp)
+TAbTemp
+
+kable(as.data.frame(TAbTemp), format = "latex",
+      col.names = c("Temp","NumDias"),
+      caption="Temperatura Máxima Diaria (ºF)")
+```
+
+2.__Calcular la tabla de frecuencias (absolutas, relativas y acumuladas) formateada para latex para al menos dos variables.__
+
+```{r FARA}
+TRelWind = round(prop.table(TAbWind)*100,2)
+TRelTemp = round(prop.table(TAbTemp)*100,2)
+TAbWind_Acum = cumsum(TAbWind)
+TAbTemp_Acum = cumsum(TAbTemp)
+TRelWind_Acum = cumsum(TRelWind)
+TRelTemp_Acum = cumsum(TRelTemp)
+
+TWind = cbind(TAbWind, TAbWind_Acum, TRelWind, TRelWind_Acum)
+TTemp = cbind(TAbTemp, TAbTemp_Acum, TRelTemp, TRelTemp_Acum)
+
+kable(as.data.frame(TWind), format = "latex",
+      col.names = c("NumDias","DiasAcum","PctDias","PctAcum"),
+      caption="Velocidad media del viento (mph)")
+
+kable(as.data.frame(TTemp), format = "latex",
+      col.names = c("NumDias","DiasAcum","PctDias","PctAcum"),
+      caption="Temperatura Máxima Diaria (ºF)")
+```
+
+3.__Aplicar al menos a tres variables las funciones de resumen descriptivo.__
+
+```{r Resumen}
+summary(airquality)
+library(psych)
+kable(as.data.frame(as.matrix( describe(airquality))), 
+      digits = 2,format = "pandoc",align='c')
+```
+
+4.__Estudiar los posibles outliers de las variables que lo permitan (al menos dos variables). Acompañar con la gráficas adecuadas.__
+
+```{r Out}
+bpWind = boxplot(Wind)
+points(bpWind$group,bpWind$out,col="red",pch=3)
+poutWind = which(Wind %in% bpWind$out)
+plot(Wind)
+points(poutWind,bpWind$out,col="red",pch=3)
+bpWind
+
+bpOzone = boxplot(Ozone)
+points(bpOzone$group,bpOzone$out,col="red",pch=3)
+poutOzone = which(Ozone %in% bpOzone$out)
+plot(Ozone)
+points(poutOzone,bpOzone$out,col="red",pch=3)
+bpOzone
+
+```
+
+5.__Obtener el histograma de al menos una variable del conjunto de datos.__
+
+```{r Hist}
+par(mfrow=c(2,2))
+hist(Ozone)
+hist(Wind)
+hist(Solar.R)
+hist(Temp)
+par(mfrow=c(1,1))
+```
+
+6.__Seleccionar dos variables que permitan realizar un gráfico de dispersión y un análisis de regresión entre ellas.__
+
+```{r DL Regres}
+mTW = lm(Temp ~ Wind)
+plot(Wind, Temp)
+abline(mTW,col='blue')
+summary(mTW)
+cor(Wind, Temp)
+
+mOW = lm(Ozone ~ Wind)
+plot(Wind, Ozone)
+abline(mOW,col='green')
+summary(mOW)
+cor(Wind, Ozone, use = "pairwise")
+
+```
+
+```{r fin DL}
+detach(airquality)
+```
