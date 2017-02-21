@@ -1,0 +1,200 @@
+---
+coding: "utf-8"
+title: "AEM - Tema 6 - Regresión y Clasificación mediante KNN. Trabajo de evaluación."
+author: "Jerónimo Carranza Carranza"
+date: "20 de febrero de 2017"
+output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  html_document:
+    toc: yes
+    toc_depth: '4'
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Conjunto de datos para el estudio
+
+Conjunto de datos: datawork.csv  
+
+- Dimensiones: n=4000 casos, m=42 variables
+- Variables: "clasobj" "varobj" "x01" "x02" .... “x40”.
+- clasobj : variable nominal con modalidades: AA, BB, CC, DD.
+- varobj : variable continua
+- atributos: x01, ..., x40.  
+
+```{r}
+datawork <- read.table("datawork.csv", header=TRUE, sep=";")
+str(datawork)
+summary(datawork)
+
+```
+
+\newpage
+# Problema de Clasificación
+
+Determinación de un clasificador basado en kNN ponderado para la variable objetivo “clasobj” con los atributos x01...x40.
+
+- Seleccionar aleatoriamente un conjunto test de tamaño n/3 y un conjunto de aprendizaje de tamaño 2n/3.
+
+```{r}
+set.seed(123456789)
+n = dim(datawork)[1]
+test = sample(1:n, size = round(n/3), replace = FALSE, prob = rep(1/n, n))
+datawork.test = datawork[test,-2] # no incluye la variable varobj
+datawork.apre = datawork[-test,-2] # no incluye la variable varobj
+# datawork.apre.summary = summary(datawork.apre)
+# datawork.test.summary = summary(datawork.test)
+# rbind(datawork.apre.summary,'-----test------',datawork.test.summary)
+```
+
+
+- Con el conjunto de aprendizaje, selecciona el mejor núcleo y el mejor k (entre 1 y 20) a través de validación cruzada.
+
+```{r}
+library(kknn)
+datawork.clasif.1 = train.kknn(clasobj ~ ., datawork.apre, kmax = 20,
+   kernel = c("triangular", "rectangular", "epanechnikov", "optimal",
+             "biweight", "triweight", "cos", "inv", "gaussian"))
+datawork.clasif.1
+```
+
+- Aplicar el clasificador óptimo obtenido para clasificar los casos del conjunto test y obtener una medida del error de clasificación y la tabla de confusión asociada.
+
+```{r}
+datawork.clasif.1.confusion = addmargins(table(predict(
+  datawork.clasif.1,datawork.test), datawork.test$clasobj))
+library(knitr)
+kable(datawork.clasif.1.confusion, caption = "Matriz de Confusión")
+```
+
+A partir de la matriz de confusión pueden calcularse varias medidas del error de clasificación; la principal, la proporción de casos (test) incorrectamente clasificados.
+
+```{r}
+sumNoError = 0
+for (i in (1:4)){
+  sumNoError = sumNoError + datawork.clasif.1.confusion[i,i]
+}
+pError = (1-sumNoError/dim(datawork.test)[1])
+'Error de clasificación: '
+pError
+```
+
+\newpage
+# Problema de Regresión
+
+## kNN ponderado
+
+Determinación de un predictor basado en kNN ponderado para la variable objetivo “varobj” con los atributos x01...x40.
+
+```{r}
+datawork.vtest = datawork[test,-1] # no incluye la variable clasobj
+datawork.vapre = datawork[-test,-1] # no incluye la variable clasobj
+
+```
+
+- Con el conjunto de aprendizaje, selecciona el mejor núcleo y el mejor k (entre 1 y 20) a través de validación cruzada.
+
+```{r}
+datawork.kknn = train.kknn(varobj ~ ., datawork.vapre, kmax = 20,
+   kernel = c("triangular", "rectangular", "epanechnikov", "optimal",
+             "biweight", "triweight", "cos", "inv", "gaussian"))
+datawork.kknn
+```
+
+- Aplicar el predictor óptimo obtenido para predecir los casos del conjunto test y obtener una medida del error de predicción.
+
+```{r}
+
+datawork.kknn.predict = predict(datawork.kknn, datawork.vtest)
+summary(datawork.kknn.predict)
+datawork.kknn.error = 
+  sqrt ((datawork.vtest$varobj - datawork.kknn.predict)**2)
+summary(datawork.kknn.error)
+"Error Cuadrático Medio"
+datawork.kknn.ECM = mean(datawork.kknn.error**2)
+datawork.kknn.ECM
+
+# datawork.kknn.ECM =
+#   sum(datawork.kknn.error**2)/dim(datawork.vtest)[1]
+# datawork.kknn.ECM
+
+# test_reg = lm(datawork.vtest$varobj ~ datawork.kknn.predict)
+# summary(test_reg)
+
+```
+
+## kNN aleatorio
+
+Determinación de un predictor basado en kNN aleatorio para la variable objetivo “varobj” con los atributos x01...x40.
+
+```{r}
+library(rknn)
+datawork.vapre.norm = data.frame(normalize.softmax(datawork.vapre))
+datawork.vtest.norm = data.frame(normalize.softmax(datawork.vtest))
+
+# Elección de r (número de clasificadores / regresores)
+
+p = (dim(datawork.vapre)[2]-1)
+
+datawork.vapre.r.binomial = 
+  r(p,m = floor(sqrt(p)),eta = 0.99,method = "binomial")
+datawork.vapre.r.poisson = 
+  r(p,m = floor(sqrt(p)),eta = 0.99,method = "poisson")
+
+datawork.vapre.r.binomial
+datawork.vapre.r.poisson
+
+# Aplicación rkNNReg
+
+datawork.rknn = 
+  rknnReg(datawork.vapre.norm, datawork.vtest.norm,
+          y=datawork.vapre$varobj, k = 1, r=60, seed=123456789)
+
+datawork.rknn$k
+datawork.rknn$n
+datawork.rknn$mtry
+
+datawork.rknn.error = 
+  sqrt ((datawork.vtest$varobj - datawork.rknn$pred)**2)
+summary(datawork.rknn.error)
+"Error Cuadrático Medio"
+datawork.rknn.ECM = mean(datawork.rknn.error**2)
+datawork.rknn.ECM
+
+```
+
+## Estudio comparativo
+
+Realizar un estudio comparativo entre ambos resultados
+
+Se comparan mediante el error (test) cuadrático medio de cada modelo; kknn y rknn.
+
+```{r}
+datawork.compara =
+  cbind(kknn = datawork.kknn.ECM,
+        rknn = datawork.rknn.ECM)
+rownames(datawork.compara) = 'Error Cuadrático Medio'
+
+library(knitr)
+kable(datawork.compara, caption = "Comparación de Modelos")
+
+```
+
+Los resultados de ECM muestran que el modelo rknn proporciona predicciones más ajustadas a los valores de la variable respuesta que el modelo kknn.
+
+Se representa finalmente las predicciones de cada modelo frente a los valores observados de la variable respuesta en el conjunto test.
+
+```{r}
+par(mfrow = c(1,2))
+plot(datawork.kknn.predict,datawork.vtest$varobj)
+plot(datawork.rknn$pred,datawork.vtest$varobj)
+par(mfrow = c(1,1))
+
+```
+
