@@ -1,0 +1,209 @@
+---
+coding: "utf-8"
+title: "AEM - Tema 5 - Modelo de Regresión a través de Splines. Trabajo de evaluación."
+author: "Jerónimo Carranza Carranza"
+date: "21 de febrero de 2017"
+output:
+  pdf_document:
+    includes:
+      in_header: header.tex   
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  html_document:
+    toc: yes
+    toc_depth: '4'
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Auto
+
+1) Con el fichero Auto de la librería ISLR:
+
+ a) Seleccionar los vehículos con mpg>=13
+
+Proponer un modelo que identifique qué variables influyen en la nueva variable de conteo: m_13=round(mpg-13). 
+
+```{r}
+library(ISLR)
+str(Auto)
+```
+
+La variable origin hace referencia a un factor, por lo que se formula como tal:
+```{r}
+Auto <- within(Auto, {
+  origin <- factor(origin, levels=1:3, 
+                   labels=c("American", "European", "Japanese"))
+})
+```
+
+Cálculo de la nueva variable entera m_13 y resumen de datos en *dataAuto*:
+```{r}
+dataAuto = Auto[I(Auto$mpg>=13),]
+dataAuto = data.frame(dataAuto,m_13=round(dataAuto$mpg-13))
+attach(dataAuto)
+str(dataAuto)
+summary(dataAuto)
+
+```
+
+Exploración gráfica de relaciones por pares: 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(GGally)
+ggpairs(dataAuto[,-c(1,9)])
+
+
+```
+
+No se han incluido las variables mpg (1) y name (9), la primera porque de ella depende funcionalmente m_13, y name, porque prácticamente es un etiqueta del caso.
+
+Se observan algunas aparentes relaciones negativas intensas entre m_13 y: 
+cylinders (-.758), displacement(-.79), horsepower(-.76), weight(-.818)
+que a su vez forma un grupo muy correlacionado entre sí positivamente.  
+Por otro lado m_13 se relaciona positivamente, con menor intensidad, con acceleration (.404) y year (.554) y en orden decreciente para "American", "European" y "Japanese" en cuanto a origin.
+
+Modelo lineal general con todos las variables potencialmente relacionadas:
+
+```{r}
+dataAuto.glm01 = glm (m_13 ~ cylinders + displacement + 
+                      horsepower + weight + acceleration + 
+                      year + origin, 
+                    data = dataAuto, 
+                    family = 'poisson')
+
+summary(dataAuto.glm01)
+
+```
+
+Aparecen como significativas, para $\alpha$ = 0.05, las variables: 
+*horsepower*, *weight* y *year*.
+
+Considerando exclusivamente las variables que aparecen como significativas en el modelo *dataAuto.glm01* se formula el modelo *dataAuto.glm02*:
+
+```{r}
+dataAuto.glm02 = glm (m_13 ~ horsepower + weight + year, 
+                    data = dataAuto, 
+                    family = 'poisson')
+
+summary.glm(dataAuto.glm02)
+
+anova(dataAuto.glm01,dataAuto.glm02)
+```
+
+Se puede apreciar que aunque el modelo 01 marque exclusivamente como significativas (para el $\alpha$ considerado) sólo tres variables, las otras tienen cierta influencia que hace que se incremente tanto la deviación como el indice AIC cuando se eliminan todas ellas, señalando con ello que no se compensa globlamente la reducción de complejidad del modelo.
+
+Considerando la eliminación de variables una a una comprobamos el efecto singular de cada una de ellas:
+
+```{r}
+
+dataAuto.glm_cylinders = update(dataAuto.glm01, . ~ . -cylinders)
+dataAuto.glm_displacement = update(dataAuto.glm01, . ~ . -displacement)
+dataAuto.glm_acceleration = update(dataAuto.glm01, . ~ . -acceleration)
+dataAuto.glm_origin = update(dataAuto.glm01, . ~ . -origin)
+dataAuto.glm_horsepower = update(dataAuto.glm01, . ~ . -horsepower)
+dataAuto.glm_weight = update(dataAuto.glm01, . ~ . -weight)
+dataAuto.glm_year = update(dataAuto.glm01, . ~ . -year)
+
+anova(dataAuto.glm01, dataAuto.glm_cylinders, test = 'Chisq')
+anova(dataAuto.glm01, dataAuto.glm_displacement, test = 'Chisq')
+anova(dataAuto.glm01, dataAuto.glm_acceleration, test = 'Chisq')
+anova(dataAuto.glm01, dataAuto.glm_origin, test = 'Chisq')
+anova(dataAuto.glm01, dataAuto.glm_horsepower, test = 'Chisq')
+anova(dataAuto.glm01, dataAuto.glm_weight, test = 'Chisq')
+anova(dataAuto.glm01, dataAuto.glm_year, test = 'Chisq')
+
+```
+
+Los resultados confirman que son las tres variables señaladas anteriormente: *horsepower*, *weight* y *year*; las únicas influyentes de forma significativa ($\alpha = 0.05$) en *m_13*.
+
+```{r}
+detach(dataAuto)
+```
+
+\newpage
+# College
+
+2) Con el fichero College de la librería ISRL:
+
+Proponer un modelo gam para la variable Grad.Rate eligiendo la función que considere adecuada para cada variable predictora.
+
+```{r}
+library(ISLR)
+attach(College)
+str(College)
+summary(College)
+
+```
+
+Exploración gráfica:
+
+```{r out.extra='angle=0', warning=FALSE, error=FALSE, message=FALSE}
+
+library(GGally)
+ggpairs(College[,c(1:5,18)])
+ggpairs(College[,c(6:10,18)])
+ggpairs(College[,c(11:15,18)])
+ggpairs(College[,c(16:17,18)])
+```
+
+Algunos ajustes visuales preliminares sobre las variables predictoras:
+
+```{r}
+par(mfcol=c(1,2))
+plot(Private, Grad.Rate)
+plot(log(Apps),Grad.Rate,col=Private)
+plot(log(Accept),Grad.Rate,col=Private)
+plot(log(Enroll),Grad.Rate,col=Private)
+plot(sqrt(Top10perc),Grad.Rate,col=Private)
+plot(Top25perc,Grad.Rate,col=Private)
+plot(log(F.Undergrad),Grad.Rate,col=Private)
+plot(log(P.Undergrad),Grad.Rate,col=Private)
+plot(Outstate,Grad.Rate,col=Private)
+plot(Room.Board,Grad.Rate,col=Private)
+plot(log(Books),Grad.Rate,col=Private)
+plot(log(Personal),Grad.Rate,col=Private)
+plot(PhD**2,Grad.Rate,col=Private)
+plot(Terminal**2,Grad.Rate,col=Private)
+plot(S.F.Ratio,Grad.Rate,col=Private)
+plot(perc.alumni,Grad.Rate,col=Private)
+plot(log(Expend),Grad.Rate,col=Private)
+par(mfcol=c(1,1))
+
+```
+
+```{r}
+library(gam)
+
+Grad.Rate.gam_01 = gam(Grad.Rate ~ ., data=College)
+summary(Grad.Rate.gam_01)
+#plot(Grad.Rate.gam_01,se=TRUE)
+
+Grad.Rate.gam_02 = gam(Grad.Rate ~ Private + log(Apps) + log(Accept) +
+                         log(Enroll) + sqrt(Top10perc) + Top25perc +
+                         log(F.Undergrad) + log(P.Undergrad) +
+                         Outstate + Room.Board + log(Books) +
+                         log(Personal) + s(PhD,4) + s(Terminal,4) +
+                         S.F.Ratio + perc.alumni + log(Expend),
+                       data=College)
+summary(Grad.Rate.gam_02)
+plot(Grad.Rate.gam_02,se=TRUE)
+
+Grad.Rate.gam_01.predict = predict(Grad.Rate.gam_01, data=College)
+Grad.Rate.gam_01.resid= Grad.Rate.gam_01.predict - Grad.Rate
+plot(Grad.Rate,Grad.Rate.gam_01.predict)
+(Grad.Rate.gam_01.ECM = mean(Grad.Rate.gam_01.resid**2))
+
+
+Grad.Rate.gam_02.predict = predict(Grad.Rate.gam_02, data=College)
+Grad.Rate.gam_02.resid= Grad.Rate.gam_02.predict - Grad.Rate
+plot(Grad.Rate,Grad.Rate.gam_02.predict)
+(Grad.Rate.gam_02.ECM = mean(Grad.Rate.gam_02.resid**2))
+
+```
+
