@@ -1,0 +1,821 @@
+---
+coding: "utf-8"
+title: "Machine Learning I. Trabajo de evaluación. Temas: 1-Conglomerados, 2-Reducción de Dimensionalidad, 4-Árboles"
+author: "Jerónimo Carranza Carranza"
+date: "8 de mayo de 2017"
+output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: '4'
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Conglomerados
+
+Leer el fichero “Crimen.dat”, que contiene el total de delitos por cada 100.000 habitantes para cada uno de los estados de EEUU más el distrito de Columbia (Año 1986). Aplicar y comparar tres técnicas de análisis de conglomerados (una de tipo jerárquico, otra de tipo partición y el método basado en mixturas de normales multivariantes.
+
+## Lectura de datos
+
+```{r}
+df <- read.table("Crimen.dat", header=TRUE, sep=" ")
+head(df)
+str(df)
+summary(df)
+
+```
+
+## Normalización y Exploración de outliers
+
+```{r}
+library(ggplot2)
+library(reshape)
+zdf = as.data.frame(scale(df))
+head(zdf)
+zplot = ggplot(melt(zdf), aes(x=variable, y=value)) + geom_boxplot()
+print(zplot)
+
+```
+
+Se puede observar en el gráfico que existen dos variables con observaciones outliers, en concreto, Asesinato y Atraco. Se pueden extraer como los casos con valores normalizados mayor de 2 (observable gráficamente):
+
+```{r}
+zdf[(zdf$Asesinato>2 | zdf$Atraco>2) ,]
+# zdf[(zdf$Asesinato>2 | zdf$Atraco>2) ,c("Atraco","Asesinato")]
+df[(zdf$Asesinato>2 | zdf$Atraco>2) ,]
+```
+
+Los casos de outliers en dichas variables corresponden a: NY y DC, esto es, New Tork y District Columbia (Washington).
+
+En el primer caso, New York, es outlier respecto a la variable Atraco, mientras que District Columbia, lo es tanto para Atraco como, especialmente, para Asesinato.
+
+## Cálculo y representación de la matriz de distancias entre estados.
+
+```{r}
+D = dist(zdf) # Distancia euclídea
+dm <- data.matrix(D)
+dim <- ncol(dm)
+image(1:dim, 1:dim, dm, axes = FALSE, xlab="", ylab="")
+axis(1, 1:dim, row.names(df), cex.axis = 0.3, las=2)
+axis(2, 1:dim, row.names(df), cex.axis = 0.3, las=1)
+text(expand.grid(1:dim, 1:dim), sprintf("%0.1f", dm), cex=0.3)
+      
+```
+
+Es destacadamente distinguible la mayor distancia de DC al resto de estados en la representación de la matriz de distancias.
+
+## Técnica de agrupamiento jerárquico aglomerativo "agnes"
+
+Se realiza un agrupamiento jerarquico con la matriz de distancias normalizada y con aglomeración por la media de grupo (average) con la función "agnes" del paquete "cluster".
+
+```{r}
+library(cluster)
+Agnes1 = agnes(D,diss=FALSE,stand=FALSE,method="average")
+
+plot(Agnes1,FALSE,2,
+     cex=0.5,cex.main=0.7,cex.axis=0.5,
+     cex.lab=0.7)
+
+# library(ggdendro)
+# ggdendrogram(Agnes1, rotate = FALSE, theme_dendro = TRUE,
+#              cex = 0.4)
+
+
+```
+
+El dendrograma muestra muy claramente la agregación final, a mucha distancia, del distrito federal al resto de estados, entre los cuales, se distingue también muy claramente, Florida (FL).
+
+El coeficiente de aglomeración es de 0,89 aproximadamente, que es relativamente alto.
+
+```{r}
+summary(Agnes1)
+```
+
+El resumen global del análisis "agnes" muestra el coeficiente de agregación, el orden de agregación, los elementos agregados en cada etapa del proceso, las distancias a las que se produce la aglomeración en cada etapa y un resumen estadístico de las mismas.
+
+Se puede utilizar la función rect de hclust para identificar distintos grupos dentro del dendrograma de agnes, bien por altura (distancia de separación) o número de grupos.
+
+```{r}
+plot(Agnes1,FALSE,2,main="",cex=0.5,cex.axis=0.5)
+rect.hclust(Agnes1, k = 8, border="red")
+
+```
+
+La clasificación en 8 grupos muestra la segmentación en grupos individuales de DC, FL y NY, y los siguientes cinco grupos multiestado: ME-MS (15), CT-HI (10), ND-WV (3), MA-OK (10), MI-AZ (10).
+
+```{r}
+dfclus = data.frame(df,"grp" = cutree(Agnes1,k=8))
+
+dfclus$grp = factor(dfclus$grp,labels = c('ME-MS','MA-OK','CT-HI','NY','MI-AZ','ND-WV','DC','FL'))
+
+library(doBy)
+bygrp = summaryBy(.~grp, data=dfclus, FUN=mean)
+rownames(bygrp)=bygrp$grp
+
+library(knitr)
+kable(bygrp[,2:5],digits = 2)
+kable(bygrp[,c(6,7,8)],digits = 2)
+
+grpplot = ggplot(melt(bygrp), aes(x=grp , y=variable, fill=log(value))) + geom_tile() +
+  scale_fill_distiller(palette = "Spectral") +
+  geom_text(aes(label = round(value,2)), size=2.5)
+
+print(grpplot)
+
+```
+
+## Técnica de partición k-medias
+
+Utilizamos los datos normalizados previamente, zdf, y prefijamos 8 grupos.
+
+```{r}
+df.k = kmeans(zdf, centers = 8)
+df.k
+df.k$cluster
+
+```
+
+Añadimos columna con la clasificación generada y comparamos con la anterior obtenida por agnes.
+
+```{r}
+dfclus = dfclus[,1:8]
+dfclus = data.frame(dfclus,"grpk" = df.k$cluster)
+table(dfclus$grp,dfclus$grpk)
+orderBy(~ grp + grpk, dfclus[,c(8,9)])
+```
+
+Representamos hotmap de grupos de kmeans y medias de las variables.
+
+```{r}
+
+# bygrpk = summaryBy(.~grpk, data=dfclus, FUN=mean)
+# rownames(bygrpk)=bygrpk$grpk
+# 
+# (bygrpk.melted = melt(bygrpk))
+# 
+# grpkplot = ggplot(melt(bygrpk), aes(x=grpk , y=variable, fill=log(value))) + geom_tile() +
+#   scale_fill_distiller(palette = "Spectral") +
+#   geom_text(aes(label = round(value,2)), size=2.5)
+# 
+# print(grpkplot)
+
+```
+
+## Técnica de mixturas de normales multivariantes
+
+Utilizamos los datos normalizados previamente, zdf, con la función de mclust para la obtención automática del mejor modelo de mixtura.
+
+```{r}
+library(mclust)
+df.m = Mclust(zdf)
+df.m
+plot(df.m,what = 'BIC')
+```
+
+El resultado muestra como mejor modelo una mixtura de dos componentes. Hay un curioso repunte del indicador BIC para el modelo EEV para 8 componentes.
+
+```{r}
+plot(df.m, what = 'classification')
+```
+
+
+```{r}
+table(df.m$classification)
+df.m$classification
+
+```
+
+La clasificación divide los datos en dos grupos aproximadamente por mitad. 
+
+Incluimos el dato de clasificación (grpm) en el data.frame original.
+
+```{r}
+dfclus = dfclus[,1:9]
+dfclus = data.frame(dfclus,"grpm" = df.m$classification)
+table(dfclus$grp,dfclus$grpk)
+table(dfclus$grp,dfclus$grpm)
+table(dfclus$grpm,dfclus$grpk)
+orderBy(~ grp + grpk + grpm, dfclus[,c(8,9,10)])
+
+```
+
+Forzamos a un modelo con ocho componentes y comparamos con los resultados anteriores.
+
+```{r}
+df.m8 = Mclust(zdf, G = 8)
+df.m8
+
+```
+
+El resultado es un modelo EEE, esto, elipsoidal con igual varianza, forma y orientación.
+
+```{r}
+plot(df.m8,what = 'classification')
+
+```
+
+Igualmente incorporamos el dato de clasificación (grpm8) al data.frame original y comporamos con los resultados anteriores.
+
+
+```{r}
+dfclus = dfclus[,1:10]
+dfclus = data.frame(dfclus,"grpm8" = df.m8$classification)
+table(dfclus$grp,dfclus$grpk)
+table(dfclus$grp,dfclus$grpm8)
+table(dfclus$grpm8,dfclus$grpk)
+
+orderBy(~ grp + grpk + grpm + grpm8, dfclus[,c(8,9,10,11)])
+
+```
+
+# Análisis de Componentes Principales
+
+Acceder a los datos gironde la librería PCAmixdata. En los siguientes apartados seleccionar los registros completos si hay valores perdidos.
+
+i) Realizar e interpretar un análisis de componentes principales (matriz
+de correlaciones) para 'gironde$employment'.
+
+ii) Realizar e interpretar un análisis de componentes principales para
+datos mixtos sobre la unión de 'gironde\$employment' y 'gironde\$services'.
+
+iii) Aplicar procedimientos de selección de variables para construir
+modelos de regresión lineal donde income es la variable dependiente,
+sobre 'gironde$employment'.
+
+## Lectura de datos
+
+```{r}
+library(PCAmixdata)
+data(gironde)
+
+```
+
+## Análisis de datos de Empleo
+
+### Resumen de datos
+
+```{r}
+summary(gironde$employment)
+cat(' Total de casos: \t',nrow(gironde$employment),
+    '\n Casos completos: \t',nrow(na.omit(gironde$employment)))
+
+```
+
+### Matriz de correlación incluyendo sólo los casos completos.
+
+```{r}
+emR = cor(gironde$employment,use="complete.obs")
+library(knitr)
+kable(round(emR,2), caption="Matriz de Correlación (emR)")
+
+```
+
+### Representación gráfica de la Matriz de Correlación.
+
+```{r}
+library(corrplot)
+corrplot(emR, method="ellipse", addCoef.col='black', number.cex=0.7, 
+         tl.cex = 0.8,tl.col = 'black')
+
+```
+
+### ACP
+
+```{r}
+emACP = princomp(emR, cor = TRUE)
+```
+
+
+```{r}
+emACPresumen= matrix(NA,nrow=length(emACP$sdev),ncol=3)
+emACPresumen[,1]=  emACP$sdev^2
+emACPresumen[,2]= 100*emACPresumen[,1]/sum(emACPresumen[,1])
+emACPresumen[,3]= cumsum(emACPresumen[,2])
+colnames(emACPresumen)= c("Autovalor","Porcentaje","Porcentaje acumulado")
+rownames(emACPresumen)= c(1:nrow(emACPresumen))
+kable(emACPresumen,caption = "Resumen ACP Empleo",row.names = TRUE)
+```
+
+Las dos primeras componentes de recogen aproximadamente el 57% de la varianza total de los datos, con las tres primeras se supera el 74% y con la cuarta se supera el 85%.
+
+```{r}
+plot(emACPresumen[,1],type="h",
+     main="Autovalores ACP datos de Empleo",
+     xlab='Componente', ylab="Autovalor")
+abline(h=mean(emACPresumen[,1]),lwd=2,lty=2,col="blue")
+text(x=7,y=1.10*mean(emACPresumen[,1]),
+     labels = "Media autovalores",col="blue",cex = 0.7)
+grid()
+
+plot(emACPresumen[,3],type="l",
+     main="% Varianza Acumulada ACP datos de Empleo",
+     xlab='Componente', ylab="Varianza")
+grid()
+```
+
+#### Coeficientes de las CP:
+```{r}
+loadings(emACP)
+```
+
+Los coeficientes más altos, en valor absoluto, de la primera componente son los correspondientes a las variables 'manager' e 'income' (-0,477), le siguen 'middelempl' (-0,472) y 'employrate' (-0,365), y todos ellos con signo negativo.
+
+Para la segunda componente principal los coeficientes más altos en valor absoluto son para las variables 'workers' (0,491), 'farmers' (-0.466) y 'unemployed' (0,417) con signo positivo la primera y la última y negativo la segunda.
+
+#### Correlaciones entre Variables y CP: 
+```{r}
+emCorVCP = loadings(emACP)%*%diag(emACP$sdev)
+kable(round(emCorVCP,2), col.names = c(1:ncol(emCorVCP)),
+      caption = 'Correlaciones entre Variables y CP')
+```
+
+```{r}
+plot(emCorVCP[,1:2],
+      main="Correlaciones entre variables y componentes principales 1 y 2",
+     xlab="CP 1", ylab="CP 2",type="n",xlim=c(-1,1),ylim=c(-1,1))
+text(emCorVCP[,1:2],labels=rownames(emCorVCP),col="blue",cex = 0.8)
+grid()
+abline(v=0.5,h=-0.5,lty=2)
+abline(v=-0.5,h=0.5,lty=2)
+```
+
+```{r}
+library(corrplot)
+corrplot(emCorVCP[,1:8], method="ellipse", addCoef.col='black',
+         number.cex=0.7, tl.cex = 0.8,tl.col = 'black',
+         title = 'Correlaciones Variables - Componentes Principales',
+         mar=c(1,1,2,1))
+
+```
+
+#### Puntuaciones
+
+```{r}
+kable(round(emACP$scores,2),
+      caption = "Puntuaciones datos Empleo")
+
+```
+
+#### Variabilidad de puntuaciones en cada componente
+
+```{r}
+boxplot(emACP$scores,col="lightblue",notched=TRUE)
+```
+
+#### Correlaciones estimadas con k C.P. y sus residuales
+
+```{r}
+emDSp=eigen(emR)
+emAutoVal=emDSp$values
+emAutoVec=emDSp$vectors
+#emAutoVec%*%diag(emAutoVal)%*%t(emAutoVec)
+#emR
+
+emRe2CP = emAutoVec[,1:2]%*%diag(emAutoVal[1:2])%*%t(emAutoVec[,1:2])
+emRr2CP = emR - emRe2CP
+
+emRe3CP = emAutoVec[,1:3]%*%diag(emAutoVal[1:3])%*%t(emAutoVec[,1:3])
+emRr3CP = emR - emRe3CP
+
+emRe4CP = emAutoVec[,1:4]%*%diag(emAutoVal[1:4])%*%t(emAutoVec[,1:4])
+emRr4CP = emR - emRe4CP
+
+kable(round(emRr2CP,2),
+      caption = 'Correlación residual con 2 Componentes')
+kable(round(emRr3CP,2),
+      caption = 'Correlación residual con 3 Componentes')
+kable(round(emRr4CP,2),
+      caption = 'Correlación residual con 4 Componentes')
+
+kable(round (data.frame('Dos CP'=mean(emRr2CP^2),
+                 'Tres CP'=mean(emRr3CP^2), 
+                 'Cuatro CP'=mean(emRr4CP^2)),4),
+      caption = 'Correlación residual cuadrática media según número de componentes')
+
+
+```
+
+```{r}
+library(corrplot)
+corrplot(emRr2CP, method="ellipse", addCoef.col='black',
+         number.cex=0.7, tl.cex = 0.8,tl.col = 'black',
+         title = 'Correlación residual con 2 Componentes',
+         is.corr = FALSE,mar = c(0, 0, 1, 0))
+
+corrplot(emRr3CP, method="ellipse", addCoef.col='black',
+         number.cex=0.7, tl.cex = 0.8,tl.col = 'black',
+         title = 'Correlación residual con 3 Componentes',
+         is.corr = FALSE,mar = c(0, 0, 1, 0))
+
+corrplot(emRr4CP, method="ellipse", addCoef.col='black',
+         number.cex=0.7, tl.cex = 0.8,tl.col = 'black',
+         title = 'Correlación residual con 4 Componentes',
+         is.corr = FALSE,mar = c(0, 0, 1, 0))
+
+
+```
+
+## Análisis de datos mixtos; empleo y servicios
+
+### Resumen de datos
+
+```{r}
+str(gironde$employment)
+str(gironde$services)
+
+summary(gironde$services)
+cat(' Total de casos: \t',nrow(gironde$services),
+    '\n Casos completos: \t',nrow(na.omit(gironde$services)))
+
+```
+
+Los datos de empleo ya han sido analizados previamente.
+Los datos de servicios corresponden en todos los casos a variables cualitativas codificadas como factores con entre 2 y 4 niveles y sin datos faltantes.
+
+### Análisis con PCAmix
+
+Como paso previo normalizamos los datos de empleo y descartamos los casos con datos faltantes.
+
+```{r}
+zem = as.data.frame(scale(gironde$employment))
+#zem
+es.df = data.frame(zem,gironde$services)
+es.df = na.omit(es.df)
+nrow(es.df)
+str(es.df)
+es.df = splitmix(es.df)
+str(es.df)
+
+```
+
+Aplicamos PCAmix:
+
+```{r}
+es.pcamix=PCAmix(X.quanti = es.df$X.quanti, 
+                 X.quali = es.df$X.quali, 
+                 rename.level = TRUE, graph = FALSE)
+es.pcamix
+```
+
+#### Autovalores e inercia parcial y acumulada
+```{r}
+es.pcamix$eig
+```
+
+El crecimiento de la inercia acumulada al aumentar el número de componentes es notablemente bajo, con el límite habitual de 5 CP no se alcanza el 60% de la varianza y es necesario considerar 12 CP para superar el 80%.
+
+
+#### Resumen PCAmix
+
+```{r}
+summary(es.pcamix)
+```
+
+La varianza explicada por cada variable para cada componente (Squared Loadings) pone de manifiesto que las dos primeras CP están preferentemente relacionadas con los servicios, sobre todo, sanitarios. La tercera CP tiene una mayor relación con tasa de empleo, ingresos, etc.
+
+#### Coeficientes
+
+```{r}
+#str(es.pcamix$coef)
+es.pcamix.coef =cbind(es.pcamix$coef$dim1,
+                es.pcamix$coef$dim2,es.pcamix$coef$dim3,
+                es.pcamix$coef$dim4,es.pcamix$coef$dim5)
+
+kable(round(es.pcamix.coef,4),
+      col.names = c('dim1','dim2','dim3','dim4','dim5'),
+      caption = 'Coeficientes de las componentes')
+
+```
+
+#### Gráficos
+
+```{r}
+plot(es.pcamix,choice="ind",axes=c(1,2),label=FALSE)
+plot(es.pcamix,choice="levels",axes=c(1,2),label=TRUE,cex = 0.6)
+plot(es.pcamix,choice="sqload",axes=c(1,2),label=TRUE,cex = 0.6, coloring.var = "type",cex.leg = 0.6)
+plot(es.pcamix,choice="cor",axes=c(1,2),label=TRUE,cex = 0.6)
+
+```
+
+## Regresión datos de empleo
+
+### Selección de casos completos, resumen, transformación y outliers
+```{r}
+em.df = na.omit(gironde$employment)
+str(em.df)
+summary(em.df)
+
+boxplot(em.df)
+
+# Transformación logaritmica de variable income
+em.df$income = log(em.df$income)
+#colnames(em.df)[9] = 'lincome'
+
+boxplot(em.df[,-9],cex.axis=0.5)
+boxplot(em.df[,9])
+
+```
+
+Hay una observación claramente muy alejada de las demás respecto a la variable income. Se elimina esta observación para los análisis que siguen.
+
+```{r}
+iout = which.max(em.df$income) 
+em.df[iout,]
+
+# Excluimos el caso
+em.df = em.df[-iout]
+```
+
+### Segregación en conjunto entrenamiento y test
+```{r}
+set.seed(12345)
+n=nrow(em.df)
+ind=1:n
+itest=sample(ind,trunc(n*0.25)+1)
+ient=setdiff(ind,itest)
+
+```
+
+### Función auxiliar Ajuste
+```{r}
+Ajuste<- function(y,pred,titulo)
+{
+  residuos=y-pred
+  plot(y,pred,main=titulo,ylab=expression(hat(y)))
+  abline(a=0,b=1,col="blue",lwd=2)
+  grid()
+  MSE= mean(residuos^2)
+  RMSE= sqrt(MSE)
+  R2= cor(y,pred)^2
+  return(list(MSE=MSE,RMSE=RMSE,R2=R2))
+}
+```
+
+### Regresión lineal completa
+```{r}
+em.df.all = lm(income~.,data=em.df,subset=ient)
+summary(em.df.all)
+em.df.all.pred.test=predict(em.df.all,newdata=em.df[itest,])
+Ajuste(em.df[itest,9],em.df.all.pred.test,"RL Completa")
+```
+
+### Regresión lineal con mejor subconjunto (leaps)
+```{r}
+library(leaps)
+em.df.best = regsubsets(income~.,data=em.df[ient,],nvmax=8)
+summary(em.df.best)
+
+resumen=summary(em.df.best)
+names(resumen)
+resumen$rsq #R2 aumenta con el número de predictores
+plot(resumen$adjr2,type="l")
+plot(resumen$cp,type="l")
+plot(resumen$bic,type="l")
+which.min(resumen$cp)
+which.min(resumen$bic)
+compos<- which.min(resumen$bic)
+vsel<- colnames(resumen$which)[resumen$which[compos,]]
+vsel
+
+#quitamos (Intercept)
+vsel=vsel[-1]
+fmla <- as.formula(paste("income ~ ", paste(vsel, collapse= "+")))
+fmla
+
+em.df.best1<- lm(fmla,data=em.df[ient,])
+
+em.df.best1.pred.test=predict(em.df.best1,newdata=em.df[itest,])
+Ajuste(em.df[itest,9],em.df.best1.pred.test,"leaps: mejor subconjunto")
+
+```
+
+### Regresión lineal secuencial (seqrep)
+```{r}
+library(leaps)
+em.df.seq = regsubsets(income~.,data=em.df[ient,],nvmax=8,method = "seqrep")
+summary(em.df.seq)
+
+resumen=summary(em.df.seq)
+names(resumen)
+resumen$rsq #R2 aumenta con el número de predictores
+plot(resumen$adjr2,type="l")
+plot(resumen$cp,type="l")
+plot(resumen$bic,type="l")
+which.min(resumen$cp)
+which.min(resumen$bic)
+compos<- which.min(resumen$bic)
+vsel<- colnames(resumen$which)[resumen$which[compos,]]
+vsel
+
+#quitamos (Intercept)
+vsel=vsel[-1]
+fmla <- as.formula(paste("income ~ ", paste(vsel, collapse= "+")))
+fmla
+
+em.df.seq1<- lm(fmla,data=em.df[ient,])
+
+em.df.seq1.pred.test=predict(em.df.seq1,newdata=em.df[itest,])
+Ajuste(em.df[itest,9],em.df.seq1.pred.test,"leaps: secuencial")
+
+```
+
+### Algoritmos genéticos
+```{r}
+library(GA)
+
+#Matrices x e y, datos entrenamiento:
+xent <- model.matrix(em.df.all)[,-1] 
+yent <- model.response(model.frame(em.df.all))
+
+#String: vector con 0-1 (1:la variable se usa)
+#la función fitness devuelve -AIC del modelo de regresión
+#lineal múltiple definido por las variables cuya
+#posición en string sea 1
+
+fitness <- function(string)  
+{ 
+  inc <- which(string==1)
+  X <- cbind(1, xent[,inc])
+  mod <- lm.fit(X, yent)
+  class(mod) <- "lm"
+  -AIC(mod)   #ga es para maximizar
+}
+
+em.df.AG <- ga("binary", 
+               fitness = fitness, nBits = ncol(xent), 
+               names = colnames(xent), monitor = FALSE,
+               popSize=100)
+
+summary(em.df.AG)
+
+#Modelo con las variables seleccionadas
+vsel=colnames(em.df.AG@solution)[em.df.AG@solution==1]
+fmla <- as.formula(paste("income ~ ", paste(vsel, collapse= "+")))
+fmla
+
+em.df.AG1<- lm(fmla,data=em.df[ient,])
+summary(em.df.AG1)
+
+em.df.AG1.pred.test=predict(em.df.AG1,newdata=em.df[itest,])
+Ajuste(em.df[itest,9],em.df.AG1.pred.test,"AG")
+
+```
+
+
+# Árbol de clasificación
+
+```{r}
+library(rpart)
+library(rpart.plot)
+```
+
+## Lectura de datos, partición entrenamiento / test
+```{r}
+#LEER LOS DATOS, PARTICIÓN ENTRENAMIENTO/TEST
+################################################
+#VARIABLES:
+#default (No/Yes): el cliente presenta números 
+#         rojos en la tarjeta de crédito
+#student (No/Yes)
+#balance:saldo medio tras el pago mensual
+#income: ingresos
+Default=read.table(file="Default.txt",header=TRUE)
+
+str(Default)
+
+n = nrow(Default)
+
+ind=1:n
+itest=sample(ind,trunc(n*0.25)+1)
+ient=setdiff(ind,itest)
+
+cat(' Observaciones a entrenamiento: \t', length(ient),'\n',
+    'Observaciones a test:         \t', length(itest),'\n')
+
+
+```
+
+## Matriz de costes
+```{r}
+#EL BANCO PREFIERE EVITAR TARJETAS "DEUDORAS"
+#SE VA A CONSIDERAR UNA MATRIZ DE COSTES
+#COSTE DE CLASIFICAR NO COMO YES ES 5 VECES SUPERIOR
+#A CLASIFICAR YES COMO NO
+L=matrix(c(0,1,5,0),2,2)
+rownames(L)=colnames(L)=levels(Default$default)
+L
+
+```
+
+## Definición del Árbol de clasificación
+```{r}
+#CONSTRUIR UN ÁRBOL DE CLASIFICACIÓN CONSIDERANDO
+#LOS COSTES DEFINIDOS EN LA MATRIZ L Y
+#APLICANDO EL PROCEDIMIENTO DE RECORTE 1-ES
+#EVALUAR EL MODELO (ACIERTO, SENSITIVIDAD, ESPECIFICDAD)
+
+Default.rpart = rpart(
+  default~., data = Default, subset = ient, method = 'class',
+  parms = list(loss = L, split = "gini"))
+
+Default.rpart
+
+# summary(Default.rpart)
+
+rpart.plot(Default.rpart)
+
+```
+
+## Recorte 1-ES
+```{r}
+printcp(Default.rpart,digits=3)
+plotcp(Default.rpart)
+plotcp(Default.rpart,lty=2,upper="splits",col="blue")
+
+#Tabla
+cptab=Default.rpart$cptable
+
+#Regla 1-ES
+CP1ES=min(cptab[,4])+cptab[which.min(cptab[,4]),5]
+CP1ES
+
+
+#cprecorte=cptab[cptab[,4]<CP1ES,][1,1]
+cprecorte=cptab[cptab[,4]<CP1ES,][1]
+cprecorte
+
+Default.rpart2=prune.rpart(Default.rpart, cp=cprecorte)
+Default.rpart2
+
+rpart.plot(Default.rpart2)
+
+```
+
+Finalmente tras el recorte es únicamente la variable 'balance' la utilizada en la clasificación.
+
+## Evaluación
+```{r}
+library(knitr)
+
+ct = table(Default[itest,]$default, 
+           predict(Default.rpart2,Default[itest,],
+                   type="class"))
+ctm = addmargins(ct)
+kable(ctm, caption = 'Matriz de confusión')
+
+# Porcentaje de acierto por grupo
+# Sensibilidad: % Verdaderos positivos (Yes)
+# Especificidad: % Verdaderos negativos (No)
+100*diag(prop.table(ct, 1))
+
+# Porcentaje de acierto global
+100*sum(diag(prop.table(ct)))
+
+```
+
+## Área bajo la curva operativa característica
+```{r}
+#AREA BAJO LA CURVA OPERATIVA CARACTERISTICA
+library(ROCR)
+
+probYes = predict(Default.rpart2, Default[itest,], 
+                  type="prob")[,2] #Prob. yes
+
+predobj = prediction(probYes, Default[itest,]$default)
+
+plot(performance(predobj, "tpr","fpr"),
+main="CURVA COR TEST")
+abline(a=0,b=1,col="blue",lty=2)
+grid()
+
+Default.auc=as.numeric(performance(predobj,"auc")@y.values)
+cat("AUC test= ",Default.auc ,"\n")
+
+```
+
+## Coste esperado de clasificación errónea (EMC)
+```{r}
+#CALCULAR EN EL CONJUNTO TEST EL INDICADOR EMC:
+#EXPECTED MISCLASSIFICATION COST=
+#P[NO]P[YES/NO]COSTE[YES/NO]+P[YES]P[NO/YES]COSTE[NO/YES]
+ctm
+L
+
+(P_NO = ctm[1,3]/ctm[3,3])
+(P_YES = ctm[2,3]/ctm[3,3])
+(P_YES_NO = ctm[1,2]/ctm[1,3])
+(P_NO_YES = ctm[2,1]/ctm[2,3])
+
+(EMC = P_NO*P_YES_NO*L[1,2]+P_YES*P_NO_YES*L[2,1])
+
+
+```
+
