@@ -1,0 +1,817 @@
+---
+coding: "utf-8"
+# lang: "es"
+title: "Trabajo Fin de Máster - Datos SEVICI - Análisis inicial."
+subtitle: "Máster en Data Science y Big Data - Universidad de Sevilla, 2017."
+author: "Jerónimo Carranza Carranza"
+date: "23 de mayo de 2017"
+header-includes:
+# - \usepackage[spanish]{babel}
+- \usepackage{multicol}
+- \usepackage{supertabular,booktabs}
+- \newcommand{\hideFromPandoc}[1]{#1}
+- \hideFromPandoc{
+    \let\Begin\begin
+    \let\End\end
+  }
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead[LO,LE]{}
+- \fancyhead[RO,RE]{}
+- \fancyhead[CO,CE]{Trabajo Fin de Máster - Datos SEVICI - Análisis inicial.}
+- \fancyfoot[LE,RO]{}
+- \fancyfoot[CE,CO]{\thepage}
+- \fancyfoot[RE,LO]{}
+output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: '4'
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Obtención y carga de datos.
+
+## Datos dinámicos
+
+Los datos provienen de una recopilación realizada por la Universidad de Huelva, que captura los datos instantáneos ofrecidos a través de un servicio web por JCDecaux en 27 ciudades en las que opera los servicios de bicicletas compartidas. 
+
+El punto de partida ha sido un fichero comprimido que contiene para cada ciudad un conjunto de backups (mysql) en formato sql correspondiente cada uno de ellos a los datos registrados en las distintas estaciones de la ciudad en un día y que en la base de datos se corresponde cada uno con una tabla de igual nombre al fichero sql (salvo extensión).
+
+Se ha creado un base de datos (MariaDB) con igual nombre a la original, _pfcbicis_, y se ha realizado la importación de los datos con script bash.
+
+```{bash eval = FALSE}
+
+#!/bin/bash
+for f in datos/Seville/*.sql; do
+	echo "restaurando fichero $f"
+	mysql -u usu1 pfcbicis < "$f"
+done
+
+```
+
+Se han creado así 365 tablas correspondientes a cada uno de los días entre 2015-12-01 y 2016-11-30. Todas ellas con el mismo esquema:
+
+```{sql eval = FALSE}
+--
+-- Table structure for table `z_Seville_2015_12_01`
+--
+
+DROP TABLE IF EXISTS `z_Seville_2015_12_01`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `z_Seville_2015_12_01` (
+  `id`                mediumint(9) NOT NULL AUTO_INCREMENT,
+  `status`            varchar(50) DEFAULT NULL,
+  `contract`          varchar(50) DEFAULT NULL,
+  `num`               int(11) DEFAULT NULL,
+  `last_update`       datetime DEFAULT NULL,
+  `add_date`          datetime DEFAULT NULL,
+  `stands`            int(11) DEFAULT NULL,
+  `availablestands`   int(11) DEFAULT NULL,
+  `availablebikes`    int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `plantillaAjena` (`contract`,`num`)
+) ENGINE=InnoDB AUTO_INCREMENT=65827 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+```
+
+Campo:           | Descripción: 
+-----------------|---------------------------------------------------------
+id               | Id registro autonumérico
+status           | Estado de la estación; OPEN o CLOSED
+contract         | Contrato, en nuestro caso; Seville
+num              | Número de la estación
+last_update      | Momento de última actualización
+add_date         | Fecha-Hora en fracciones de 5 minutos
+stands           | Número de estacionamientos operativos en la estación
+availablestands  | Número de estacionamientos disponibles
+availablebikes   | Número de bicicletas operativas y disponibles
+
+
+## Datos estáticos
+
+Al margen de los datos anteriormente descritos, que corresponde a los denominados datos dinámicos, en la página web del operador  (https://developer.jcdecaux.com/#/opendata/vls?page=static) están disponibles los denominados datos estáticos que hacen referencia a las características de las estaciones. Esta información se ha descargado en formato csv y contiene los siguientes datos para un total de 260 estaciones:
+
+Campo:          | Descripción:
+----------------|------------------------------------------------------
+Number          | Número de la estación
+Name            | Nombre de la estación
+Address         | Dirección
+Latitude        | Latitud (grados WGS84)
+Longitude       | Longitud (grados WGS84)
+
+
+# Pretratamiento.
+
+Para facilitar los tratamientos posteriores se ha unificado la información de las 365 tablas diarias en una sola tabla (_sevidata_) y se ha creado una tabla con los datos estáticos (_seviesta_).
+
+Para la unificación se ha creado ~~un procedimiento SQL, que por alguna razón, que por ahora desconozco, daba continuamente error en la declaración del cursor, por lo que se ha optado por una vía menos elegante con~~ un script bash que genera script sql con la secuencia de inserts.
+
+```{sql eval=FALSE}
+
+DROP TABLE IF EXISTS `sevidata`;
+CREATE TABLE `sevidata` LIKE `z_Seville_2015_12_01`;
+```
+
+~~ borrar 
+```{sql eval=FALSE}
+
+DROP PROCEDURE IF EXISTS unifica_data;
+CREATE PROCEDURE unifica_data()
+BEGIN
+	DECLARE ltables CURSOR FOR SHOW TABLES LIKE 'z%';
+	read_loop: LOOP
+		OPEN ltables;
+		FETCH ltables INTO t;
+		INSERT IGNORE INTO sevidata (SELECT * FROM t);
+	END LOOP;
+	CLOSE list_tables;
+END;
+```
+borrar ~~ 
+
+```{bash eval=FALSE}
+
+#!/bin/bash
+rm -rf unifica_data_insert.sql
+for f in *.sql; do
+	echo "procesando $f"
+	name=$(echo $f | cut -f 1 -d '.')
+	echo "INSERT INTO sevidata (status, contract, num, last_update, add_date,
+	stands, availablestands, availablebikes) SELECT status, contract, num,
+	last_update, add_date, stands, availablestands, availablebikes FROM $name;"
+	>> unifica_data_insert.sql
+done
+
+```
+
+
+## Cambio BD a Postgresql
+
+Los datos se han migrado finalmente a PostgreSQL que proporciona un mejor rendimiento y funcionalidad.
+
+Se exportan a csv los datos de sevidata y se cargan en la base de datos _sevici_ de PostgreSQL (9.5.5). 
+
+```{sql eval=FALSE}
+
+-- Database: sevici
+
+-- DROP DATABASE sevici;
+
+CREATE DATABASE sevici
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'es_ES.UTF-8'
+       LC_CTYPE = 'es_ES.UTF-8'
+       CONNECTION LIMIT = -1;
+
+-- Table: public.sevidata
+
+-- DROP TABLE public.sevidata;
+
+CREATE TABLE public.sevidata
+(
+  id serial,
+  status character varying(50),
+  num integer,
+  last_update timestamp without time zone,
+  add_date timestamp without time zone,
+  stands integer,
+  availablestands integer,
+  availablebikes integer,
+  CONSTRAINT sevidata_pkey PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.sevidata
+  OWNER TO postgres;
+
+
+--- Carga datos desde CSV
+
+\COPY sevidata(status,num,last_update,add_date,stands,availablestands, availablebikes) 
+FROM '/home/usu1/Documentos/Formacion/UniSE-DataScience&BigData/cont/TFM/data/sevidata.csv' 
+DELIMITER ';' CSV;
+
+
+--- Índices
+
+CREATE INDEX num_idx ON sevidata(num);
+CREATE INDEX num_date_idx ON sevidata(num,add_date); 
+
+
+```
+
+
+Se crea la tabla _seviesta_ de datos estáticos.
+
+```{sql eval=FALSE}
+
+-- Table: public.seviesta
+
+-- DROP TABLE public.seviesta;
+
+CREATE TABLE public.seviesta
+(
+  id serial,
+  num integer,
+  name character varying(255),
+  address character varying(255),
+  latitude double precision,
+  longitude double precision,
+  CONSTRAINT seviesta_pkey PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.seviesta
+  OWNER TO postgres;
+
+
+--- Carga datos 
+\COPY seviesta(num,name,address,latitude,longitude) 
+FROM '/home/usu1/Documentos/Formacion/UniSE-DataScience&BigData/cont/TFM/data/Seville.csv' 
+WITH DELIMITER ',' CSV HEADER;
+
+--- Índice
+
+CREATE UNIQUE INDEX num_unique_idx ON seviesta(num);
+
+```
+
+
+## Conexión a PostgreSQL desde R.
+
+```{r}
+library(RPostgreSQL)
+con = dbConnect(drv = dbDriver("PostgreSQL"),dbname='sevici',user='postgres')
+
+summary(con)
+dbListConnections(dbDriver("PostgreSQL"))
+
+#dbListTables(con)
+
+# dbDisconnect(con)
+
+```
+
+```{r}
+
+# Función general para facilitar respuesta rápida
+# a costa de disco
+#
+dbQueryIf = function(qname,conn,query){
+  if(!qname %in% dbListTables(conn))
+    dbSendStatement(conn, 
+      paste0('CREATE TABLE IF NOT EXISTS ', qname, ' AS ', query))
+  dbGetQuery(conn, paste0('SELECT * FROM ',qname,';'))
+}
+
+```
+
+\newpage
+
+# Mapa de estaciones
+
+La geolocalización de las estaciones podrá permitir mediante análisis espacial relacionar ésta y su dinámica con otras variables geolocalizadas como pueden ser usos del suelo, servicios, variables socio-demográficas, etc.
+
+![Mapa de Estaciones Sevici con límites de secciones censales y BingMap de fondo. Hecho con QGIS.](mapas/Sevici-seccen-bing.png)
+
+\newpage
+
+# Análisis preliminar de datos
+
+## Resumen de datos por estación
+```{r}
+
+resumen_datos_por_estacion = dbQueryIf('resumen_datos_por_estacion',con,
+  'SELECT num, count(id) as N,
+    min(last_update) as desde, max(last_update) as hasta,
+    min(add_date) as pdesde, max(add_date) as phasta,
+    min(stands) as minst, max(stands) as maxst,
+    avg(stands) as avgst,
+    min(availablestands) as minavst,
+    max(availablestands) as maxavst,
+    avg(availablestands) as avgavst,
+    min(availablebikes) as minbikes,
+    max(availablebikes) as maxbikes,
+    avg(availablebikes) as avgbikes
+    FROM sevidata group by num order by num;')
+
+```
+
+```{r, results = 'asis', warning=FALSE, message=FALSE}
+library(knitr)
+library(pander)
+kable(resumen_datos_por_estacion[,1:6], 
+             caption = 'Resumen de datos por estación')
+kable(resumen_datos_por_estacion[,c(1,7:15)], digits = 2, 
+             caption = 'Resumen de datos por estación (continuación)')
+```
+
+
+Un primer vistazo al resumen anterior muestra la existencia de varias situaciones singulares o anómalas como las siguientes:
+
+i) La estación 109 (Avenida de San Francisco Javier) tiene registros solamente durante un período de tres meses aproximadamente desde inicio.
+ii) El resto de estaciones tiene registros desde fecha de inicio a fecha de fin.
+iii) Los 365 días de datos deberían en teoría proporcionar para cada estación un total de 105120 registros para un frecuencia de 1/5min, sin embargo, ninguna estación alcanza dicha número total, lo que era más o menos esperable por interrupciones de registro fortuitas, etc. 
+
+a) Para todas las estaciones el número de estacionamientos operativos es constante.
+b) Hay un buen número de estaciones en las que en algún momento se ha registrado un número de estacionamientos disponibles mayor que los operativos, lo cual, obviamente es un error.
+c) Igualmente hay bastantes estaciones en las que en algún momento se ha registrado un número de bicicletas disponibles mayor que el número de estacionamientos operativos.
+
+Procede, visto lo visto, una depuración que permita en primer lugar, identificar:
+
+- posibles datos replicados, 
+- datos faltantes y 
+- registros anómalos
+
+
+## Datos replicados, faltantes y anómalos
+
+### Posibles datos replicados
+
+En teoría la combinación (num - add_date) debe ser única, esto es, para cada estación y periodo (de 5min) debe haber un único registro.
+
+```{r}
+if (!"sevidata_rep_num_add_date" %in% dbListTables(con))
+  dbSendStatement(con, 
+    'CREATE TABLE IF NOT EXISTS sevidata_rep_num_add_date AS
+      SELECT num, add_date, count(id) AS Rep 
+          FROM sevidata GROUP BY num, add_date HAVING count(id) > 1;')
+
+if (!"sevidata_rep" %in% ls())
+  sevidata_rep = dbQueryIf("sevidata_rep",con,
+    'SELECT T.*, Q.Rep, 
+        rank() OVER (PARTITION BY T.num, T.add_date ORDER BY T.id) 
+      FROM sevidata_rep_num_add_date as Q, sevidata as T
+      WHERE Q.num = T.num and Q.add_date = T.add_date
+      ORDER BY T.num, T.add_date, T.id;')
+
+```
+
+El número de registros repetidos es de `r nrow(sevidata_rep)`, una muestra de ellos se recoge siguidamente.
+
+```{r, results = 'asis', warning=FALSE, message=FALSE}
+
+kable(sevidata_rep[c(1:10,5001:5010),c(1,3,4,5,9,10)],
+      caption = 'Muestra de datos replicados en sevidata')
+```
+
+```{r}
+sevidata_rep_by_num = dbGetQuery(con,
+    'SELECT num, min(add_date) desde, max(add_date) hasta, 
+    min(Rep), max(Rep), count(*) as NRep 
+    FROM sevidata_rep_num_add_date group by num order by num;')
+```
+
+Su distribución por estación es la siguiente.
+
+```{r, results = 'asis', warning=FALSE, message=FALSE}
+# pandoc.table(sevidata_rep_by_num, digits = 2, split.tables = 120,
+#              caption = 'Resumen de datos replicados por estación')
+kable(sevidata_rep_by_num, digits = 2,
+             caption = 'Resumen de datos replicados por estación')
+```
+
+Todas las estaciones, salvo la estación 109, presentan 12 datos duplicados que se concentran en un día, entre 2016-10-30 02:00:01 y 2016-10-30 02:55:01.
+
+259 x 12 x 2 = `r eval(259*12*2)` que es el número total de réplicas.
+
+Volviendo a los datos originales (backups) se comprueba que todos se encuentran en la tabla *z_Seville_2016_10_30*.
+
+Para facilitar el manejo de duplicados y otras incidencias en los datos, antes en su caso de eliminación de los registros implicados, se modifica la estructura de _sevidata_ añadiendo un campo indicador, _ok_, para recoger las distintas incidencias. Se crea tambien un índice *ok_idx* para acelerar filtrados.
+
+- Sin incidencia:  ok = 1.
+```{r eval = FALSE}
+dbSendStatement(con, 'ALTER TABLE sevidata 
+                      ADD COLUMN ok smallint DEFAULT 1;')
+dbSendStatement(con, 'CREATE INDEX ok_idx ON sevidata (ok);')
+
+dbSendStatement(con, 'UPDATE sevidata SET ok = 1;')
+
+```
+
+- Duplicado:  ok = 2.
+```{r eval = FALSE}
+dbSendStatement(con, 'UPDATE sevidata SET ok = 2 WHERE sevidata.id IN 
+                      (SELECT sevidata_rep.id FROM sevidata_rep 
+                      WHERE sevidata_rep.rank = 2);')
+```
+
+sevici=# select count(*) from sevidata where ok = 2;
+
+  count   
+ ........  
+  3108  
+ (1 fila)  
+
+
+### Datos faltantes
+
+Para identificar los posibles huecos en las series temporales de cada estación, vamos en primer lugar a obtener la secuencia temporal de 5 min de paso, para el conjunto de las estaciones, esto es, el listado ordenado de valores únicos de la columna *add_date*.
+
+```{r}
+lista_add_date = dbQueryIf('lista_add_date', con,
+                  'SELECT DISTINCT add_date 
+                  FROM sevidata ORDER BY add_date;')
+```
+
+El listado lo forman `r nrow(lista_add_date)` registros. Como ya se ha señalado anteriormente el número teórico de registros entre inicio y fin  para cada estación es de 105120 (365 días x 24 horas x 12 p5min), a lo que hay que añadir 12 registros adicionales hasta las 00:55:01 del día de fin 2016-11-30 (105132), lo que supone que existen `r eval(105120 + 12 - nrow(lista_add_date))` huecos de 5min sin datos que afectan a la totalidad de las estaciones. El número total de huecos entre todas las estaciones será obviamente muy superior y al menos de ese tamaño para cada estación.
+
+Para explorar los huecos de datos faltantes se construye una serie entre inicio y fin con paso de 5min y se vincula al minuto con la secuencia real de *add_date* allí donde exista.
+
+```{r}
+
+lista5min_con_huecos = dbQueryIf('lista5min_con_huecos',con, 
+                "SELECT p5min, L.add_date
+                 FROM generate_series
+                    ( '2015-12-01 00:00'::timestamp 
+                    , '2016-11-30 00:55'::timestamp
+                    , '5 min'::interval) p5min
+                 LEFT JOIN lista_add_date L ON 
+                  date_trunc('minute', L.add_date) = p5min
+                    ;")
+```
+
+```{r, results = 'asis', warning=FALSE, message=FALSE}
+kable(lista5min_con_huecos[c(1:5,200:210,105120:105132),],
+        caption = 'Muestra de secuencia temporal completa y secuencia real con datos faltantes')
+```
+
+Seguidamente se presenta la distribución temporal de los huecos globales por fecha y hora, día de la semana y mes.
+
+```{r warning=FALSE, message=FALSE}
+library(lubridate)
+```
+
+
+```{r}
+
+L5min = lista5min_con_huecos
+
+L5min$DIA = as_date(L5min$p5min)
+L5min$HORAM = hour(L5min$p5min) + minute(L5min$p5min)/60
+L5min$HORA = hour(L5min$p5min)
+L5min$MES = format(L5min$DIA, "%m")
+L5min$DSEM = format(L5min$DIA,"%a")
+L5min$DSEMN = wday(L5min$DIA)
+
+L5min$HUECOS = is.na(L5min$add_date) * 1
+
+L5minH = L5min[L5min$HUECOS==1,]
+
+Huecos = aggregate(HUECOS ~ DIA + HORA, FUN = sum, data = L5minH)
+HuecosDIA = aggregate(HUECOS ~ DIA, FUN = sum, data = L5minH)
+HuecosHORA = aggregate(HUECOS ~ HORA, FUN = sum, data = L5minH)
+HuecosMES = aggregate(HUECOS ~ MES, FUN = sum, data = L5minH)
+HuecosDSEM = aggregate(HUECOS ~ DSEM + DSEMN, FUN = sum, data = L5minH)
+
+```
+
+```{r warning=FALSE, message=FALSE}
+library(ggplot2)
+library(scales)
+```
+
+```{r}
+
+ggplot(Huecos, aes(x=HORA,y=DIA))+
+  geom_tile(aes(fill=HUECOS))+
+  scale_fill_gradientn(colors = c('black','red'))+
+  labs(x="Hora", y="Fecha", 
+       title="Número de Huecos Globales por Fecha y Hora")+
+  scale_y_date(date_breaks = "1 month", labels = date_format("%Y-%m"))+
+  scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))
+
+ggplot(HuecosDIA[HuecosDIA$HUECOS>0,], aes(DIA,HUECOS,label=DIA))+
+  geom_point(shape = 21, colour = "red", size = 3, stroke = 0.5)+
+  geom_line(colour = "orange",linetype = 2, size=0.4)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-1)+
+  labs(x="Fecha", y="Número de Huecos", 
+       title="Número de Huecos Globales por Fecha")
+
+ggplot(HuecosHORA[HuecosHORA$HUECOS>0,], aes(HORA,HUECOS,label=HUECOS))+
+  geom_point(shape = 21, colour = "blue", size = 3, stroke = 0.5)+
+  geom_line(colour = "orange",linetype = 2, size=0.4)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Hora", y="Número de Huecos", 
+       title="Número de Huecos Globales por Hora")
+
+ggplot(HuecosMES[HuecosMES$HUECOS>0,], aes(MES,HUECOS,group = 1,label=HUECOS))+
+  geom_point(shape = 21, colour = "green", size = 3, stroke = 0.5)+
+  geom_line(colour = "orange",linetype = 2, size=0.4)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Mes", y="Número de Huecos", 
+       title="Número de Huecos Globales por Mes")
+
+ggplot(HuecosDSEM[HuecosDSEM$HUECOS>0,], 
+       aes(factor(DSEMN,labels = c('D','L','M','X','J','V','S')),
+           HUECOS,group = 1,label=HUECOS))+
+  geom_col(fill = 'orange')+
+  geom_text(check_overlap = TRUE, angle=0, size=2, vjust=1)+
+  labs(x="Día de la Semana", y="Número de Huecos", 
+       title="Número de Huecos Globales por Día de la Semana")
+
+```
+
+```{r, results = 'asis', warning=FALSE, message=FALSE}
+kable(HuecosDIA, digits = 2,
+             caption = "Número de Huecos Globales por Fecha")
+```
+
+
+Para almacenar la información en forma de series temporales correspondientes a cada estación y variable (s: availablestands, b:availablebikes) creamos la tabla _sevicip5m_  a partir de la anteriormente creada, *lista5min_con_huecos*
+
+```{sql connection=con, eval=FALSE}
+
+CREATE TABLE sevicip5m
+(
+  p5min timestamp,
+  hueco boolean,
+  CONSTRAINT sevicip5m_pkey PRIMARY KEY (p5min)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE sevicip5m
+  OWNER TO postgres;
+
+INSERT INTO sevicip5m (p5min, hueco)
+SELECT p5min, isfinite(add_date) FROM Lista5min_con_huecos order by p5min;
+
+```
+
+
+se añaden las columnas correspondientes a cada estación-variable 
+
+```{r eval=FALSE}
+
+for (num in 1:260){
+  for (var in c('s','b')){
+    addCol = paste0('ALTER TABLE sevicip5m ADD COLUMN ',
+                    var,num,' smallint;')
+    dbSendStatement(con, addCol)
+  }
+}
+
+```
+
+
+se incorporan los datos de _sevidata_ a la tabla _sevicip5m_
+
+```{r eval=FALSE}
+#
+# Ojo, este script ha tardado más de 12h
+#
+
+for (num in 1:260)
+{
+addColDataS = paste0("UPDATE sevicip5m as T SET s", num, " =
+          D.availablestands FROM (select add_date, availablestands from
+          sevidata where ok = 1 and num = ", num,") AS D WHERE
+          date_trunc('minute', D.add_date) = T.p5min;")
+
+addColDataB = paste0("UPDATE sevicip5m as T SET b", num, 
+          " = D.availablebikes FROM (select add_date,
+          availablebikes from sevidata where ok = 1 and num = ", num,") AS D 
+          WHERE date_trunc('minute', D.add_date) = T.p5min;")
+
+dbSendStatement(con, addColDataS)
+dbSendStatement(con, addColDataB)
+
+print(num)
+#print(addColDataS)
+#print(addColDataB)
+}
+
+```
+
+
+exportamos el resultado a csv 
+
+```{sql connection=con, eval=FALSE}
+
+\COPY (select * from sevicip5m order by p5min) TO
+'/home/usu1/Documentos/Formacion/UniSE-DataScience&BigData/cont/TFM/data/sevicip5min.csv' 
+WITH CSV HEADER DELIMITER ';';
+
+```
+
+
+leemos desde fichero y presentamos una muestra de su contenido
+
+```{r}
+if (!"sevicip5m" %in% ls()){
+  sevicip5m = read.csv('sevicip5min.csv',sep = ';')}
+sevicip5m[1:20,1:15]
+
+```
+
+El tamaño del fichero csv 'sevicip5min.csv' en disco es de 128,7 Mb y su lectura y procesamiento desde R es relativamente rápido. 
+
+El número de huecos para cada estación es el siguiente:
+
+```{r warning=FALSE, message=FALSE}
+library(dplyr)
+library(tidyr)
+library(dtplyr)
+```
+
+```{r}
+na_count <-sapply(select(sevicip5m,starts_with('s')), 
+                  function(y) sum(length(which(is.na(y)))))
+na_df = data.frame(na_count)
+na_df = data.frame('num' = as.integer(substr(rownames(na_df),2,10)),na_df)
+
+# Listamos
+multi_na_df = bind_cols(na_df[1:65,],na_df[66:130,])
+multi_na_df = bind_cols(multi_na_df, na_df[131:195,])
+multi_na_df = bind_cols(multi_na_df, na_df[196:260,])
+#multi_na_df
+
+```
+
+```{r, results = 'asis', warning=FALSE, message=FALSE}
+kable(multi_na_df, digits = 2,
+             caption = "Resumen de Huecos por Estación")
+```
+
+```{r}
+
+# Resumen
+summary(na_df$na_count)
+
+resumen_huecos = data.frame(
+  'Variable'= c(
+    'Número de huecos','Número de huecos en estación 109', 
+    'Número de huecos sin estación 109', 'Número de p5min con huecos globales',
+    'Número de huecos globales (sin e109)', 'Número de huecos específicos (sin e109)'
+  ),'Valor'= c(
+    sum(na_count), na_count[109],
+    sum(na_count)-na_count[109], eval(105132 - nrow(lista_add_date)),
+    eval((105132 - nrow(lista_add_date))*259), 
+    sum(na_count)-na_count[109]-eval((105132 - nrow(lista_add_date))*259)
+  ) 
+)
+
+```
+
+
+```{r, results = 'asis', warning=FALSE, message=FALSE}
+kable(resumen_huecos, digits = 2,
+             caption = "Resumen de Huecos")
+```
+
+```{r}
+
+ggplot(na_df, aes(num,na_count,label=num))+
+  geom_point(shape = 21, colour = "green", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de Huecos", 
+       title="Número de Huecos por Estación")
+
+```
+
+```{r}
+ggplot(na_df[na_df$na_count<6000,], aes(num,na_count,label=num))+
+  geom_point(shape = 21, colour = "green", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de Huecos",
+       title="Número de Huecos por Estación (<6000 Huecos)")
+
+```
+
+El número total de huecos en el conjunto de datos es `r sum(na_count)` de los cuales  `r na_count[109]` corresponden a la estación 109 que como ya se señaló sólo estuvo en funcionamiento durante aproximadamente los tres primeros meses de estudio. Excluyendo la estación 109 se tendrán `r sum(na_count)-na_count[109]` huecos. 
+
+Recordar que el número de periodos de 5min que afectan a la totalidad de estaciones es de 962, lo que supone un total de 962 x 259 = 249158 huecos globales, excluida la estación 109, y por tanto, el número de huecos en los que existe al menos una estación con datos es de 605662.
+
+Más adelante se juzgará el alcance, necesidad y forma de imputación de los datos faltantes.
+
+
+### Datos anómalos.
+
+Entre los datos anómalos se consideran las siguientes situaciones:
+
+a) Número de estacionamientos disponibles mayor que operativos
+b) Número de bicicletas disponibles mayor que estacionamientos operativos
+c) Suma de estacionamientos disponibles y bicicletas disponibles mayor que el número de estacionamientos operativos.
+d) Suma de estacionamientos disponibles y bicicletas disponibles menor que el número de estacionamientos operativos.
+
+Se codifican dichas situaciones en la tabla _sevidata_ en el campo _ok_ con los siguientes valores:
+
+ a) --> ok = 3    b) --> ok = 4     c) --> ok = 5   d) --> ok = 6 
+
+```{r eval=FALSE}
+# Ojo con el orden de los UPDATE
+
+dbSendStatement(con, 'UPDATE sevidata SET ok = 5
+                      WHERE stands < availablestands + availablebikes;')
+
+dbSendStatement(con, 'UPDATE sevidata SET ok = 6
+                      WHERE stands > availablestands + availablebikes;')
+
+dbSendStatement(con, 'UPDATE sevidata SET ok = 3
+                      WHERE stands < availablestands;')
+
+dbSendStatement(con, 'UPDATE sevidata SET ok = 4
+                      WHERE stands < availablebikes;')
+```
+
+
+```{r}
+if (!"resumen_datos_anomalos_por_estacion" %in% ls()){
+ resumen_datos_anomalos_por_estacion = 
+  dbQueryIf('resumen_datos_anomalos_por_estacion',con,
+  'SELECT num, ok, count(id) as N
+    FROM sevidata group by num, ok order by num, ok;')
+}
+
+```
+
+Se muestra seguidamente el resumen incidencias realtivas a datos duplicados y anómalos identificados
+
+Valor ok | Descripcion
+---------|------------------------------
+ok_1     | Sin incidencia aparente
+ok_2     | Dato duplicado
+ok_3     | Estacionamientos disponibles > Est. operativos
+ok_4     | Bicicletas disponibles > Est. operativos
+ok_5     | Estacionamientos + Bicicletas disponibles > Est. operativos 
+ok_6     | Estacionamientos + Bicicletas disponibles < Est. operativos 
+
+```{r}
+resumen_tabla_ok = spread(resumen_datos_anomalos_por_estacion, ok, n, sep = '_', fill = 0)
+resumen_tabla_ok = mutate(resumen_tabla_ok, 
+                          TotOK_2_6 = ok_2+ok_3+ok_4+ok_5+ok_6,
+                          Total = ok_1 + TotOK_2_6
+                          )
+
+resumen_tabla_ok_suma = summarise_each(resumen_tabla_ok,funs(sum))
+
+```
+
+```{r, results = 'asis', warning=FALSE, message=FALSE}
+kable(resumen_tabla_ok, 
+      caption = "Resumen de datos anómalos por estación")
+
+kable(resumen_tabla_ok_suma[,-1], 
+      caption = "Resumen de datos anómalos global")
+
+```
+
+
+```{r}
+ggplot(resumen_tabla_ok[resumen_tabla_ok$ok_3 > 0,], aes(num, ok_3, label=num))+
+  geom_point(shape = 21, colour = "red", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de registros con incidencia",
+       title="Estacionamientos disponibles > Est. Operativos")
+```
+
+
+```{r}
+ggplot(resumen_tabla_ok[resumen_tabla_ok$ok_4 > 0,], aes(num, ok_4, label=num))+
+  geom_point(shape = 21, colour = "orange", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de registros con incidencia",
+       title="Bicicletas disponibles > Est. Operativos")
+```
+
+
+```{r}
+ggplot(resumen_tabla_ok[resumen_tabla_ok$ok_5 > 0,], aes(num, ok_5, label=num))+
+  geom_point(shape = 21, colour = "blue", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de registros con incidencia",
+       title="Estacionamientos + Bicicletas disponibles > Est. Operativos")
+```
+
+
+```{r}
+ggplot(resumen_tabla_ok[resumen_tabla_ok$ok_6 > 0,], aes(num, ok_6, label=num))+
+  geom_point(shape = 21, colour = "green", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de registros con incidencia",
+       title="Estacionamientos + Bicicletas disponibles < Est. Operativos")
+```
+
+
+```{r}
+# dbDisconnect(con)
+
+```
+
+
