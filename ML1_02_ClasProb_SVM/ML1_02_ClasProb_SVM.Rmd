@@ -1,0 +1,207 @@
+---
+title: 'Machine Learning I. Trabajo de evaluación. Temas: Análisis Discriminante,
+  Naïve Bayes, SVM'
+author: "Jerónimo Carranza Carranza"
+date: "15 de junio de 2017"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: '4'
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+coding: utf-8
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Naïve Bayes
+
+Sobre la base de datos _BreastCancer_ de la librería _mlbench_, realice las siguientes actividades:
+
+1. Construya un clasificador Naive-Bayes usando una muestra aleatoria constituida por 2/3 de la totalidad del fichero de datos.
+2. Obtenga la matriz de confusión y el porcentaje de clasificación incorrecta a partir de las instancias no usadas en la construcción del clasificador.
+3. Determine el número de predicciones correspondientes a la clase malignant.
+4. De las predicciones consideradas en el apartado anterior, determine cuántas de ellas se han obtenido con una probabilidad mayor que 0.75
+
+## Lectura de datos
+
+```{r}
+library(mlbench)
+data(BreastCancer)
+
+str(BreastCancer)
+head(BreastCancer)
+```
+
+Conjunto con 699 casos y 11 variables, de las cuales una, _Id_, es de tipo texto, cinco son factores ordenados y otros cinco nominales, el último de los cuales, _Class_,  dicotómico, es la variable objetivo, que identifica la clase de tumor; benigno o maligno.
+
+## Resumen de datos
+
+```{r}
+summary(BreastCancer)
+```
+
+Aparecen 16 casos perdidos para la variable _Bare.nuclei_.
+
+La variable objetivo manifiesta cierto desbalanceamiento, con aproximadamente el doble de casos 'benignos' frente a los 'malignos'.
+
+## Conjuntos de entrenamiento y test
+
+```{r}
+set.seed(12345)
+n = nrow(BreastCancer)
+ind = sample(n, n*2/3)
+
+BCtrain = BreastCancer[ind,]
+BCtest = BreastCancer[-ind,]
+```
+
+## Clasificador Naïve-Bayes
+
+No se incluyen en x (predictores) los identificadores de caso (Id) ni logicamente la variable objetivo (Class).
+
+```{r}
+library(e1071)
+modelNB = naiveBayes(x=subset(BCtrain, select=c(-Id,-Class)),
+                     y=BCtrain$Class)
+modelNB
+```
+
+## Predicciones
+```{r}
+predNB = predict(object=modelNB,newdata=BCtest)
+predNB
+```
+
+## Matriz de confusión
+```{r}
+matconf = table(predNB,BCtest$Class,dnn=c("Predicha","Real"))
+matconf
+```
+
+## Porcentaje de clasificación incorrecta
+```{r}
+100*(1-(sum(diag(matconf))/nrow(BCtest)))
+```
+
+## Número de predicciones de la clase _malignant_
+```{r}
+matconf[2,]
+sum(matconf[2,])
+```
+
+## Predicciones _malignant_ con p > 0.75
+```{r}
+predNBp = as.data.frame(
+  predict(object = modelNB, newdata = BCtest, type = 'raw'))
+
+malP75 = predNBp[predNBp$malignant>0.75,]
+malP75
+
+cat('\n Número de predicciones malignant con p > 0.75: \t',nrow(malP75), '\n',
+'Porcentaje de predicciones malignant con p > 0.75: \t',100*nrow(malP75)/sum(matconf[2,]),'%')
+
+```
+
+
+# SVM
+
+1. Construya un clasificador SVM con kernel radial para la base de datos _Glass_ del paquete _mlbench_, usando validación cruzada con 10 pliegues y parámetros C = 0.8 y $\gamma$ = 0.25.
+2. Determine la tasa de clasificación correcta (accuracy) global y en cada pliegue.
+3. Realice el ajuste de parámetros para obtener los valores más adecuados de C y $\gamma$ dentro de los siguientes conjuntos de valores:  
+C $\epsilon$ {2^−5^ , 2^−3^ , ... , 2^5^}  
+$\gamma$ $\epsilon$ {2^-7^ , 2^−5^ , ... , 2^1^ , 2^3^}
+
+4. Utilice el mejor modelo obtenido del ajuste de parámetros para clasificar las siguientes instancias:
+
+RI   | Na    | Mg   | Al   | Si    | K    | Ca   | Ba  | Fe
+-----|-------|------|------|-------|------|------|-----|------
+1.49 | 13.45 | 4.05 | 1.21 | 73.18 | 0.37 | 7.98 | 0.2 | 0
+1.52 | 13.74 | 3.87 | 1.29 | 71.97 | 0.25 | 8.02 | 0   | 0.13
+
+5. Repita el apartado 3 utilizando validación cruzada con 15 pliegues dentro del procedimiento de ajuste de parámetros (Indicación: utilice la función tune.control).
+
+
+## Lectura de datos
+
+```{r}
+library(mlbench)
+data(Glass)
+
+str(Glass)
+head(Glass)
+
+```
+
+Conjunto con 214 casos y 10 variables, todas ellas de tipo numérico, salvo la última, _Type_, que es un factor con seis niveles y es la variable objetivo.
+
+## Resumen de datos
+```{r}
+summary(Glass)
+```
+
+## Clasificador SVM1
+
+```{r}
+library(e1071)
+```
+
+```{r}
+svm1 = svm(Type ~ ., data=Glass, kernel = 'radial', cost = 0.8, gamma = 0.5, cross = 10)
+```
+
+```{r}
+summary(svm1)
+```
+
+La función _summary_ proporciona los resultados básicos del modelo, y en particular la tasa de clasificación correcta global (`r round(summary(svm1)$tot.accuracy,2)`%) y en cada pliegue, en este caso oscilando entre `r round(min(summary(svm1)$accuracies),2)`% y `r round(max(summary(svm1)$accuracies),2)`%.
+
+## Ajuste de parámetros
+
+```{r}
+(svm1t = tune.svm(Type ~ ., data=Glass, kernel = 'radial', 
+           cost = c(2^(-5),2^(-3),2^(-1),2,2^3,2^5), 
+           gamma = c(2^(-7),2^(-5),2^(-3),2^(-1),2,2^3), cross = 10))
+```
+
+```{r}
+plot(svm1t)
+```
+
+## Predicciones con mejor modelo
+
+```{r}
+(svm1tb = svm1t$best.model)
+```
+
+```{r}
+(test = data.frame('RI'=c(1.49,1.52),'Na'=c(13.45,13.74),'Mg'=c(4.05,3.87),'Al'=c(1.21,1.29),'Si'=c(73.18,71.97),'K'=c(0.37,0.25),'Ca'=c(7.98,8.02), 'Ba'=c(0.2,0),'Fe'=c(0,0.13)))
+```
+
+```{r}
+(predict(svm1tb,test))
+```
+
+Las dos instancias son clasificadas en los tipos 7 y 2.
+
+## Reajuste con validación cruzada de 15 pliegues
+
+```{r}
+(tc = tune.control(cross = 15))
+
+(svm1t = tune.svm(Type ~ ., data=Glass, kernel = 'radial', 
+           cost = c(2^(-5),2^(-3),2^(-1),2,2^3,2^5), 
+           gamma = c(2^(-7),2^(-5),2^(-3),2^(-1),2,2^3), 
+           tunecontrol =tc))
+```
+
+```{r}
+plot(svm1t)
+```
+
