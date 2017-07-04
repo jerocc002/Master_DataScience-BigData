@@ -1,0 +1,387 @@
+---
+coding: 'utf-8'
+title: 'Machine Learning II. Trabajo de evaluación. Temas: Boosting, Aprendizaje Supervisado Secuencial, Selección de Atributos'
+author: "Jerónimo Carranza Carranza"
+date: "30 de junio de 2017"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: '4'
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Boosting
+
+1. A partir de la base de datos _spam_ de la librería _kernlab_, construya una muestra de aprendizaje aleatoria formado por el 70% de las instancias, y una muestra de validación formada por el 30% restante.
+2. Construya un modelo boosting a partir de la muestra de aprendizaje generada para pronosticar la variable _type_ a partir de las restantes variables (utilice la librería _adabag_)
+3. Realice predicciones para la muestra de validación y obtenga la matriz de confusión y el porcentaje de observaciones mal clasificadas. Obtenga el margen de las observaciones de la muestra de validación y determine los índices correspondientes a las que han sido mal clasificadas
+4. Utilizando validación cruzada con 10 pliegues, obtenga la matriz de confusión y el porcentaje de observaciones mal clasificadas.
+5. Utilizando la función _train_ de la librería _caret_, determine los parámetros óptimos dentro del siguiente conjunto:   
+mfinal ∈ {5,6,7,8,9,10}, maxdepth ∈ {1,2}, coeflearn ∈ {Breiman,Zhu}.  
+Como técnica de validación, utilizar validación cruzada con 3 pliegues.
+
+## Lectura de datos
+
+```{r}
+library(kernlab)
+data(spam)
+
+str(spam)
+head(spam)
+```
+
+Conjunto con 4601 casos y 58 variables, todas menos una de tipo numérico y una de tipo factor, _type_,  dicotómico, es la variable objetivo, que identifica si el correo es spam o no.
+
+## Resumen de datos
+
+```{r}
+summary(spam)
+```
+
+La variable objetivo manifiesta cierto desbalanceamiento, con aproximadamente el doble de casos 'nonspam' frente a los 'spam'.
+
+## Conjuntos de entrenamiento y validación
+
+```{r}
+set.seed(12345)
+n = nrow(spam)
+ind = sample(n, n*0.7)
+
+SPAMtrain = spam[ind,]
+SPAMval = spam[-ind,]
+
+head(SPAMtrain)
+head(SPAMval)
+```
+
+
+## Clasificador boosting
+
+```{r}
+library(adabag)
+
+spam.adaboost = boosting(type~., data=SPAMtrain, 
+                         mfinal=10, control = rpart.control(maxdepth =1))
+
+```
+
+```{r}
+# Importancia de variables predictoras
+sort(spam.adaboost$importance,decreasing = TRUE)
+
+```
+
+
+## Predicciones
+
+```{r}
+pred.spam.adaboost = predict(object=spam.adaboost,newdata=SPAMval)
+
+# Probabilidades de nospam(1) y spam(2) para cada caso de validación, 50 primeros 
+head(pred.spam.adaboost$prob, 50)
+
+# Clase predicha en cada caso, sólo los 50 primeros
+head(pred.spam.adaboost$class,50)
+
+```
+
+
+## Matriz de confusión
+
+```{r}
+pred.spam.adaboost$confusion
+```
+
+
+## Porcentaje de clasificación incorrecta
+
+```{r}
+paste(round(100*pred.spam.adaboost$error,2),'%')
+```
+
+
+## Márgenes de la muestra de validación
+
+```{r}
+(margin.val.spam.adaboost = margins(spam.adaboost,SPAMval))
+plot.margins(margin.val.spam.adaboost)
+```
+
+
+## Observaciones mal clasificadas
+
+```{r}
+SPAMvalPred = data.frame(SPAMval,'Pred'=pred.spam.adaboost$class)
+
+SPAMvalPred[SPAMvalPred$type!=SPAMvalPred$Pred,c('type','Pred')]
+
+as.integer(row.names(
+  SPAMvalPred[SPAMvalPred$type!=SPAMvalPred$Pred,c('type','Pred')]
+))
+```
+
+
+## Modelo con validación cruzada
+
+```{r}
+spam.adaboost.cv = boosting.cv(type~., data=spam, v=10, 
+                               mfinal=10, control = rpart.control(maxdepth =1))
+```
+
+
+### Matriz de confusión
+
+```{r}
+spam.adaboost.cv$confusion
+```
+
+
+### Porcentaje de observaciones mal clasificadas
+
+```{r}
+paste(round(100*spam.adaboost.cv$error,2),'%')
+```
+
+
+## Determinación de parámetros óptimos con _caret_
+
+```{r}
+library(caret)
+
+boost_valid = trainControl(method='cv', number=3, repeats=1)
+
+boost_grid = expand.grid(mfinal=c(5,6,7,8,9,10),
+                         maxdepth=c(1,2),
+                         coeflearn=c("Breiman","Zhu"))
+
+boost = train(type~., data=spam, method='AdaBoost.M1', 
+              trControl=boost_valid, tuneGrid=boost_grid)
+boost
+```
+
+
+### Resultados para combinaciones de parámetros
+
+```{r}
+boost$results
+```
+
+
+### Mejor combinación de parámetros
+
+```{r}
+boost$bestTune
+```
+
+
+### Medidas por pliegue
+
+```{r}
+boost$resample
+```
+
+
+### Gráfico de ajuste de parámetros
+
+```{r}
+plot(boost)
+```
+
+
+# HMM
+
+Como sabemos, en la composición del ADN intervienen 4 bases nitrogenadas: adenina
+(A), guanina (G), timina (T) y citosina (C). Supongamos que la generación de estas bases está regulada por una variable no observable S, con dos posibles estados, S~1~ y S~2~. En la generación consecutiva de dos bases, la variable S permanece en el mismo estado en el 80% de los casos (ambos estados son igualmente probables inicialmente). Por otra parte, las probabilidades de generar las distintas bases en función del estado de la variable S aparecen recogidas en la siguiente tabla:
+
+Est. | A | G | T | C 
+-----|---|---|---|---
+S~1~ |0.4|0.3|0.2|0.1
+S~2~ |0.1|0.1|0.3|0.5
+
+1. Construya el modelo HMM correspondiente usando la librería HMM.
+2. Calcule la probabilidad de obtener la siguiente secuencia: CGTCAGATA.
+3. Dado que se ha observado la secuencia anterior, calcule la probabilidad de que la
+variable S se haya encontrado en cada uno de los dos estados posibles a lo largo de la
+generación de la secuencia (probabilidades a posteriori).
+4. A partir de la secuencia observada, determine la secuencia de estados más probable
+para la variable S.
+5. Genere una secuencia de longitud 100 mediante simulación.
+
+
+## Definición de modelo HMM
+
+```{r}
+library(HMM)
+```
+
+```{r}
+Estados = c("S1","S2")
+Observado = c("A","G","T","C")
+ProbIni = c(0.5,0.5)
+ProbTrans = matrix(c(0.8,0.2,0.2,0.8),nrow=2,byrow=T)
+ProbEmis = matrix(c(0.4,0.3,0.2,0.1,0.1,0.1,0.3,0.5),nrow=2,byrow=T)
+
+modHMM = initHMM(Estados,Observado,ProbIni,ProbTrans,ProbEmis)
+print(modHMM)
+```
+
+
+## Probabilidad de secuencia
+
+```{r}
+SecObs = c("C","G","T","C","A","G","A","T","A")
+
+(Pforward = exp(forward(modHMM,SecObs)))
+(PSecObs = sum(Pforward[,9]))
+
+```
+
+
+## Probabilidades a posteori
+
+```{r}
+# Probabilidades a posteriori
+(Pposterior = posterior(modHMM,SecObs))
+```
+
+
+## Estados más probables
+
+```{r}
+# Estados más probables dada la secuencia
+(Estados = viterbi(modHMM,SecObs))
+```
+
+
+## Simulación
+
+```{r}
+# Simulación
+(sim = simHMM(modHMM,100))
+```
+
+
+# Filtrado
+
+Realice las siguientes acciones sobre la base de datos _spam_ de la librería _kernlab_:
+
+1. Utilice los siguientes filtros univariantes de la librería _Fselector_ para determinar los 10 atributos más relevantes en cada caso:
+   chi-squared, gain.ratio, oneR, random.forest.importance, relief
+2. Aplique el filtro multivariante CFS.
+3. Aplique el filtro multivariante FCBF, utilizando un valor umbral 0.02 para la correlación del atributo con la variable de clase.
+4. Indique cuáles son los 5 atributos más frecuentemente seleccionados por los
+procedimientos aplicados.
+
+
+## Filtros univariantes
+
+```{r}
+library(kernlab)
+data(spam)
+str(spam)
+```
+
+```{r}
+library(FSelector)
+```
+
+
+### Chi-squared
+
+```{r}
+chi.w = chi.squared(type~.,spam)
+cutoff.k(chi.w,10)
+chi.w[cutoff.k(chi.w,10),]
+
+resumen = cutoff.k(chi.w,10)
+```
+
+
+### Gain-ratio
+
+```{r}
+gain.w=gain.ratio(type~.,spam)
+cutoff.k(gain.w,10)
+gain.w[cutoff.k(gain.w,10),]
+
+resumen = append(resumen,cutoff.k(gain.w,10))
+```
+
+
+### OneR
+
+```{r}
+oneR.w=oneR(type~.,spam)
+cutoff.k(oneR.w,10)
+oneR.w[cutoff.k(oneR.w,10),]
+
+resumen = append(resumen,cutoff.k(oneR.w,10))
+```
+
+
+### Random Forest
+
+```{r}
+rF.w=random.forest.importance(type~.,spam)
+cutoff.k(rF.w,10)
+rF.w[cutoff.k(rF.w,10),]
+
+resumen = append(resumen,cutoff.k(rF.w,10))
+```
+
+
+### Relief
+
+```{r}
+relief.w=relief(type~.,spam)
+cutoff.k(relief.w,10)
+relief.w[cutoff.k(relief.w,10),]
+
+resumen = append(resumen, cutoff.k(relief.w,10))
+```
+
+
+## Filtro multivariante CFS
+
+```{r}
+cfs.w = cfs(type~.,spam)
+cfs.w
+
+resumen = append(resumen,cfs.w)
+```
+
+
+## Filtro multivariante FCBF
+
+```{r}
+library(Biocomb)
+```
+
+```{r}
+fcbf = select.fast.filter(spam,disc.method="MDL",threshold=0.02,attrs.nominal=numeric())
+fcbf
+
+resumen = append(resumen, as.character(fcbf[,1]))
+
+```
+
+
+## Resumen atributos más frecuentes
+
+```{r}
+resumen
+resumen.freq= as.matrix(table(resumen))
+resumen.freq[order(resumen.freq,decreasing = TRUE),]
+
+cutoff.k(resumen.freq, 5)
+```
+
