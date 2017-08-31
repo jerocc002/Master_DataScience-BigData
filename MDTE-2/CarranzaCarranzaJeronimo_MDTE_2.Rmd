@@ -1,0 +1,626 @@
+---
+coding: utf-8
+title: "Modelos para datos temporales y espaciales."
+subtitle: "Trabajo Tema 5. Modelos espaciales."
+author: "Jerónimo Carranza Carranza"
+date: "29 de agosto de 2017"
+output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: '4'
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Formulación
+
+_*Opción 2.*_ Aplicar técnicas de krigeado a una de las variables logaritmo de la concentración de cadmio, cobre o plomo del conjunto de datos “meuse”, realizando la predicción sobre el conjunto pixelado “meuse.grid”. En concreto, realizar los pasos:
+
+- Descripción de la variable (resumen y representaciones gráficas)
+- CONSTRUCCIÓN DEL VARIOGRAMA MUESTRALY AJUSTE A UN MODELO TEÓRICO de la variable objetivo
+- KRIGING ORDINARIO PARA LA VARIABLE OBJETIVO
+- KRIGING UNIVERSAL PARA LA VARIABLE OBJETIVO y comparar con los resultados obtenidos en el paso anterior.
+- KRIGING DERIVA EXTERNA PARA LA VARIABLE OBJETIVO CON PREDICTOR DISTANCIA AL RIO y comparar con los resultados obtenidos pasos anteriores.
+- KRIGING RESIDUAL DIRECTO PARA LA VARIABLE OBJETIVO CON PREDICTOR DISTANCIA AL RIO y comparar con los resultados obtenidos pasos anteriores.
+
+
+# Carga de librerías
+
+```{r}
+library(sp)
+library(lattice)
+library(xts)
+library(gstat)
+```
+
+# Lectura de datos
+
+```{r}
+data(meuse)
+class(meuse)
+dim(meuse) 
+names(meuse)
+head(meuse)
+```
+
+# Conversión a objeto espacial
+
+```{r}
+coordinates(meuse) = ~x+y
+class(meuse)
+names(meuse)
+```
+
+# Resumen
+
+```{r}
+summary(meuse)
+
+```
+
+Se centra el estudio en la variable concentración de Cobre (copper), con transformación logarítmica de la variable original.
+
+# Representaciones gráficas
+
+```{r}
+hist(meuse$copper, breaks = seq(0, 130, by = 10), col = "lightblue",
+     border = "blue", main = "Concentración de cobre (peso: ppm)")
+rug(meuse$copper)
+```
+
+```{r}
+summary(log(meuse$copper))
+
+hist(log(meuse$copper), breaks = seq(2.5, 5, by = 0.25), col = "lightblue",
+     border = "blue", main = "Log-Concentración de Cobre (peso: ppm)")
+rug(log(meuse$copper))
+```
+
+```{r}
+bubble(meuse, c("copper"),maxsize = 1.2, col = c("red","blue"), do.sqrt = TRUE, 
+       main = "Concentración de Cobre (ppm)")
+
+```
+
+```{r}
+spplot(meuse["copper"],main="Concentración de Cobre (ppm)", 
+       scales=list(draw=TRUE),col.regions=terrain.colors(10))
+
+```
+
+
+# Variables en rejilla
+
+```{r}
+data(meuse.grid)
+coordinates(meuse.grid) = ~x+y
+gridded(meuse.grid) = TRUE
+class(meuse.grid)
+names(meuse.grid)
+
+meuse.grid$soil=factor(meuse.grid$soil, 
+                       labels = c('calcáreo','arcilla pesada','arcilla limosa'))
+meuse.grid$ffreq=factor(meuse.grid$ffreq, 
+                       labels = c('cada 2 años',
+                                  'cada 10 años',
+                                  'cada 50 años'))
+
+```
+
+```{r}
+spplot(meuse.grid, c("dist"), col.regions=terrain.colors(20),
+       main="Distancia al río", scales=list(draw=TRUE), cex=0.5)
+
+spplot(meuse.grid, c("soil"), col.regions=terrain.colors(3),
+       main="Tipo de Suelo", scales=list(draw=TRUE), cex=0.5)
+
+spplot(meuse.grid, c("ffreq"), col.regions=rev(blues9),
+       main="Frecuencia de inundación", scales=list(draw=TRUE), cex=0.5)
+```
+
+
+# Variograma muestral
+
+```{r}
+(lCu.vgm = variogram(log(copper)~1, meuse))
+```
+
+```{r}
+plot(lCu.vgm, col="blue",main="Semivariograma experimental Log(Cobre)")
+```
+
+# Ajuste de modelos teóricos
+
+```{r}
+modelos = vgm()
+modelos = data.frame(modelos,'SSErr'=NA)
+for (i in c(2:15,17,18)) { # Se han excluido manualmente los que han dado error
+    modelos$SSErr[i] = attributes(fit.variogram(
+      lCu.vgm, model=vgm(0.25, modelos$short[i], 900, 0.05)))$SSErr
+}
+modelos
+
+```
+
+
+# Mejor modelo
+
+```{r}
+(mejor.modelo = modelos[which.min(modelos$SSErr),])
+
+lCu.fit = fit.variogram(lCu.vgm, 
+              model = vgm(0.25, mejor.modelo$short, 900, 0.05))
+plot(lCu.vgm, lCu.fit, main=as.character(mejor.modelo$long))
+
+```
+
+# Kriging Ordinario
+
+```{r}
+lCu.kriged = krige(log(copper)~1, meuse, meuse.grid, model = lCu.fit)
+```
+
+```{r}
+summary(lCu.kriged)
+```
+
+```{r}
+names(lCu.kriged)
+dim(lCu.kriged)
+lCu.kriged$var1.pred[1:5]   # Predicción en los cinco primeros casos
+lCu.kriged$var1.var[1:5]    # Varianza de la Predicción en los cinco primeros casos
+```
+
+
+```{r}
+
+spplot(lCu.kriged["var1.pred"], pretty=T, col.regions=bpy.colors(64),
+       main="Predicción. Log(Cobre).",
+       scales=list(draw=T))
+
+spplot(lCu.kriged["var1.var"], pretty=T, col.regions=bpy.colors(64),
+       main="Varianza de Predicción. Log(Cobre).",
+       scales=list(draw=T))
+
+```
+
+```{r}
+library(ggplot2)
+df.lCu.kriged = as.data.frame(lCu.kriged)
+head(df.lCu.kriged)
+
+ggplot(df.lCu.kriged, aes(x,y,fill=var1.pred)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradientn(colors=c('blue','green','yellow','red')) + 
+  labs(x=NULL,y=NULL,
+       title='Predicción. Log(Cobre).')
+
+ggplot(df.lCu.kriged, aes(x,y,fill=var1.var)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradientn(colors=c('blue','green','yellow','red')) + 
+  labs(x=NULL,y=NULL,
+       title='Varianza de Predicción. Log(Cobre).')
+
+```
+
+# Kriging Universal
+
+## Ajuste lineal sobre coordenadas y sus residuos
+
+```{r}
+# Sin tranformación
+summary(lm(formula=copper ~ coordinates(meuse), data=meuse))
+
+# Log
+lCu<-log(meuse$copper)
+summary(lm(formula=lCu ~ coordinates(meuse), data=meuse))
+```
+
+## Variograma de residuos y comparación
+
+```{r}
+(lCu.res.vgm = variogram(log(copper)~x+y, meuse))
+
+
+(lCu.all.vgm <- data.frame(np = lCu.vgm$np, 
+                           dist = lCu.vgm$dist, 
+                           gamma.ok=lCu.vgm$gamma,   
+                           gamma.uk=lCu.res.vgm$gamma, 
+                           gamma.dif = lCu.vgm$gamma - lCu.res.vgm$gamma ))
+
+plot(lCu.all.vgm$gamma.ok ~ lCu.all.vgm$dist, pch=20, col="blue",
+     type="b", xlab="Distancia", ylab="Gamma (semivariograma)",
+     ylim=c(0,max(lCu.all.vgm$gamma.ok, lCu.all.vgm$gamma.uk)),
+     main = " Variograma, Log(Cobre)", sub="OK:azul, UK:verde")
+points(lCu.all.vgm$gamma.uk  ~ lCu.all.vgm$dist, pch=20, col="green",
+       type="b")
+grid()
+
+```
+
+## Ajuste de modelos teóricos
+
+```{r}
+modelos = data.frame(modelos,'SSErr_res'=NA)
+for (i in c(2:15,17,18)) { # Se han excluido manualmente los que han dado error
+    modelos$SSErr_res[i] = attributes(fit.variogram(
+      lCu.res.vgm, model=vgm(0.20, modelos$short[i], 900, 0.05)))$SSErr
+}
+modelos
+
+```
+
+## Mejor modelo
+
+```{r}
+(mejor.modelo = modelos[which.min(modelos$SSErr_res),])
+
+lCu.res.fit = fit.variogram(lCu.res.vgm, 
+                model = vgm(0.20, mejor.modelo$short, 900, 0.05))
+plot(lCu.res.vgm, lCu.res.fit, main=as.character(mejor.modelo$long))
+
+```
+
+## Predicciones
+
+```{r}
+lCu.Ukriged = krige(log(copper)~x+y, 
+                    meuse, meuse.grid, model = lCu.res.fit)
+```
+
+```{r}
+summary(lCu.Ukriged)
+```
+
+```{r}
+
+spplot(lCu.Ukriged["var1.pred"], pretty=T, col.regions=bpy.colors(64),
+       main="Predicción UK. Log(Cobre).",
+       scales=list(draw=T))
+
+spplot(lCu.Ukriged["var1.var"], pretty=T, col.regions=bpy.colors(64),
+       main="Varianza de Predicción UK. Log(Cobre).",
+       scales=list(draw=T))
+
+```
+
+```{r}
+df.lCu.Ukriged = as.data.frame(lCu.Ukriged)
+head(df.lCu.Ukriged)
+
+ggplot(df.lCu.Ukriged, aes(x,y,fill=var1.pred)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradientn(colors=c('blue','green','yellow','red')) + 
+  labs(x=NULL,y=NULL,
+       title='Predicción UK. Log(Cobre).')
+
+ggplot(df.lCu.Ukriged, aes(x,y,fill=var1.var)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradientn(colors=c('blue','green','yellow','red')) + 
+  labs(x=NULL,y=NULL,
+       title='Varianza de Predicción UK. Log(Cobre).')
+
+```
+
+## Comparativa
+
+```{r}
+df.lCu.preds = data.frame(
+  df.lCu.kriged,
+  U.pred = lCu.Ukriged$var1.pred, U.var = lCu.Ukriged$var1.var,
+  UO.dif.pred = lCu.Ukriged$var1.pred - lCu.kriged$var1.pred, 
+  UO.dif.var = lCu.Ukriged$var1.var - lCu.kriged$var1.var
+)
+
+summary(df.lCu.preds)
+
+```
+
+```{r}
+ggplot(df.lCu.preds, aes(x,y,fill=UO.dif.pred)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradient2() + 
+  labs(x=NULL,y=NULL,
+       title='Delta Predicción UK-OK. Log(Cobre).')
+
+ggplot(df.lCu.preds, aes(x,y,fill=UO.dif.var)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradient2() + 
+  labs(x=NULL,y=NULL,
+       title='Delta Varianza de Predicción UK-OK. Log(Cobre).')
+
+```
+
+Conclusión: No existen grandes diferencias pero Universal Kriging es preferible a Kriging Ordinario en este caso por mostrar menor varianza de las predicciones.
+
+# Kriging Deriva Externa
+
+## Ajuste lineal
+
+```{r}
+plot(log(copper)~ dist, meuse)
+abline(lm(formula=log(copper) ~ dist, data=meuse))
+
+summary(lm(formula=log(copper) ~ dist, data=meuse))
+# summary(lm(formula=log(copper) ~ coordinates(meuse)+dist, data=meuse))
+
+```
+
+
+## Variograma de residuos
+
+```{r}
+(lCu.rdist.vgm = variogram(log(copper)~dist, meuse))
+
+(lCu.all.vgm = data.frame(
+  lCu.all.vgm,
+  gamma.edk = lCu.rdist.vgm$gamma,
+  gamma.dif.edk = lCu.res.vgm$gamma - lCu.rdist.vgm$gamma 
+  )
+)
+
+plot(lCu.all.vgm$gamma.uk ~ lCu.all.vgm$dist, pch=20, col="blue",
+     type="b", xlab="Distancia", ylab="Gamma (semivariograma)",
+     ylim=c(0,max(lCu.all.vgm$gamma.uk, lCu.all.vgm$gamma.edk)),
+     main = " Variograma, Log(Cobre)", sub="UK:azul, EDK:verde")
+points(lCu.all.vgm$gamma.edk  ~ lCu.all.vgm$dist, pch=20, col="green",
+       type="b")
+grid()
+
+```
+
+
+## Ajuste de modelos teóricos
+
+```{r}
+modelos = data.frame(modelos,'SSErr_rdist'=NA)
+for (i in c(2:15,17,18)) { # Se han excluido manualmente los que han dado error
+    modelos$SSErr_rdist[i] = attributes(fit.variogram(
+      lCu.rdist.vgm, model=vgm(0.15, modelos$short[i], 500, 0.05)))$SSErr
+}
+modelos
+
+```
+
+## Mejor modelo
+
+```{r}
+(mejor.modelo = modelos[which.min(modelos$SSErr_rdist),])
+
+lCu.rdist.fit = fit.variogram(lCu.rdist.vgm, 
+                model = vgm(0.15, mejor.modelo$short, 500, 0.05))
+plot(lCu.rdist.vgm, lCu.rdist.fit, main=as.character(mejor.modelo$long))
+
+```
+
+## Predicciones
+
+```{r}
+lCu.EDkriged = krige(log(copper)~dist,meuse,
+                     meuse.grid, model = lCu.rdist.fit)
+```
+
+```{r}
+summary(lCu.EDkriged)
+```
+
+```{r}
+
+spplot(lCu.EDkriged["var1.pred"], pretty=T, col.regions=bpy.colors(64),
+       main="Predicción EDK (Distancia al Río). Log(Cobre).",
+       scales=list(draw=T))
+
+spplot(lCu.EDkriged["var1.var"], pretty=T, col.regions=bpy.colors(64),
+       main="Varianza de Predicción EDK (Distancia al Río). Log(Cobre).",
+       scales=list(draw=T))
+
+```
+
+```{r}
+df.lCu.EDkriged = as.data.frame(lCu.EDkriged)
+head(df.lCu.EDkriged)
+
+ggplot(df.lCu.EDkriged, aes(x,y,fill=var1.pred)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradientn(colors=c('blue','green','yellow','red')) + 
+  labs(x=NULL,y=NULL,
+       title='Predicción EDK (Distancia al Río). Log(Cobre).')
+
+ggplot(df.lCu.EDkriged, aes(x,y,fill=var1.var)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradientn(colors=c('blue','green','yellow','red')) + 
+  labs(x=NULL,y=NULL,
+       title='Varianza de Predicción EDK (Distancia al Río). Log(Cobre).')
+
+```
+
+## Comparativa
+
+```{r}
+df.lCu.preds = data.frame(df.lCu.kriged,
+  U.pred = lCu.Ukriged$var1.pred, U.var = lCu.Ukriged$var1.var,
+  UO.dif.pred = lCu.Ukriged$var1.pred - lCu.kriged$var1.pred, 
+  UO.dif.var = lCu.Ukriged$var1.var - lCu.kriged$var1.var,
+  ED.pred = lCu.EDkriged$var1.pred, ED.var = lCu.EDkriged$var1.var,
+  EDU.dif.pred = lCu.EDkriged$var1.pred - lCu.Ukriged$var1.pred,
+  EDU.dif.var = lCu.EDkriged$var1.var - lCu.Ukriged$var1.var
+  )
+
+summary(df.lCu.preds)
+
+```
+
+```{r}
+ggplot(df.lCu.preds, aes(x,y,fill=EDU.dif.pred)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradient2() + 
+  labs(x=NULL,y=NULL,
+       title='Delta Predicción EDK-UK. Log(Cobre).')
+
+ggplot(df.lCu.preds, aes(x,y,fill=EDU.dif.var)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradient2() + 
+  labs(x=NULL,y=NULL,
+       title='Delta Varianza de Predicción EDK-UK. Log(Cobre).')
+
+```
+
+Conclusión: No existen grandes diferencias pero Kriging con Deriva Externa sobre la variable Distancia al Río es preferible a Universal Kriging por mostrar menor varianza de las predicciones. Por tanto, el orden de preferencia actual sería: EDK (Distancia al Río) > UK > OK
+
+
+# Kriging Residual Directo
+
+## Ajuste lineal y cálculo de residuos
+
+```{r}
+lCu.lm.dist = lm(formula=log(copper) ~ dist, meuse)
+summary(lCu.lm.dist)
+
+res = residuals(lCu.lm.dist)
+```
+
+## Inclusión de residuos en datos originales
+
+```{r}
+meuse1 = data.frame(as.data.frame(meuse),'R0'=res)
+head(meuse1)
+
+coordinates(meuse1) = ~x+y
+```
+
+## Variograma de resíduos
+
+```{r}
+(lCu.R0.vgm = variogram(R0~1,meuse1))
+
+plot(lCu.R0.vgm, col="blue",main="Variograma Resíduos: Log(Cobre)~Dist")
+```
+
+## Ajuste de modelos teóricos
+
+```{r}
+modelos = data.frame(modelos,'SSErr_R0'=NA)
+for (i in c(2:15,17,18)) { # Se han excluido manualmente los que han dado error
+    modelos$SSErr_R0[i] = attributes(fit.variogram(
+      lCu.R0.vgm, model=vgm(0.15, modelos$short[i], 900, 0.05)))$SSErr
+}
+modelos
+
+```
+
+## Mejor modelo
+
+```{r}
+(mejor.modelo = modelos[which.min(modelos$SSErr_R0),])
+
+lCu.R0.fit = fit.variogram(lCu.R0.vgm, 
+                model = vgm(0.15, mejor.modelo$short, 900, 0.05))
+plot(lCu.R0.vgm, lCu.R0.fit, main=as.character(mejor.modelo$long))
+
+```
+
+## Predicciones
+
+```{r}
+lCu.R0kriged = krige(R0~1,meuse1,
+                     meuse.grid, model = lCu.R0.fit)
+```
+
+```{r}
+summary(lCu.R0kriged)
+```
+
+```{r}
+lCu.lm.dist.pred = predict(lCu.lm.dist, meuse.grid) # Predicción Deriva
+lCu.R0kriged.pred = lCu.R0kriged@data$var1.pred     # Predicción Residuos
+lCu.dR0.pred = lCu.lm.dist.pred + lCu.R0kriged.pred # Predicción Conjunta
+
+lCu.lm.dist.var = predict(lCu.lm.dist, meuse.grid,se.fit = TRUE)$se.fit
+lCu.R0kriged.var = lCu.R0kriged@data$var1.var
+lCu.dR0.var = lCu.lm.dist.var + lCu.R0kriged.var
+
+meuse1.grid=meuse.grid
+meuse1.grid@data=cbind(meuse1.grid@data,lCu.dR0.pred,lCu.dR0.var)
+
+```
+
+
+```{r}
+spplot(meuse1.grid, zcol="lCu.dR0.pred", pretty=T, contour=T,
+       col.regions=bpy.colors(64), 
+       main="Prediciones Kriging Residual", scales=list(draw=T))
+
+spplot(meuse1.grid, zcol="lCu.dR0.var", pretty=T, contour=T,
+       col.regions=bpy.colors(64), 
+       main="Varianza Prediciones Kriging Residual", scales=list(draw=T))
+
+```
+
+```{r}
+df.meuse1.grid = as.data.frame(meuse1.grid)
+head(df.meuse1.grid)
+
+ggplot(df.meuse1.grid, aes(x,y,fill=lCu.dR0.pred)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradientn(colors=c('blue','green','yellow','red')) + 
+  labs(x=NULL,y=NULL,
+       title='Predicción Kriging Residual. Log(Cobre).')
+
+ggplot(df.meuse1.grid, aes(x,y,fill=lCu.dR0.var)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradientn(colors=c('blue','green','yellow','red')) + 
+  labs(x=NULL,y=NULL,
+       title='Varianza de Predicción Kriging Residual. Log(Cobre).')
+
+```
+
+## Comparativa
+
+```{r}
+df.lCu.preds = data.frame(df.lCu.kriged,
+  U.pred = lCu.Ukriged$var1.pred, U.var = lCu.Ukriged$var1.var,
+  UO.dif.pred = lCu.Ukriged$var1.pred - lCu.kriged$var1.pred, 
+  UO.dif.var = lCu.Ukriged$var1.var - lCu.kriged$var1.var,
+  ED.pred = lCu.EDkriged$var1.pred, ED.var = lCu.EDkriged$var1.var,
+  EDU.dif.pred = lCu.EDkriged$var1.pred - lCu.Ukriged$var1.pred,
+  EDU.dif.var = lCu.EDkriged$var1.var - lCu.Ukriged$var1.var,
+  R0.pred = lCu.dR0.pred, R0.var = lCu.dR0.var,
+  R0ED.dif.pred = lCu.dR0.pred - lCu.EDkriged$var1.pred,
+  R0ED.dif.var = lCu.dR0.var - lCu.EDkriged$var1.var
+  )
+
+summary(df.lCu.preds)
+
+```
+
+```{r}
+ggplot(df.lCu.preds, aes(x,y,fill=R0ED.dif.pred)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradient2() + 
+  labs(x=NULL,y=NULL,
+       title='Delta Predicción RK-EDK. Log(Cobre).')
+
+ggplot(df.lCu.preds, aes(x,y,fill=R0ED.dif.var)) +
+  geom_raster() + coord_equal() + theme_bw() +
+  scale_fill_gradient2() + 
+  labs(x=NULL,y=NULL,
+       title='Delta Varianza de Predicción RK-EDK. Log(Cobre).')
+
+```
+
+Conclusión: No existen grandes diferencias pero Kriging con Deriva Externa sobre la variable Distancia al Río es preferible al Kriging Residual Directo sobre dicha misma variable mostrando una menor varianza de las predicciones. 
+
+El orden de preferencia para los distintos métodos estudiados sería el siguiente: 
+
+> EDK (Distancia al Río) > UK > OK > RK (Distancia al Río)
+
+
+

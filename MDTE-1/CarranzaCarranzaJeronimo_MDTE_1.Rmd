@@ -1,0 +1,310 @@
+---
+title: "Modelos para datos temporales y espaciales. Trabajo temas 1 a 4."
+author: "Jerónimo Carranza Carranza"
+date: "16 de agosto de 2017"
+output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: '4'
+coding: utf-8
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introducción
+
+## Alumno
+
+Jerónimo Carranza Carranza
+
+## Serie temporal
+
+_Precipitación total mensual en la Estación Meteorológica de Sevilla - Tablada (Código: 5790) en el periodo 1857 - 2004_
+
+Los datos se han descargado de la página _Descargas REDIAM_ (http://descargasrediam.cica.es/repo/s/RUR?path=%2F)
+y corresponde concretamente a las series mensuales de la AEMET que se ubican en la siguiente posición en el árbol de directorios del repositorio:
+
+http://descargasrediam.cica.es/repo/s/RUR?path=%2F04_RECURSOS_NATURALES%2F03_CLIMA%2F01_REDES_DE_OBSERVACION%2F02_DATOS%2F01_AEMET%2FDATOS_MENSUALES_AEMET
+
+Se utiliza el fichero DATOS.DBF como origen de datos. 
+Se filtra (CODIGO=5790) y se seleccionan las variables AGNO, MES y PREFINAL.  
+
+
+# Lectura de datos
+
+```{r}
+#library('foreign')
+#datos = read.dbf('DATOS.DBF')
+#datos = datos[datos$CODIGO == '5790',2:4]
+#save(datos,file = 'datos.RData')
+
+load('datos.RData')
+dim(datos)
+```
+
+
+# Resumen de datos
+
+```{r}
+str(datos)
+summary(datos)
+
+```
+
+```{r}
+datos[is.na(datos$PREFINAL)==TRUE,]
+```
+
+
+# Creación de serie temporal
+
+```{r}
+# Se incluyen años completos hasta 2002, no incluye 2003 destinado a contraste de predicción
+tsPRE = ts(datos$PREFINAL, frequency = 12, start = c(1871,1), end = c(2002,12))
+
+```
+
+
+# Representación gráfica
+
+```{r}
+plot.ts(tsPRE,col=4)
+grid()
+
+```
+
+
+# Imputación de datos faltantes
+
+```{r}
+# Librería específica para este fin
+library('imputeTS') 
+
+# Imputación por interpolación lineal previa descomposición estacional
+tsPREi = na.seasplit(tsPRE, algorithm = "interpolation")
+
+```
+
+
+# Homogeneidad de varianza
+
+```{r}
+media = c(rep(0,132))
+desvi = c(rep(0,132))
+Anual = matrix(tsPRE, nr=12, byrow=F)
+for (i in 1:132){
+  media[i] = mean(Anual[,i])
+  desvi[i] = sd(Anual[,i])
+}
+plot(media,desvi)
+```
+
+# Transformación (logarítmica)
+
+```{r}
+lmedia = log(media)
+ldesvi = log(desvi)
+(regre = lm(ldesvi~lmedia))
+
+```
+
+lambda = 1 - alfa = 1 - (1.05024) = -0.05 ~ 0 -> transformación logarítmica
+
+```{r}
+# Dado que existen observaciones cero se añade 10mm a todas las observaciones en la transformación
+tsPREiL = log(tsPREi + 10)
+plot.ts(tsPREiL, col=4)
+grid()
+
+```
+
+
+# Estacionariedad de media
+
+```{r}
+acf(tsPREiL, main="FAS log(PRE + 10)", lag.max = 50)
+pacf(tsPREiL, main="FAP log(PRE + 10)", lag.max = 50)
+
+```
+
+```{r}
+tsPREiLd1 = diff(tsPREiL, lag = 1, differences = 1)
+acf(tsPREiLd1, lag.max = 50)
+pacf(tsPREiLd1, lag.max = 50)
+```
+
+```{r}
+tsPREiLd12 = diff(tsPREiL, lag = 12, differences = 1)
+acf(tsPREiLd12, lag.max = 50)
+pacf(tsPREiLd12, lag.max = 50)
+```
+
+```{r}
+plot.ts(tsPREiLd12, col=4, main="Serie log(PRE+10) diferenciada estacionalmente")
+grid()
+```
+
+
+```{r}
+tsPREiLd1d12 = diff(tsPREiLd1, lag = 12, differences = 1)
+acf(tsPREiLd1d12, lag.max = 50)
+pacf(tsPREiLd1d12, lag.max = 50)
+```
+
+```{r}
+plot.ts(tsPREiLd1d12, col=4, main="Serie log(PRE+10) diferenciada regular y estacionalmente")
+grid()
+```
+
+
+```{r}
+tsPREiLd12_2 = diff(tsPREiL, lag = 12, differences = 2)
+acf(tsPREiLd12_2, lag.max = 50)
+pacf(tsPREiLd12_2, lag.max = 50)
+```
+
+```{r}
+plot.ts(tsPREiLd12_2, col=4, main="Serie log(PRE+10) diferenciada dos veces estacionalmente")
+grid()
+```
+
+
+```{r}
+# Contraste estacionariedad
+library('tseries')
+adf.test(tsPREiLd1)
+adf.test(tsPREiLd12)
+adf.test(tsPREiLd1d12)
+adf.test(tsPREiLd12_2)
+```
+
+# Estructura ARIMA
+
+```{r}
+acf(tsPREiLd12, lag.max = 50)
+pacf(tsPREiLd12, lag.max = 50)
+```
+
+
+```{r}
+# Exploramos modelos ARIMA(0:2,0,0)(0:2,0,0:1)[12] para tsPREiLd12
+
+arimaCheck = function(serie, p, d, q, P, D, Q){
+  arimafit = arima(serie, order=c(p,d,q), seasonal = list(order=c(P,D,Q), period = 12))
+  cat('ARIMA (',p,d,q,')(',P,D,Q,')', '->', 'AIC = ', arimafit$aic, '\n')
+}
+
+for (p in 0:2){
+  for (d in 0:0){
+    for (q in 0:0){
+      for (P in 0:2){
+        for (D in 0:0){
+          for (Q in 0:1){
+            arimaCheck(tsPREiLd12, p,d,q, P,D,Q)
+            }
+          }
+        }
+    }
+  }
+}
+```
+
+
+# Estimación y diagnóstico
+
+```{r}
+(fit1 = arima(tsPREiLd12, order = c(1,0,0), seasonal = list(order = c(0,0,1), period = 12)))
+
+tsdiag(fit1)
+Box.test(fit1$residuals, lag=1, type = "Ljung")
+plot(fit1$residuals, col=4)
+grid()
+```
+
+# Predicción
+
+```{r}
+plot(tsPREiLd12,xlim=c(1871, 2003), col=4)
+fit1.pred = predict(fit1,n.ahead = 12)
+lines(fit1.pred$pred,col=2)
+grid()
+```
+
+```{r}
+tsPpred = exp(diffinv(fit1.pred$pred,lag=12, differences = 1, xi= tail(tsPREiL, 12)))-10
+
+(tsPpred = ts(round(tsPpred,2), freq=12, start = c(2002,1), end = c(2003,12)))
+(tsPreal = ts(tail(datos$PREFINAL, 30), freq=12, start = c(2002,1), end = c(2003,12)))
+
+plot.ts(tsPreal,col=4)
+lines(tsPpred,col=2)
+grid()
+```
+
+La librería forecast tiene la función auto.arima que permite la obtención del mejor modelo ARIMA de acuerdo a los criterios de información AIC, AICc o BIC y las restricciones que se quieran establecer en relación a los parámetros.
+
+Se aplica a la serie ya diferenciada estacionalmente (tsPREiLd12) y se incluye traza de modelos probados.
+
+```{r}
+library(forecast)
+(fit2=auto.arima(tsPREiLd12,trace=TRUE,ic="aic"))
+```
+
+El modelo resultante seleccionado es distinto del obtenido anteriormente, con un AIC mayor (-> peor).
+
+Vemos su predicción.
+
+```{r}
+plot(forecast(fit2,h=12))
+forecast(fit2,h=12)
+```
+
+
+Comprobamos su predicción:
+
+```{r}
+fit2.pred = predict(fit2,n.ahead = 12)
+tsPpred2 = exp(diffinv(fit2.pred$pred,lag=12, differences = 1, xi= tail(tsPREiL, 12)))-10
+
+(tsPpred2 = ts(round(tsPpred2,2), freq=12, start = c(2002,1), end = c(2003,12)))
+(tsPreal = ts(tail(datos$PREFINAL, 30), freq=12, start = c(2002,1), end = c(2003,12)))
+
+plot.ts(tsPreal,col=4)
+lines(tsPpred2,col=2)
+grid()
+```
+
+Las comparamos:
+
+```{r}
+(
+preds = data.frame('real'=as.vector(tail(tsPreal,12)),
+                   'pred1'=as.vector(tail(tsPpred,12)),
+                   'pred2'=as.vector(tail(tsPpred2,12)),
+                   'media'=as.vector(tapply(tsPREi, cycle(tsPREi), mean)))
+)
+
+plot(preds$real,col=4, type='l', xlab = 'Mes (2003)')
+axis(side=1, at=c(1:12))
+lines(preds$pred1,col='red')
+lines(preds$pred2,col='orange')
+lines(preds$media,col=1)
+legend("topleft",legend=c("Real", "Fit1", "Fit2","Media mensual serie"),
+       col=c("blue","red", "orange","black"), lty=1, cex=0.8)
+grid()
+
+(ECM1 = mean((preds$real-preds$pred1)**2))
+(ECM2 = mean((preds$real-preds$pred2)**2))
+
+```
+
+Comparando las predicciones de fit1 y fit2, vemos que el segundo modelo proporciona una mejor predicción, aunque, como vimos, su AIC es mayor.
+
