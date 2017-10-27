@@ -123,7 +123,7 @@ def train():
 # ----------------------------------------------------------------------
 def test():
 
-    test_texts = ['Merci','Gracias','Grazie','Thank you','Obrigado']
+    test_texts = ['Merci beaucoup','Muchas gracias','Grazie mille','Thank you very much','Muito obrigado']
 
     for tt in test_texts:
         print(tt, '\t', what_language(tt))
