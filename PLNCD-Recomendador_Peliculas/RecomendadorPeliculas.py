@@ -1,4 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+'''
+@author: Jerónimo Carranza Carranza
+
+Se añade al sistema de recomendación la información relativa a 
+los Géneros de la película.
+
+'''
 
 ##########################################################################
 #####  Sistema de recomendación de películas
@@ -52,25 +61,46 @@
 ### con el código de película, y a continuación el texto correspondiente.
 ###
 
+import ast
+import nltk
+import gensim
 
-def leerPeliculas(maxPeliculas = 0):
+#nltk.download()
+
+from nltk.tokenize import RegexpTokenizer
+from nltk.corpus import stopwords
+from nltk.stem import SnowballStemmer
+
+from gensim import corpora, models, similarities
+
+tokenizer = RegexpTokenizer(r'\w+')
+stopWords = set(stopwords.words('english'))
+stemmer = SnowballStemmer("english")
+
+FICHERO_METADATOS = 'MovieSummaries/movie.metadata.tsv'
+FICHERO_SINOPSIS = "MovieSummaries/plot_summaries.txt"
+FICHERO_SALIDA = 'Recomendaciones.txt'
+TOTAL_TOPICOS_LSA_SINOPSIS = 100
+TOTAL_TOPICOS_LSA_GENERO = 100
+UMBRAL_SIMILITUD = 0.25
+PESO_SINOPSIS = 0.6
+PESO_GENERO = 0.4
+NUM_PELICULAS = 300
+
+
+def leerPeliculas(maxPeliculas=0):
     ## Creamos un diccionario inicial para contener todas
     ## las películas que vamos a leer
     ##
     ## Cada entrada de este diccionario será una película indexada
     ## en el diccionario por el código de película
-
     peliculas = {}
-
     ## Fase 1: Comenzamos leyendo los metadatos
-    ficheroMetadatos = open("MovieSummaries/movie.metadata.tsv", "r")
+    ficheroMetadatos = open(FICHERO_METADATOS, "r")
     contadorMetadatos = 0
-
     for pelicula in ficheroMetadatos:
         contadorMetadatos += 1
-
         metadatos = pelicula.split('\t')
-
         # metadatos[0] -> Código de la película
         codigoPelicula = metadatos[0]
         # metadatos[1] -> Referencia (ignorar)
@@ -78,78 +108,59 @@ def leerPeliculas(maxPeliculas = 0):
         tituloPelicula = metadatos[2]
         # metadatos[3] -> Fecha
         fechaPelicula = metadatos[3]
-
+        # metadatos[4] -> Box office revenue
+        # metadatos[5] -> Runtime
+        # metadatos[6] -> Languages
+        # metadatos[7] -> Countries
+        # metadatos[8] -> Genres
+        generosPelicula = metadatos[8]
         pelicula = {}
         pelicula['codigo'] = codigoPelicula
         pelicula['titulo'] = tituloPelicula
         pelicula['fecha'] = fechaPelicula
-
+        pelicula['generos'] = list(ast.literal_eval(generosPelicula).values())
         peliculas[codigoPelicula] = pelicula
-
     ## Fase 2: Leemos las sinopsis de las películas y las
     ## vinculamos a la entrada del diccionario correspondiente
-
-    ficheroSinopsis = open("MovieSummaries/plot_summaries.txt","r")
+    ficheroSinopsis = open(FICHERO_SINOPSIS, "r")
     contadorSinopsis = 0
-
     for lineaSinopsis in ficheroSinopsis:
         # print(pelicula)
         contadorSinopsis += 1
-
         datosSinopsis = lineaSinopsis.split('\t')
         # datosSinopsis[0] -> Código de película
         codigoPelicula = datosSinopsis[0]
         # datosSinopsis[1] -> Sinopsis de la película
         resumenPelicula = datosSinopsis[1]
-
         pelicula = peliculas.get(codigoPelicula, 0)
-
         if (pelicula != 0):
             pelicula['resumen'] = resumenPelicula
             peliculas[codigoPelicula] = pelicula
-
     ## Fase 3: Creamos un nuevo diccionario que solo tenga las películas
     ## para cuyos metadatos hayamos encontrado un resumen
-
     peliculasCompletas = {}
     contadorCompletas = 0
     for peliculaCodigo in peliculas:
         pelicula = peliculas[peliculaCodigo]
-
-        resumen = pelicula.get('resumen',0)
-        if (resumen != 0):
+        resumen = pelicula.get('resumen', 0)
+        generos = pelicula.get('generos', 0)
+        if ((resumen != 0) and (generos != 0) and (len(generos) > 0)):
             contadorCompletas += 1
             peliculasCompletas[peliculaCodigo] = pelicula
-
             if ((maxPeliculas > 0) & (contadorCompletas >= maxPeliculas)):
-                break;
-
+                break
     print("Total Metadatos = ", contadorMetadatos)
     print("Total Sinopsis  = ", contadorSinopsis)
     print("Total Peliculas = ", contadorCompletas)
-
     return peliculasCompletas
-
 
 
 ##########################################################################
 ### Paso 2: Preprocesado y limpieza de los resúmenes de las películas
 ##########################################################################
 
-import nltk
-
-from nltk.tokenize import RegexpTokenizer
-tokenizer = RegexpTokenizer(r'\w+')
-
-from nltk.corpus import stopwords
-stopWords = set(stopwords.words('english'))
-
-from nltk.stem import SnowballStemmer
-stemmer = SnowballStemmer("english")
-
 def obtenerNombresPropios(nombres, texto):
     # Recorremos todas las oraciones de un texto (resumen de una película)
-
     for frase in nltk.sent_tokenize(texto):
         #
         # nltk.word_tokenize devuelve la lista de palabras que forman
@@ -170,59 +181,57 @@ def obtenerNombresPropios(nombres, texto):
                 pass
     return nombres
 
+
 def preprocesarPeliculas(peliculas):
     print("Preprocesando películas")
     nombresPropios = []
-
     for elemento in peliculas:
         print("Preproceso: ",elemento)
-
         pelicula = peliculas[elemento]
-
         ## Eliminación de signos de puntuación usando tokenizer
         resumen = pelicula['resumen']
         texto = ' '.join(tokenizer.tokenize(resumen))
         pelicula['texto'] = texto
-
         nombresPropios = obtenerNombresPropios(nombresPropios, texto)
-
     ignoraPalabras = stopWords
     ignoraPalabras.union(nombresPropios)
-
     palabras = [[]]
     for elemento in peliculas:
         pelicula = peliculas[elemento]
-
         texto = pelicula['texto']
         textoPreprocesado = []
         for palabra in tokenizer.tokenize(texto):
             textoPreprocesado.append(stemmer.stem(palabra.lower()))
             if (palabra.lower() not in ignoraPalabras):
                 palabras.append([(stemmer.stem(palabra.lower()))])
-
         pelicula['texto'] = ' '.join(textoPreprocesado)
-        
     return palabras
+
 
 ##########################################################################
 ### Paso 3: Creación de la colección de textos
 ##########################################################################
 
-from gensim import corpora, models, similarities
-    
+
 def crearColeccionTextos(peliculas):
     print("Creando colección global de resúmenes")
     textos = []
-    
     for elemento in peliculas:
         pelicula = peliculas[elemento]
         texto = pelicula['texto']
         lista = texto.split(' ')
-
         textos.append(lista)
-
     return textos
 
+
+def crearColeccionGeneros(peliculas):
+    print("Creando colección global de géneros")
+    generos = []
+    for elemento in peliculas:
+        pelicula = peliculas[elemento]
+        genero = pelicula['generos']
+        generos.append(genero)
+    return generos
 
 
 ##########################################################################
@@ -239,6 +248,7 @@ def crearColeccionTextos(peliculas):
 ### es que cada película sea representada mediante un vector en un
 ### espacio de N dimensiones
 
+
 def crearDiccionario(textos):
     print("Creación del diccionario global")
     return corpora.Dictionary(textos)
@@ -252,17 +262,11 @@ def crearDiccionario(textos):
 ### previamente pre-procesados y transformados usando el diccionario
 ###
 
-def crearCorpus(diccionario):
+
+def crearCorpus(diccionario, textos):
     print("Creación del corpus global con los resúmenes de todas las películas")
     return [diccionario.doc2bow(texto) for texto in textos]
 
-'''
-peliculas   = leerPeliculas(10)
-palabras    = preprocesarPeliculas(peliculas)
-textos      = crearColeccionTextos(peliculas)
-diccionario = crearDiccionario(textos)
-corpus      = crearCorpus(diccionario)
-'''
 
 ### En este momento podemos revisar el contenido de la información
 ### obtenida.
@@ -315,50 +319,25 @@ corpus      = crearCorpus(diccionario)
 ### Paso 6: Creación del modelo tf-idf
 ##########################################################################
 
+
 def crearTfIdf(corpus):
     print("Creación del Modelo Espacio-Vector Tf-Idf")
     tfidf = models.TfidfModel(corpus)
     corpus_tfidf = tfidf[corpus]
     return corpus_tfidf
 
-'''
-peliculas   = leerPeliculas(50)
-palabras    = preprocesarPeliculas(peliculas)
-textos      = crearColeccionTextos(peliculas)
-diccionario = crearDiccionario(textos)
-corpus      = crearCorpus(diccionario)
-pel_tfidf   = crearTfIdf(corpus)
-
-
-
-### >>> print(corpus[8][:20])
-### [(0, 1), (1, 18), (2, 117), (4, 1), (5, 36), (8, 1), (11, 12), (12, 42), (14, 16), (15, 4), (21, 44), (22, 1), (23, 7), (25, 2), (31, 1), (34, 14), (35, 1), (37, 1), (39, 1), (53, 4)]
-### >>> print(pel_tfidf[8][:20])
-### [(0, 0.00762910434797757), (1, 0.025451519972774662), (4, 0.010198378012720392), (8, 0.00762910434797757), (11, 0.008011540113419483), (14, 0.01068205348455931), (15, 0.005655893327283258), (22, 0.00762910434797757), (23, 0.015820766458248765), (25, 0.020396756025440783), (31, 0.005806175672270604), (34, 0.009346796798989396), (35, 0.00762910434797757), (37, 0.00762910434797757), (39, 0.00762910434797757), (53, 0.012947608030111121), (57, 0.005806175672270604), (60, 0.03051641739191028), (61, 0.0323690200752778), (65, 0.017568809361799154)]
-'''
-
 
 ##########################################################################
 ### Paso 7: Creación del modelo LSA (Latent Semantic Analysis)
 ##########################################################################
 
-import gensim
-import numpy as np
 
-### Valores clave para controlar el proceso
-TOTAL_TOPICOS_LSA = 50
-UMBRAL_SIMILITUD = 0.7
+def crearLSA(tfidf_data, diccionario, ntopicos):
+    print("Creación del modelo LSA (Latent Semantic Analysis)")
+    lsi = models.LsiModel(tfidf_data, id2word=diccionario, num_topics=ntopicos)
+    indice = similarities.MatrixSimilarity(lsi[tfidf_data])
+    return (lsi, indice)
 
-def crearLSA(corpus,pel_tfidf):
-    print("Creación del modelo LSA: Latent Semantic Analysis")
-    numpy_matrix = gensim.matutils.corpus2dense(corpus, num_terms = 50000)
-    svd = np.linalg.svd(numpy_matrix, full_matrices=False, compute_uv = False)
-
-    lsi = models.LsiModel(pel_tfidf, id2word=diccionario, num_topics=TOTAL_TOPICOS_LSA)
-
-    indice = similarities.MatrixSimilarity(lsi[pel_tfidf])
-
-    return (lsi,indice)
 
 def crearCodigosPeliculas(peliculas):
     codigosPeliculas = []
@@ -367,53 +346,81 @@ def crearCodigosPeliculas(peliculas):
         codigosPeliculas.append(pelicula['codigo'])
     return codigosPeliculas
 
-def crearModeloSimilitud(peliculas, pel_tfidf,lsi,indice,salida=None):
+
+def crearModeloSimilitud(peliculas, peso_sinopsis, peso_genero, sinop_tfidf, gen_tfidf,
+                         lsi_sinop, lsi_genero, indice_sinop, indice_genero,
+                         salida='Y'):
+    print("Peso para sinopsis = {0}".format(peso_sinopsis))
+    print("Peso para género = {0}".format(peso_genero))
+
     codigosPeliculas = crearCodigosPeliculas(peliculas)
     print("Creando enlaces de similitud entre películas")
     if (salida != None):
-        print("Generando salida en fichero ",salida)
-        ficheroSalida = open(salida,"w")
-        
-    for i, doc in enumerate(pel_tfidf):
+        print("Generando salida en fichero ", salida)
+        ficheroSalida = open(salida, "w")
+
+    for i, (doc_sinop, doc_genero) in enumerate(zip(sinop_tfidf, gen_tfidf)):
         print("============================")
         peliculaI = peliculas[codigosPeliculas[i]]
-        print("Pelicula I = ",i,"  ",peliculaI['codigo'],"  ",peliculaI['titulo'])
+        print("Pelicula I = ", i, " ", peliculaI['codigo'], "  ", peliculaI['titulo'])
 
         if (salida != None):
             ficheroSalida.write("============================")
             ficheroSalida.write("\n")
             ficheroSalida.write("Pelicula I = " + peliculaI['codigo'] + "  " + peliculaI['titulo'])
             ficheroSalida.write("\n")
-            
-        vec_lsi = lsi[doc]
-        #print(vec_lsi)
-        indice_similitud = indice[vec_lsi]
+
+        vec_lsi_sinopsis = lsi_sinop[doc_sinop]
+        vec_lsi_genero = lsi_genero[doc_genero]
+        indice_similitud_sinopsis = indice_sinop[vec_lsi_sinopsis]
+        indice_similitud_genero = indice_genero[vec_lsi_genero]
         similares = []
         for j, elemento in enumerate(peliculas):
-            s = indice_similitud[j]
+            s = (peso_sinopsis * indice_similitud_sinopsis[j]) + (peso_genero * indice_similitud_genero[j])
             if (s > UMBRAL_SIMILITUD) & (i != j):
-                peliculaJ = peliculas[codigosPeliculas[j]]
                 similares.append((codigosPeliculas[j], s))
-                
-                print("   Similitud: ",s,"   ==> Pelicula J = ",j,"  ",peliculaJ['codigo'],"  ",peliculaJ['titulo'])
-                if (salida != None):
-                    ficheroSalida.write("   Similitud: " + str(s) + "   ==> Pelicula J = " + peliculaJ['codigo'] + "  " + peliculaJ['titulo'])
-                    ficheroSalida.write("\n")
-                    
-            similares = sorted(similares, key=lambda item: -item[1])
 
-            peliculaI['similares'] = similares
-            peliculaI['totalSimilares'] = len(similares)
+        similares = sorted(similares, key=lambda item: -item[1])
+        peliculaI['similares'] = similares
+
+        for s in similares:
+            peliculaJ = peliculas[s[0]]
+            eco = "\tSimilitud: "+str(round(s[1], 3))+"\t==> Pelicula J = "+peliculaJ['codigo']+"  "+peliculaJ['titulo']
+
+            print(eco)
+            
+            if (salida != None):
+                ficheroSalida.write(eco)
+                ficheroSalida.write("\n")
+
 
     if (salida != None):
         ficheroSalida.close()
+
+
+def test():
+
+    peliculas = leerPeliculas(NUM_PELICULAS)
     
-peliculas   = leerPeliculas(300)
-palabras    = preprocesarPeliculas(peliculas)
-textos      = crearColeccionTextos(peliculas)
-diccionario = crearDiccionario(textos)
-corpus      = crearCorpus(diccionario)
-pel_tfidf   = crearTfIdf(corpus)
-(lsi,indice)= crearLSA(corpus,pel_tfidf)
-# crearModeloSimilitud(peliculas,pel_tfidf,lsi,indice,"peliculasSimilares.txt")
-crearModeloSimilitud(peliculas,pel_tfidf,lsi,indice)
+    palabras = preprocesarPeliculas(peliculas)
+    textos = crearColeccionTextos(peliculas)
+    diccionario = crearDiccionario(textos)
+    corpus = crearCorpus(diccionario, textos)
+    sinop_tfidf = crearTfIdf(corpus)
+    (lsi_sinop, indice_sinop) = crearLSA(sinop_tfidf, diccionario, TOTAL_TOPICOS_LSA_SINOPSIS)
+    
+    generos = crearColeccionGeneros(peliculas)
+    diccionario_genero = crearDiccionario(generos)
+    corpus_genero = crearCorpus(diccionario_genero, generos)
+    gen_tfidf = crearTfIdf(corpus_genero)
+    (lsi_genero, indice_genero) = crearLSA(gen_tfidf, diccionario_genero, TOTAL_TOPICOS_LSA_GENERO)
+    
+    crearModeloSimilitud(peliculas, PESO_SINOPSIS, PESO_GENERO,
+                         sinop_tfidf, gen_tfidf,
+                         lsi_sinop, lsi_genero,
+                         indice_sinop, indice_genero,
+                         salida=FICHERO_SALIDA)
+
+
+if __name__ == '__main__':
+    test()

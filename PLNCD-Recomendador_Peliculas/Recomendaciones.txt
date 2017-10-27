@@ -1,0 +1,2746 @@
+============================
+Pelicula I = 438402  Live from Baghdad
+	Similitud: 0.578	==> Pelicula J = 21650397  Doomsday Gun
+	Similitud: 0.463	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.37	==> Pelicula J = 2133961  Hostile Waters
+	Similitud: 0.359	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+	Similitud: 0.323	==> Pelicula J = 5787216  And Starring Pancho Villa as Himself
+============================
+Pelicula I = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.376	==> Pelicula J = 8922224  Frequently Asked Questions About Time Travel
+	Similitud: 0.334	==> Pelicula J = 12719672  Bahaddur Gandu
+	Similitud: 0.325	==> Pelicula J = 32490842  Malibu Shark Attack
+	Similitud: 0.305	==> Pelicula J = 26458693  Space Master X-7
+	Similitud: 0.273	==> Pelicula J = 9424050  The Day the Fish Came Out
+	Similitud: 0.27	==> Pelicula J = 2059591  Jett Jackson: The Movie
+	Similitud: 0.264	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.26	==> Pelicula J = 29831230  Paap Ki Kamaee
+	Similitud: 0.257	==> Pelicula J = 33417649  Un sábado más
+============================
+Pelicula I = 24036824  Death Rage
+	Similitud: 0.485	==> Pelicula J = 29017970  Reichenbach Falls
+	Similitud: 0.405	==> Pelicula J = 8007011  Money
+	Similitud: 0.342	==> Pelicula J = 15263355  Two:Thirteen
+	Similitud: 0.31	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.277	==> Pelicula J = 823939  Twilight
+============================
+Pelicula I = 32995501  The Life of a Jackeroo
+	Similitud: 0.397	==> Pelicula J = 25818173  Drums of Love
+	Similitud: 0.265	==> Pelicula J = 1789118  Pay Day
+============================
+Pelicula I = 15844986  Day and Night
+	Similitud: 0.427	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.41	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.395	==> Pelicula J = 13489189  Sex and Zen II
+	Similitud: 0.368	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.336	==> Pelicula J = 20333975  Lost and Found
+	Similitud: 0.322	==> Pelicula J = 1876167  The Clairvoyant
+	Similitud: 0.306	==> Pelicula J = 27306334  Mr. Vampire II
+	Similitud: 0.304	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.303	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.296	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.264	==> Pelicula J = 12776314  Shanghai Dreams
+============================
+Pelicula I = 19936431  Mermaid Got Married
+	Similitud: 0.531	==> Pelicula J = 10620698  Shaolin Rescuers
+	Similitud: 0.507	==> Pelicula J = 13489189  Sex and Zen II
+	Similitud: 0.486	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.427	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.416	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.374	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.351	==> Pelicula J = 12776314  Shanghai Dreams
+	Similitud: 0.322	==> Pelicula J = 27306334  Mr. Vampire II
+	Similitud: 0.291	==> Pelicula J = 20333975  Lost and Found
+	Similitud: 0.285	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.277	==> Pelicula J = 9362663  Sixty Million Dollar Man
+============================
+Pelicula I = 12848974  Let It Be Me
+	Similitud: 0.336	==> Pelicula J = 8508987  Little Longnose
+	Similitud: 0.33	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.317	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.31	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.301	==> Pelicula J = 9362663  Sixty Million Dollar Man
+	Similitud: 0.288	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.266	==> Pelicula J = 9811512  Pantry Panic
+============================
+Pelicula I = 29725152  Trumpets' Republic
+	Similitud: 0.536	==> Pelicula J = 30599547  Frederick Douglass and the White Negro
+	Similitud: 0.529	==> Pelicula J = 30418893  Tantric Tourists
+	Similitud: 0.437	==> Pelicula J = 35099643  Banned From Television
+	Similitud: 0.4	==> Pelicula J = 12238051  The Land of the Wandering Souls
+	Similitud: 0.371	==> Pelicula J = 9187433  Deuda
+	Similitud: 0.356	==> Pelicula J = 23286064  The Revenge of the Electric Car
+	Similitud: 0.294	==> Pelicula J = 9362663  Sixty Million Dollar Man
+	Similitud: 0.275	==> Pelicula J = 709369  The Story of the Weeping Camel
+	Similitud: 0.258	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+============================
+Pelicula I = 1740881  Krakatoa, East of Java
+	Similitud: 0.286	==> Pelicula J = 9424050  The Day the Fish Came Out
+	Similitud: 0.251	==> Pelicula J = 3462620  The Land Before Time VII: The Stone of Cold Fire
+============================
+Pelicula I = 11003593  Kapò
+	Similitud: 0.409	==> Pelicula J = 23694916  Passport to Destiny
+	Similitud: 0.37	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+	Similitud: 0.34	==> Pelicula J = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.319	==> Pelicula J = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.313	==> Pelicula J = 18800331  Islands in the Stream
+	Similitud: 0.297	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.29	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.252	==> Pelicula J = 18651829  Edipo Alcalde
+============================
+Pelicula I = 12317186  Hawayein
+	Similitud: 0.348	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.284	==> Pelicula J = 30418893  Tantric Tourists
+============================
+Pelicula I = 3365397  The Last Remake of Beau Geste
+	Similitud: 0.371	==> Pelicula J = 17851597  The Nine Ages of Nakedness
+============================
+Pelicula I = 9187433  Deuda
+	Similitud: 0.541	==> Pelicula J = 30418893  Tantric Tourists
+	Similitud: 0.529	==> Pelicula J = 23286064  The Revenge of the Electric Car
+	Similitud: 0.461	==> Pelicula J = 12238051  The Land of the Wandering Souls
+	Similitud: 0.436	==> Pelicula J = 30599547  Frederick Douglass and the White Negro
+	Similitud: 0.414	==> Pelicula J = 35099643  Banned From Television
+	Similitud: 0.371	==> Pelicula J = 29725152  Trumpets' Republic
+	Similitud: 0.289	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+============================
+Pelicula I = 18800331  Islands in the Stream
+	Similitud: 0.465	==> Pelicula J = 1596505  The Million Dollar Hotel
+	Similitud: 0.406	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.393	==> Pelicula J = 9056967  The Bodyguard
+	Similitud: 0.378	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+	Similitud: 0.377	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.313	==> Pelicula J = 11003593  Kapò
+	Similitud: 0.3	==> Pelicula J = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.266	==> Pelicula J = 11553550  American Son
+	Similitud: 0.256	==> Pelicula J = 934809  Operation Petticoat
+	Similitud: 0.252	==> Pelicula J = 23694916  Passport to Destiny
+============================
+Pelicula I = 19940419  Spectacular!
+	Similitud: 0.372	==> Pelicula J = 4669663  A Room for Romeo Brass
+	Similitud: 0.273	==> Pelicula J = 35033607  Trapped in the Closet Chapters 1–12
+	Similitud: 0.271	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.263	==> Pelicula J = 10639796  Aadmi Aur Insaan
+	Similitud: 0.262	==> Pelicula J = 4870723  Bob and Larry's How to Draw!
+	Similitud: 0.251	==> Pelicula J = 3151934  The Opposite Sex
+============================
+Pelicula I = 2672672  Audrey Rose
+	Similitud: 0.375	==> Pelicula J = 35854402  The Midnight Game
+	Similitud: 0.329	==> Pelicula J = 1876167  The Clairvoyant
+	Similitud: 0.321	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.312	==> Pelicula J = 2080825  The Legend of Hell House
+	Similitud: 0.267	==> Pelicula J = 11380361  Secret Sunshine
+	Similitud: 0.266	==> Pelicula J = 28335313  That Woman Opposite
+============================
+Pelicula I = 28335313  That Woman Opposite
+	Similitud: 0.351	==> Pelicula J = 24633376  The Effect of Gamma Rays on Man-in-the-Moon Marigolds
+	Similitud: 0.301	==> Pelicula J = 23119616  Messages
+	Similitud: 0.266	==> Pelicula J = 2672672  Audrey Rose
+	Similitud: 0.255	==> Pelicula J = 15263355  Two:Thirteen
+	Similitud: 0.253	==> Pelicula J = 1876167  The Clairvoyant
+============================
+Pelicula I = 19237560  The Fever
+	Similitud: 0.479	==> Pelicula J = 24633376  The Effect of Gamma Rays on Man-in-the-Moon Marigolds
+	Similitud: 0.346	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.344	==> Pelicula J = 33443303  Sweet 15
+	Similitud: 0.332	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.3	==> Pelicula J = 781758  Little Women
+	Similitud: 0.269	==> Pelicula J = 1166096  All the King's Men
+	Similitud: 0.254	==> Pelicula J = 13392017  Nights in Rodanthe
+============================
+Pelicula I = 11553550  American Son
+	Similitud: 0.339	==> Pelicula J = 2079686  Mommie Dearest
+	Similitud: 0.301	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.266	==> Pelicula J = 18800331  Islands in the Stream
+	Similitud: 0.254	==> Pelicula J = 6805865  Sorry, Haters
+============================
+Pelicula I = 12049835  Just Add Water
+	Similitud: 0.471	==> Pelicula J = 8922224  Frequently Asked Questions About Time Travel
+	Similitud: 0.36	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.295	==> Pelicula J = 1531473  The Hairy Bird
+	Similitud: 0.277	==> Pelicula J = 6805865  Sorry, Haters
+	Similitud: 0.275	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.269	==> Pelicula J = 17851597  The Nine Ages of Nakedness
+	Similitud: 0.261	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.257	==> Pelicula J = 27807569  Excited
+============================
+Pelicula I = 34236417  Miss Priyambada
+	Similitud: 0.425	==> Pelicula J = 26780634  Le Havre
+	Similitud: 0.407	==> Pelicula J = 35570671  Lucignolo
+	Similitud: 0.358	==> Pelicula J = 29794326  His Picture in the Papers
+	Similitud: 0.355	==> Pelicula J = 23962337  Le Père Noël est une ordure
+	Similitud: 0.257	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.256	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.255	==> Pelicula J = 26245382  Vasantha Maligai
+============================
+Pelicula I = 23409028  Shall We Kiss?
+	Similitud: 0.445	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.442	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.423	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.35	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.338	==> Pelicula J = 5006100  Shaan
+	Similitud: 0.335	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.334	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.333	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.299	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.287	==> Pelicula J = 355807  Second Skin
+	Similitud: 0.283	==> Pelicula J = 32644845  Good Morning, President
+	Similitud: 0.268	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.266	==> Pelicula J = 9497885  964 Pinocchio
+	Similitud: 0.251	==> Pelicula J = 576204  Cousins
+============================
+Pelicula I = 20204625  Grampy's Indoor Outing
+	Similitud: 0.474	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.449	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.361	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.337	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.332	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.33	==> Pelicula J = 12848974  Let It Be Me
+	Similitud: 0.32	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.316	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.302	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.281	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.266	==> Pelicula J = 11668038  Stanley and Stella in: Breaking the Ice
+	Similitud: 0.263	==> Pelicula J = 8508987  Little Longnose
+	Similitud: 0.259	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.253	==> Pelicula J = 17628177  Apple Jack
+============================
+Pelicula I = 24465586  La Conchiglia
+	Similitud: 0.545	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.514	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.446	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.402	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.384	==> Pelicula J = 17628177  Apple Jack
+	Similitud: 0.316	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.31	==> Pelicula J = 2528901  Elevated
+	Similitud: 0.309	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.3	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.281	==> Pelicula J = 15477338  Grand Canyonscope
+============================
+Pelicula I = 33674932  Segunda mano
+	Similitud: 0.51	==> Pelicula J = 27635803  Dead Air
+	Similitud: 0.471	==> Pelicula J = 13450310  Dia de los Muertos
+	Similitud: 0.427	==> Pelicula J = 19752168  Needful Things
+	Similitud: 0.399	==> Pelicula J = 23119616  Messages
+	Similitud: 0.308	==> Pelicula J = 27398309  Ciguli Miguli
+	Similitud: 0.294	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.287	==> Pelicula J = 35854402  The Midnight Game
+	Similitud: 0.269	==> Pelicula J = 2080825  The Legend of Hell House
+	Similitud: 0.255	==> Pelicula J = 32490842  Malibu Shark Attack
+============================
+Pelicula I = 2528901  Elevated
+	Similitud: 0.562	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.367	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.367	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.34	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.319	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.31	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.286	==> Pelicula J = 3837141  Elevator to the Gallows
+	Similitud: 0.27	==> Pelicula J = 17628177  Apple Jack
+============================
+Pelicula I = 1208705  Look at Me
+	Similitud: 0.34	==> Pelicula J = 12776314  Shanghai Dreams
+============================
+Pelicula I = 4870723  Bob and Larry's How to Draw!
+	Similitud: 0.311	==> Pelicula J = 2532751  Legend of the Lost
+	Similitud: 0.296	==> Pelicula J = 8508987  Little Longnose
+	Similitud: 0.287	==> Pelicula J = 13023545  Bunyan and Babe
+	Similitud: 0.266	==> Pelicula J = 35033607  Trapped in the Closet Chapters 1–12
+	Similitud: 0.262	==> Pelicula J = 19940419  Spectacular!
+	Similitud: 0.262	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.252	==> Pelicula J = 9811512  Pantry Panic
+============================
+Pelicula I = 1925273  The Fantastic Four
+	Similitud: 0.407	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.3	==> Pelicula J = 2808281  The Batman vs. Dracula
+	Similitud: 0.287	==> Pelicula J = 6135427  Man-Thing
+	Similitud: 0.261	==> Pelicula J = 16747410  Defendor
+============================
+Pelicula I = 31939460  Mambazhakkalam
+	Similitud: 0.379	==> Pelicula J = 26205694  Meesa Madhavan
+	Similitud: 0.356	==> Pelicula J = 21448351  Magic Kid 2
+	Similitud: 0.34	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.316	==> Pelicula J = 8508987  Little Longnose
+	Similitud: 0.275	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.269	==> Pelicula J = 709369  The Story of the Weeping Camel
+	Similitud: 0.254	==> Pelicula J = 73439  Duck Amuck
+	Similitud: 0.253	==> Pelicula J = 4360451  Code Breakers
+============================
+Pelicula I = 27997093  The Crooked Web
+	Similitud: 0.681	==> Pelicula J = 8007011  Money
+	Similitud: 0.435	==> Pelicula J = 8519164  Sucker Free City
+	Similitud: 0.407	==> Pelicula J = 414985  Bugs and Thugs
+	Similitud: 0.377	==> Pelicula J = 71975  Hellraiser
+	Similitud: 0.316	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.289	==> Pelicula J = 2823903  The Sunchaser
+	Similitud: 0.283	==> Pelicula J = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.267	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.254	==> Pelicula J = 32644388  King of the Coral Sea
+============================
+Pelicula I = 21448351  Magic Kid 2
+	Similitud: 0.607	==> Pelicula J = 27807569  Excited
+	Similitud: 0.421	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.42	==> Pelicula J = 26205694  Meesa Madhavan
+	Similitud: 0.356	==> Pelicula J = 31939460  Mambazhakkalam
+	Similitud: 0.275	==> Pelicula J = 15570329  Soothradharan
+	Similitud: 0.269	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.257	==> Pelicula J = 19397838  Hi'-Neighbor!
+============================
+Pelicula I = 823939  Twilight
+	Similitud: 0.485	==> Pelicula J = 2037975  Harry and the Hendersons
+	Similitud: 0.353	==> Pelicula J = 6969487  Marlowe
+	Similitud: 0.33	==> Pelicula J = 5565988  Gone Baby Gone
+	Similitud: 0.325	==> Pelicula J = 18521491  Midnight in Saint Petersburg
+	Similitud: 0.3	==> Pelicula J = 1670656  8 Million Ways to Die
+	Similitud: 0.291	==> Pelicula J = 29017970  Reichenbach Falls
+	Similitud: 0.289	==> Pelicula J = 2774060  Trapped
+	Similitud: 0.286	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.281	==> Pelicula J = 2823903  The Sunchaser
+	Similitud: 0.277	==> Pelicula J = 24036824  Death Rage
+	Similitud: 0.275	==> Pelicula J = 8007011  Money
+	Similitud: 0.271	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.269	==> Pelicula J = 1596505  The Million Dollar Hotel
+	Similitud: 0.26	==> Pelicula J = 4427187  Vacation in Reno
+============================
+Pelicula I = 6963236  Kshatriya
+	Similitud: 0.463	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.404	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+	Similitud: 0.377	==> Pelicula J = 18800331  Islands in the Stream
+	Similitud: 0.332	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.29	==> Pelicula J = 11003593  Kapò
+	Similitud: 0.275	==> Pelicula J = 23694916  Passport to Destiny
+	Similitud: 0.267	==> Pelicula J = 934809  Operation Petticoat
+	Similitud: 0.267	==> Pelicula J = 1629631  Karan Arjun
+	Similitud: 0.258	==> Pelicula J = 12719672  Bahaddur Gandu
+	Similitud: 0.253	==> Pelicula J = 2254896  Helen of Troy
+============================
+Pelicula I = 26735976  Ichi
+	Similitud: 0.394	==> Pelicula J = 10620698  Shaolin Rescuers
+	Similitud: 0.365	==> Pelicula J = 3137571  Harakiri
+	Similitud: 0.314	==> Pelicula J = 27652591  Impure Uniform: Writhing Thighs
+	Similitud: 0.296	==> Pelicula J = 16987257  The Last Dinosaur
+	Similitud: 0.284	==> Pelicula J = 33460500  The Woman Knight of Mirror Lake
+	Similitud: 0.283	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+============================
+Pelicula I = 23286064  The Revenge of the Electric Car
+	Similitud: 0.529	==> Pelicula J = 9187433  Deuda
+	Similitud: 0.528	==> Pelicula J = 35099643  Banned From Television
+	Similitud: 0.501	==> Pelicula J = 30599547  Frederick Douglass and the White Negro
+	Similitud: 0.46	==> Pelicula J = 30418893  Tantric Tourists
+	Similitud: 0.374	==> Pelicula J = 12238051  The Land of the Wandering Souls
+	Similitud: 0.356	==> Pelicula J = 29725152  Trumpets' Republic
+	Similitud: 0.274	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+============================
+Pelicula I = 12624367  Sweet Liberty
+	Similitud: 0.43	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.405	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.399	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.39	==> Pelicula J = 576204  Cousins
+	Similitud: 0.385	==> Pelicula J = 27807569  Excited
+	Similitud: 0.383	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.376	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.35	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.326	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.324	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.289	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.286	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.286	==> Pelicula J = 27425045  Kalyanaraman
+	Similitud: 0.282	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.279	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.278	==> Pelicula J = 8513914  Hacks
+	Similitud: 0.275	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.255	==> Pelicula J = 15570329  Soothradharan
+============================
+Pelicula I = 18651829  Edipo Alcalde
+	Similitud: 0.273	==> Pelicula J = 934809  Operation Petticoat
+	Similitud: 0.252	==> Pelicula J = 11003593  Kapò
+============================
+Pelicula I = 1531473  The Hairy Bird
+	Similitud: 0.353	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.295	==> Pelicula J = 12049835  Just Add Water
+	Similitud: 0.274	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.271	==> Pelicula J = 11332969  Seasons Change
+============================
+Pelicula I = 8418367  Hair High
+	Similitud: 0.38	==> Pelicula J = 350321  Cherry 2000
+	Similitud: 0.301	==> Pelicula J = 11412224  Zombie Strippers
+	Similitud: 0.28	==> Pelicula J = 433414  Tremors
+	Similitud: 0.26	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.259	==> Pelicula J = 25562315  Here
+============================
+Pelicula I = 9811512  Pantry Panic
+	Similitud: 0.449	==> Pelicula J = 5388717  I'm Not There
+	Similitud: 0.447	==> Pelicula J = 25852344  Putty Tat Trouble
+	Similitud: 0.405	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.399	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.345	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.337	==> Pelicula J = 8508987  Little Longnose
+	Similitud: 0.332	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.307	==> Pelicula J = 11668038  Stanley and Stella in: Breaking the Ice
+	Similitud: 0.3	==> Pelicula J = 9056967  The Bodyguard
+	Similitud: 0.285	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.266	==> Pelicula J = 12848974  Let It Be Me
+	Similitud: 0.252	==> Pelicula J = 4870723  Bob and Larry's How to Draw!
+============================
+Pelicula I = 19679859  Checkpoint
+	Similitud: 0.572	==> Pelicula J = 4360451  Code Breakers
+	Similitud: 0.531	==> Pelicula J = 3769756  Wind
+	Similitud: 0.352	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.264	==> Pelicula J = 35099643  Banned From Television
+	Similitud: 0.262	==> Pelicula J = 12096671  The Zero Boys
+============================
+Pelicula I = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.486	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.477	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.464	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.44	==> Pelicula J = 13489189  Sex and Zen II
+	Similitud: 0.41	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.313	==> Pelicula J = 20333975  Lost and Found
+	Similitud: 0.308	==> Pelicula J = 27306334  Mr. Vampire II
+	Similitud: 0.303	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.292	==> Pelicula J = 12776314  Shanghai Dreams
+	Similitud: 0.281	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.26	==> Pelicula J = 8418367  Hair High
+	Similitud: 0.26	==> Pelicula J = 28369046  Handsome Siblings
+============================
+Pelicula I = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.506	==> Pelicula J = 5565988  Gone Baby Gone
+	Similitud: 0.477	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.458	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.389	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.332	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.325	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.289	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.271	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.27	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.264	==> Pelicula J = 22162922  I Wanted Wings
+	Similitud: 0.257	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.256	==> Pelicula J = 15570329  Soothradharan
+	Similitud: 0.255	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.255	==> Pelicula J = 3759090  Another Time, Another Place
+============================
+Pelicula I = 28761678  All Over the Town
+	Similitud: 0.384	==> Pelicula J = 26553782  Sound Off
+	Similitud: 0.349	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.334	==> Pelicula J = 345124  The Pope Must Die
+	Similitud: 0.316	==> Pelicula J = 24818202  That Certain Feeling
+	Similitud: 0.314	==> Pelicula J = 33443303  Sweet 15
+	Similitud: 0.272	==> Pelicula J = 27361692  Rage
+	Similitud: 0.269	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.265	==> Pelicula J = 26790743  Air: The Musical
+	Similitud: 0.261	==> Pelicula J = 5022225  Remake
+	Similitud: 0.255	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.254	==> Pelicula J = 8609183  Romeo and Juliet
+============================
+Pelicula I = 10639796  Aadmi Aur Insaan
+	Similitud: 0.573	==> Pelicula J = 11253386  Professor
+	Similitud: 0.351	==> Pelicula J = 2150739  Awaara
+	Similitud: 0.326	==> Pelicula J = 8835468  Shnei Kuni Leml
+	Similitud: 0.317	==> Pelicula J = 20773812  Munde U.K. De
+	Similitud: 0.263	==> Pelicula J = 19940419  Spectacular!
+============================
+Pelicula I = 12555559  Half Moon Street
+	Similitud: 0.308	==> Pelicula J = 2129381  Suspect
+	Similitud: 0.297	==> Pelicula J = 2133961  Hostile Waters
+============================
+Pelicula I = 26297740  Heart Beat
+	Similitud: 0.406	==> Pelicula J = 4427187  Vacation in Reno
+	Similitud: 0.395	==> Pelicula J = 1166096  All the King's Men
+	Similitud: 0.347	==> Pelicula J = 19087098  A Waste of Shame
+	Similitud: 0.279	==> Pelicula J = 15491650  Return to Lonesome Dove
+	Similitud: 0.269	==> Pelicula J = 16368684  The Babysitter
+============================
+Pelicula I = 6846215  Inkheart
+	Similitud: 0.369	==> Pelicula J = 73439  Duck Amuck
+	Similitud: 0.347	==> Pelicula J = 3462620  The Land Before Time VII: The Stone of Cold Fire
+	Similitud: 0.334	==> Pelicula J = 6065705  Doctor Mordrid
+	Similitud: 0.262	==> Pelicula J = 35735268  At the End of the Rainbow
+	Similitud: 0.252	==> Pelicula J = 2059591  Jett Jackson: The Movie
+============================
+Pelicula I = 26038444  Kaliyoonjal
+	Similitud: 0.957	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.52	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.505	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.477	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.465	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.453	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.446	==> Pelicula J = 5022225  Remake
+	Similitud: 0.444	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.431	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.426	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.411	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.397	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.388	==> Pelicula J = 27361692  Rage
+	Similitud: 0.381	==> Pelicula J = 22622597  The Wheel
+============================
+Pelicula I = 16987257  The Last Dinosaur
+	Similitud: 0.353	==> Pelicula J = 8922224  Frequently Asked Questions About Time Travel
+	Similitud: 0.331	==> Pelicula J = 26024282  Black Belt
+	Similitud: 0.308	==> Pelicula J = 27652591  Impure Uniform: Writhing Thighs
+	Similitud: 0.301	==> Pelicula J = 3462620  The Land Before Time VII: The Stone of Cold Fire
+	Similitud: 0.296	==> Pelicula J = 26735976  Ichi
+	Similitud: 0.289	==> Pelicula J = 433414  Tremors
+============================
+Pelicula I = 3837141  Elevator to the Gallows
+	Similitud: 0.482	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.337	==> Pelicula J = 3600737  Jeopardy
+	Similitud: 0.311	==> Pelicula J = 2556577  Thieves' Highway
+	Similitud: 0.307	==> Pelicula J = 2774060  Trapped
+	Similitud: 0.286	==> Pelicula J = 2528901  Elevated
+	Similitud: 0.273	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.268	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.259	==> Pelicula J = 1077363  Making a Living
+	Similitud: 0.25	==> Pelicula J = 414985  Bugs and Thugs
+============================
+Pelicula I = 3099586  Skyjacked
+	Similitud: 0.367	==> Pelicula J = 23694916  Passport to Destiny
+	Similitud: 0.359	==> Pelicula J = 5667453  The Flight of the Phoenix
+	Similitud: 0.341	==> Pelicula J = 9893064  Savage Streets
+	Similitud: 0.307	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.272	==> Pelicula J = 846311  Armed and Dangerous
+============================
+Pelicula I = 28369046  Handsome Siblings
+	Similitud: 0.26	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+============================
+Pelicula I = 18050595  We Live Again
+	Similitud: 0.533	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.477	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.474	==> Pelicula J = 27361692  Rage
+	Similitud: 0.461	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.461	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.458	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.451	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.447	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.431	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.428	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.425	==> Pelicula J = 5022225  Remake
+	Similitud: 0.422	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.42	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.418	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+============================
+Pelicula I = 7543025  Everything You Want
+	Similitud: 0.369	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.355	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.353	==> Pelicula J = 1531473  The Hairy Bird
+	Similitud: 0.335	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.332	==> Pelicula J = 19237560  The Fever
+	Similitud: 0.306	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.306	==> Pelicula J = 33443303  Sweet 15
+	Similitud: 0.3	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.297	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.295	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.286	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.284	==> Pelicula J = 576204  Cousins
+	Similitud: 0.271	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.268	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.259	==> Pelicula J = 2129381  Suspect
+	Similitud: 0.257	==> Pelicula J = 27807569  Excited
+============================
+Pelicula I = 22541174  Conjurer
+	Similitud: 0.59	==> Pelicula J = 35854402  The Midnight Game
+	Similitud: 0.41	==> Pelicula J = 2080825  The Legend of Hell House
+	Similitud: 0.336	==> Pelicula J = 23119616  Messages
+	Similitud: 0.321	==> Pelicula J = 2672672  Audrey Rose
+	Similitud: 0.306	==> Pelicula J = 2254896  Helen of Troy
+	Similitud: 0.305	==> Pelicula J = 27635803  Dead Air
+	Similitud: 0.289	==> Pelicula J = 2905998  The Fallen Ones
+	Similitud: 0.277	==> Pelicula J = 19752168  Needful Things
+	Similitud: 0.276	==> Pelicula J = 27731736  Red Riding Hood
+============================
+Pelicula I = 231486  Sweet Home Alabama
+	Similitud: 0.5	==> Pelicula J = 9893064  Savage Streets
+	Similitud: 0.444	==> Pelicula J = 576204  Cousins
+	Similitud: 0.43	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.423	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.407	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.401	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.401	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.355	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.352	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.349	==> Pelicula J = 3151934  The Opposite Sex
+	Similitud: 0.333	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.316	==> Pelicula J = 27807569  Excited
+	Similitud: 0.31	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.301	==> Pelicula J = 11553550  American Son
+	Similitud: 0.297	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.28	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.27	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.262	==> Pelicula J = 1906889  Threesome
+============================
+Pelicula I = 73439  Duck Amuck
+	Similitud: 0.369	==> Pelicula J = 6846215  Inkheart
+	Similitud: 0.261	==> Pelicula J = 2037975  Harry and the Hendersons
+	Similitud: 0.254	==> Pelicula J = 31939460  Mambazhakkalam
+============================
+Pelicula I = 145640  The Gospel According to St. Matthew
+	Similitud: 0.52	==> Pelicula J = 1065214  Amadeus
+	Similitud: 0.472	==> Pelicula J = 12760089  Oh, God! Book II
+	Similitud: 0.288	==> Pelicula J = 1371900  Immortel
+============================
+Pelicula I = 2556577  Thieves' Highway
+	Similitud: 0.311	==> Pelicula J = 3837141  Elevator to the Gallows
+	Similitud: 0.297	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.281	==> Pelicula J = 24344249  Tomorrow
+	Similitud: 0.264	==> Pelicula J = 8007011  Money
+	Similitud: 0.259	==> Pelicula J = 8519164  Sucker Free City
+============================
+Pelicula I = 13392017  Nights in Rodanthe
+	Similitud: 0.356	==> Pelicula J = 2532751  Legend of the Lost
+	Similitud: 0.327	==> Pelicula J = 15491650  Return to Lonesome Dove
+	Similitud: 0.318	==> Pelicula J = 3759090  Another Time, Another Place
+	Similitud: 0.307	==> Pelicula J = 770239  Mr. & Mrs. Bridge
+	Similitud: 0.297	==> Pelicula J = 13023545  Bunyan and Babe
+	Similitud: 0.285	==> Pelicula J = 16747410  Defendor
+	Similitud: 0.264	==> Pelicula J = 33443303  Sweet 15
+	Similitud: 0.26	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.254	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.254	==> Pelicula J = 19237560  The Fever
+	Similitud: 0.251	==> Pelicula J = 781758  Little Women
+============================
+Pelicula I = 33460500  The Woman Knight of Mirror Lake
+	Similitud: 0.315	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.314	==> Pelicula J = 20333975  Lost and Found
+	Similitud: 0.289	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.284	==> Pelicula J = 26735976  Ichi
+	Similitud: 0.283	==> Pelicula J = 10620698  Shaolin Rescuers
+============================
+Pelicula I = 25852344  Putty Tat Trouble
+	Similitud: 0.554	==> Pelicula J = 35033607  Trapped in the Closet Chapters 1–12
+	Similitud: 0.447	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.346	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.312	==> Pelicula J = 35570671  Lucignolo
+	Similitud: 0.297	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.278	==> Pelicula J = 23962337  Le Père Noël est une ordure
+	Similitud: 0.276	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.262	==> Pelicula J = 8508987  Little Longnose
+============================
+Pelicula I = 11332969  Seasons Change
+	Similitud: 0.47	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.424	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.423	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.384	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.345	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.332	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.32	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.308	==> Pelicula J = 26790743  Air: The Musical
+	Similitud: 0.299	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.297	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.281	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.271	==> Pelicula J = 1531473  The Hairy Bird
+	Similitud: 0.26	==> Pelicula J = 576204  Cousins
+	Similitud: 0.256	==> Pelicula J = 1906889  Threesome
+	Similitud: 0.255	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.253	==> Pelicula J = 1629631  Karan Arjun
+	Similitud: 0.253	==> Pelicula J = 22162922  I Wanted Wings
+	Similitud: 0.25	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.25	==> Pelicula J = 19554764  Born Romantic
+============================
+Pelicula I = 1876167  The Clairvoyant
+	Similitud: 0.329	==> Pelicula J = 2672672  Audrey Rose
+	Similitud: 0.322	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.296	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.283	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.277	==> Pelicula J = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.27	==> Pelicula J = 5565988  Gone Baby Gone
+	Similitud: 0.253	==> Pelicula J = 28335313  That Woman Opposite
+============================
+Pelicula I = 5787216  And Starring Pancho Villa as Himself
+	Similitud: 0.344	==> Pelicula J = 21650397  Doomsday Gun
+	Similitud: 0.323	==> Pelicula J = 438402  Live from Baghdad
+	Similitud: 0.299	==> Pelicula J = 27296947  Mortu Nega
+	Similitud: 0.26	==> Pelicula J = 1960180  Kid Auto Races at Venice
+============================
+Pelicula I = 24844921  Porky's Party
+	Similitud: 0.453	==> Pelicula J = 11668038  Stanley and Stella in: Breaking the Ice
+	Similitud: 0.399	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.381	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.363	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.361	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.349	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.34	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.327	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.316	==> Pelicula J = 2808281  The Batman vs. Dracula
+	Similitud: 0.297	==> Pelicula J = 25852344  Putty Tat Trouble
+	Similitud: 0.289	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.288	==> Pelicula J = 12848974  Let It Be Me
+	Similitud: 0.278	==> Pelicula J = 17628177  Apple Jack
+============================
+Pelicula I = 19554764  Born Romantic
+	Similitud: 0.467	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.415	==> Pelicula J = 27807569  Excited
+	Similitud: 0.397	==> Pelicula J = 576204  Cousins
+	Similitud: 0.381	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.36	==> Pelicula J = 12049835  Just Add Water
+	Similitud: 0.34	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.315	==> Pelicula J = 1906889  Threesome
+	Similitud: 0.302	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.294	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.29	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.282	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.276	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.275	==> Pelicula J = 6805865  Sorry, Haters
+	Similitud: 0.274	==> Pelicula J = 1531473  The Hairy Bird
+	Similitud: 0.271	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.266	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.264	==> Pelicula J = 15368904  The Last Supper
+	Similitud: 0.25	==> Pelicula J = 11332969  Seasons Change
+============================
+Pelicula I = 13450310  Dia de los Muertos
+	Similitud: 0.493	==> Pelicula J = 27635803  Dead Air
+	Similitud: 0.471	==> Pelicula J = 33674932  Segunda mano
+	Similitud: 0.389	==> Pelicula J = 19752168  Needful Things
+	Similitud: 0.356	==> Pelicula J = 23119616  Messages
+	Similitud: 0.339	==> Pelicula J = 6969487  Marlowe
+	Similitud: 0.326	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.267	==> Pelicula J = 12003939  The 8th Plague
+	Similitud: 0.256	==> Pelicula J = 2129381  Suspect
+	Similitud: 0.251	==> Pelicula J = 27731736  Red Riding Hood
+============================
+Pelicula I = 26466092  Conan the Barbarian
+	Similitud: 0.334	==> Pelicula J = 6065705  Doctor Mordrid
+	Similitud: 0.267	==> Pelicula J = 1514718  The Wash
+	Similitud: 0.26	==> Pelicula J = 5638049  Braddock: Missing in Action III
+============================
+Pelicula I = 33417649  Un sábado más
+	Similitud: 0.456	==> Pelicula J = 12719672  Bahaddur Gandu
+	Similitud: 0.421	==> Pelicula J = 29831230  Paap Ki Kamaee
+	Similitud: 0.316	==> Pelicula J = 355807  Second Skin
+	Similitud: 0.307	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.289	==> Pelicula J = 5638049  Braddock: Missing in Action III
+	Similitud: 0.267	==> Pelicula J = 15570329  Soothradharan
+	Similitud: 0.263	==> Pelicula J = 12096671  The Zero Boys
+	Similitud: 0.261	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.257	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.254	==> Pelicula J = 1629631  Karan Arjun
+	Similitud: 0.251	==> Pelicula J = 1514718  The Wash
+============================
+Pelicula I = 1077363  Making a Living
+	Similitud: 0.466	==> Pelicula J = 1960180  Kid Auto Races at Venice
+	Similitud: 0.391	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.385	==> Pelicula J = 1789118  Pay Day
+	Similitud: 0.298	==> Pelicula J = 5777733  Woman Haters
+	Similitud: 0.278	==> Pelicula J = 29794326  His Picture in the Papers
+	Similitud: 0.259	==> Pelicula J = 3837141  Elevator to the Gallows
+============================
+Pelicula I = 29831230  Paap Ki Kamaee
+	Similitud: 0.498	==> Pelicula J = 12719672  Bahaddur Gandu
+	Similitud: 0.421	==> Pelicula J = 33417649  Un sábado más
+	Similitud: 0.33	==> Pelicula J = 5638049  Braddock: Missing in Action III
+	Similitud: 0.293	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.292	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.26	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+============================
+Pelicula I = 2055366  Dracula's Daughter
+	Similitud: 0.531	==> Pelicula J = 68082  Abbott and Costello Meet Frankenstein
+	Similitud: 0.522	==> Pelicula J = 2808281  The Batman vs. Dracula
+	Similitud: 0.372	==> Pelicula J = 27635803  Dead Air
+	Similitud: 0.343	==> Pelicula J = 27306334  Mr. Vampire II
+	Similitud: 0.326	==> Pelicula J = 13450310  Dia de los Muertos
+	Similitud: 0.295	==> Pelicula J = 23119616  Messages
+	Similitud: 0.294	==> Pelicula J = 33674932  Segunda mano
+	Similitud: 0.292	==> Pelicula J = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.282	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.262	==> Pelicula J = 23694916  Passport to Destiny
+============================
+Pelicula I = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.351	==> Pelicula J = 2079686  Mommie Dearest
+	Similitud: 0.35	==> Pelicula J = 19087098  A Waste of Shame
+	Similitud: 0.34	==> Pelicula J = 11003593  Kapò
+	Similitud: 0.319	==> Pelicula J = 71975  Hellraiser
+	Similitud: 0.311	==> Pelicula J = 8007011  Money
+	Similitud: 0.3	==> Pelicula J = 18800331  Islands in the Stream
+	Similitud: 0.283	==> Pelicula J = 27997093  The Crooked Web
+	Similitud: 0.266	==> Pelicula J = 23694916  Passport to Destiny
+============================
+Pelicula I = 16368684  The Babysitter
+	Similitud: 0.412	==> Pelicula J = 4427187  Vacation in Reno
+	Similitud: 0.39	==> Pelicula J = 1166096  All the King's Men
+	Similitud: 0.269	==> Pelicula J = 26297740  Heart Beat
+============================
+Pelicula I = 33443303  Sweet 15
+	Similitud: 0.344	==> Pelicula J = 19237560  The Fever
+	Similitud: 0.314	==> Pelicula J = 28761678  All Over the Town
+	Similitud: 0.306	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.264	==> Pelicula J = 13392017  Nights in Rodanthe
+	Similitud: 0.256	==> Pelicula J = 781758  Little Women
+	Similitud: 0.253	==> Pelicula J = 1727946  Beauty Shop
+============================
+Pelicula I = 12003939  The 8th Plague
+	Similitud: 0.267	==> Pelicula J = 13450310  Dia de los Muertos
+	Similitud: 0.262	==> Pelicula J = 11412224  Zombie Strippers
+============================
+Pelicula I = 71975  Hellraiser
+	Similitud: 0.465	==> Pelicula J = 8007011  Money
+	Similitud: 0.377	==> Pelicula J = 27997093  The Crooked Web
+	Similitud: 0.347	==> Pelicula J = 12096671  The Zero Boys
+	Similitud: 0.319	==> Pelicula J = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.284	==> Pelicula J = 15263355  Two:Thirteen
+	Similitud: 0.277	==> Pelicula J = 35854402  The Midnight Game
+============================
+Pelicula I = 13023545  Bunyan and Babe
+	Similitud: 0.414	==> Pelicula J = 2532751  Legend of the Lost
+	Similitud: 0.297	==> Pelicula J = 13392017  Nights in Rodanthe
+	Similitud: 0.289	==> Pelicula J = 11668038  Stanley and Stella in: Breaking the Ice
+	Similitud: 0.287	==> Pelicula J = 4870723  Bob and Larry's How to Draw!
+	Similitud: 0.264	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.263	==> Pelicula J = 8508987  Little Longnose
+	Similitud: 0.252	==> Pelicula J = 16747410  Defendor
+============================
+Pelicula I = 21672242  Merlin and the War of the Dragons
+	Similitud: 0.313	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.271	==> Pelicula J = 32644388  King of the Coral Sea
+============================
+Pelicula I = 1881893  Monster-in-Law
+	Similitud: 0.707	==> Pelicula J = 27807569  Excited
+	Similitud: 0.501	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.421	==> Pelicula J = 21448351  Magic Kid 2
+	Similitud: 0.42	==> Pelicula J = 576204  Cousins
+	Similitud: 0.405	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.401	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.396	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.396	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.369	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.334	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.326	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.29	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.289	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.286	==> Pelicula J = 3151934  The Opposite Sex
+	Similitud: 0.28	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.277	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.25	==> Pelicula J = 11332969  Seasons Change
+============================
+Pelicula I = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.459	==> Pelicula J = 904335  Clockwise
+	Similitud: 0.411	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.347	==> Pelicula J = 22162922  I Wanted Wings
+	Similitud: 0.319	==> Pelicula J = 11003593  Kapò
+	Similitud: 0.294	==> Pelicula J = 3759090  Another Time, Another Place
+	Similitud: 0.292	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.291	==> Pelicula J = 23694916  Passport to Destiny
+	Similitud: 0.277	==> Pelicula J = 1876167  The Clairvoyant
+============================
+Pelicula I = 19876554  Sleeping with the Devil
+	Similitud: 0.583	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.478	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.477	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.458	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.448	==> Pelicula J = 5022225  Remake
+	Similitud: 0.446	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.441	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.431	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.431	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.426	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.398	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.395	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.39	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.384	==> Pelicula J = 5734570  Shiner
+	Similitud: 0.37	==> Pelicula J = 27361692  Rage
+	Similitud: 0.256	==> Pelicula J = 19752168  Needful Things
+============================
+Pelicula I = 12315045  Dead Air
+	Similitud: 0.345	==> Pelicula J = 19752168  Needful Things
+	Similitud: 0.329	==> Pelicula J = 23955746  Fading of the Cries
+	Similitud: 0.26	==> Pelicula J = 11412224  Zombie Strippers
+	Similitud: 0.259	==> Pelicula J = 5961506  The Forsaken
+============================
+Pelicula I = 1629631  Karan Arjun
+	Similitud: 0.529	==> Pelicula J = 5006100  Shaan
+	Similitud: 0.37	==> Pelicula J = 34281838  Uu Kodathara? Ulikki Padathara?
+	Similitud: 0.318	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.286	==> Pelicula J = 15570329  Soothradharan
+	Similitud: 0.267	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.258	==> Pelicula J = 12719672  Bahaddur Gandu
+	Similitud: 0.254	==> Pelicula J = 33417649  Un sábado más
+	Similitud: 0.253	==> Pelicula J = 11332969  Seasons Change
+============================
+Pelicula I = 9362663  Sixty Million Dollar Man
+	Similitud: 0.613	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.319	==> Pelicula J = 17851597  The Nine Ages of Nakedness
+	Similitud: 0.301	==> Pelicula J = 12848974  Let It Be Me
+	Similitud: 0.294	==> Pelicula J = 29725152  Trumpets' Republic
+	Similitud: 0.277	==> Pelicula J = 19936431  Mermaid Got Married
+============================
+Pelicula I = 19397838  Hi'-Neighbor!
+	Similitud: 0.65	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.624	==> Pelicula J = 9056967  The Bodyguard
+	Similitud: 0.379	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.301	==> Pelicula J = 17628177  Apple Jack
+	Similitud: 0.301	==> Pelicula J = 5777733  Woman Haters
+	Similitud: 0.297	==> Pelicula J = 26205694  Meesa Madhavan
+	Similitud: 0.294	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.285	==> Pelicula J = 4427187  Vacation in Reno
+	Similitud: 0.285	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.282	==> Pelicula J = 1789118  Pay Day
+	Similitud: 0.278	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.257	==> Pelicula J = 21448351  Magic Kid 2
+	Similitud: 0.251	==> Pelicula J = 3644151  If I Had A Million
+============================
+Pelicula I = 709369  The Story of the Weeping Camel
+	Similitud: 0.275	==> Pelicula J = 29725152  Trumpets' Republic
+	Similitud: 0.269	==> Pelicula J = 31939460  Mambazhakkalam
+============================
+Pelicula I = 2905998  The Fallen Ones
+	Similitud: 0.29	==> Pelicula J = 32490842  Malibu Shark Attack
+	Similitud: 0.289	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.276	==> Pelicula J = 433414  Tremors
+============================
+Pelicula I = 19752168  Needful Things
+	Similitud: 0.45	==> Pelicula J = 23119616  Messages
+	Similitud: 0.427	==> Pelicula J = 33674932  Segunda mano
+	Similitud: 0.389	==> Pelicula J = 13450310  Dia de los Muertos
+	Similitud: 0.375	==> Pelicula J = 27635803  Dead Air
+	Similitud: 0.345	==> Pelicula J = 12315045  Dead Air
+	Similitud: 0.341	==> Pelicula J = 35854402  The Midnight Game
+	Similitud: 0.277	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.256	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.254	==> Pelicula J = 27731736  Red Riding Hood
+============================
+Pelicula I = 27807569  Excited
+	Similitud: 0.707	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.607	==> Pelicula J = 21448351  Magic Kid 2
+	Similitud: 0.415	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.388	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.385	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.337	==> Pelicula J = 576204  Cousins
+	Similitud: 0.336	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.32	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.316	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.303	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.292	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.268	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.257	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.257	==> Pelicula J = 12049835  Just Add Water
+============================
+Pelicula I = 576204  Cousins
+	Similitud: 0.444	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.426	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.42	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.397	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.39	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.385	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.369	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.351	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.346	==> Pelicula J = 8015443  Sounds Like
+	Similitud: 0.337	==> Pelicula J = 27807569  Excited
+	Similitud: 0.319	==> Pelicula J = 3151934  The Opposite Sex
+	Similitud: 0.314	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.31	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.306	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.284	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.268	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.26	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.255	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.251	==> Pelicula J = 23409028  Shall We Kiss?
+============================
+Pelicula I = 7777717  Whipped
+	Similitud: 0.417	==> Pelicula J = 3830101  A Sunday in the Country
+	Similitud: 0.341	==> Pelicula J = 6805865  Sorry, Haters
+	Similitud: 0.34	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.314	==> Pelicula J = 576204  Cousins
+	Similitud: 0.3	==> Pelicula J = 1906889  Threesome
+	Similitud: 0.299	==> Pelicula J = 25562315  Here
+	Similitud: 0.292	==> Pelicula J = 27807569  Excited
+	Similitud: 0.287	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.28	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.277	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.276	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.256	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.255	==> Pelicula J = 25896358  Happythankyoumoreplease
+============================
+Pelicula I = 23694916  Passport to Destiny
+	Similitud: 0.409	==> Pelicula J = 11003593  Kapò
+	Similitud: 0.367	==> Pelicula J = 3099586  Skyjacked
+	Similitud: 0.304	==> Pelicula J = 9424050  The Day the Fish Came Out
+	Similitud: 0.291	==> Pelicula J = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.289	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+	Similitud: 0.287	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.275	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.266	==> Pelicula J = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.262	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.252	==> Pelicula J = 18800331  Islands in the Stream
+============================
+Pelicula I = 2079686  Mommie Dearest
+	Similitud: 0.351	==> Pelicula J = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.339	==> Pelicula J = 11553550  American Son
+	Similitud: 0.313	==> Pelicula J = 68082  Abbott and Costello Meet Frankenstein
+	Similitud: 0.297	==> Pelicula J = 21650397  Doomsday Gun
+	Similitud: 0.283	==> Pelicula J = 19167990  A Scandal in Paris
+============================
+Pelicula I = 1166096  All the King's Men
+	Similitud: 0.407	==> Pelicula J = 4427187  Vacation in Reno
+	Similitud: 0.395	==> Pelicula J = 26297740  Heart Beat
+	Similitud: 0.39	==> Pelicula J = 16368684  The Babysitter
+	Similitud: 0.269	==> Pelicula J = 19237560  The Fever
+	Similitud: 0.269	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+	Similitud: 0.267	==> Pelicula J = 24633376  The Effect of Gamma Rays on Man-in-the-Moon Marigolds
+============================
+Pelicula I = 80923  A Letter to Three Wives
+	Similitud: 0.441	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.383	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.359	==> Pelicula J = 3151934  The Opposite Sex
+	Similitud: 0.351	==> Pelicula J = 576204  Cousins
+	Similitud: 0.346	==> Pelicula J = 19237560  The Fever
+	Similitud: 0.333	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.308	==> Pelicula J = 24633376  The Effect of Gamma Rays on Man-in-the-Moon Marigolds
+	Similitud: 0.297	==> Pelicula J = 2150739  Awaara
+	Similitud: 0.296	==> Pelicula J = 1876167  The Clairvoyant
+	Similitud: 0.286	==> Pelicula J = 823939  Twilight
+	Similitud: 0.281	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.28	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.271	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.268	==> Pelicula J = 27807569  Excited
+	Similitud: 0.266	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.263	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.26	==> Pelicula J = 13392017  Nights in Rodanthe
+	Similitud: 0.253	==> Pelicula J = 781758  Little Women
+============================
+Pelicula I = 9990758  Tazza: The High Rollers
+============================
+Pelicula I = 345124  The Pope Must Die
+	Similitud: 0.553	==> Pelicula J = 24818202  That Certain Feeling
+	Similitud: 0.4	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.353	==> Pelicula J = 26553782  Sound Off
+	Similitud: 0.334	==> Pelicula J = 28761678  All Over the Town
+	Similitud: 0.315	==> Pelicula J = 12897281  College Swing
+	Similitud: 0.309	==> Pelicula J = 14503554  Three Smart Saps
+	Similitud: 0.254	==> Pelicula J = 9990262  200 Pounds Beauty
+============================
+Pelicula I = 25805385  White Wedding
+	Similitud: 0.442	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.385	==> Pelicula J = 576204  Cousins
+	Similitud: 0.384	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.376	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.352	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.326	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.276	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.268	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.268	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.267	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.266	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.26	==> Pelicula J = 32644845  Good Morning, President
+	Similitud: 0.253	==> Pelicula J = 27425045  Kalyanaraman
+============================
+Pelicula I = 35099643  Banned From Television
+	Similitud: 0.528	==> Pelicula J = 23286064  The Revenge of the Electric Car
+	Similitud: 0.472	==> Pelicula J = 30599547  Frederick Douglass and the White Negro
+	Similitud: 0.46	==> Pelicula J = 30418893  Tantric Tourists
+	Similitud: 0.454	==> Pelicula J = 12238051  The Land of the Wandering Souls
+	Similitud: 0.437	==> Pelicula J = 29725152  Trumpets' Republic
+	Similitud: 0.414	==> Pelicula J = 9187433  Deuda
+	Similitud: 0.316	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+	Similitud: 0.264	==> Pelicula J = 19679859  Checkpoint
+============================
+Pelicula I = 9893064  Savage Streets
+	Similitud: 0.5	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.341	==> Pelicula J = 3099586  Skyjacked
+	Similitud: 0.324	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.311	==> Pelicula J = 32490842  Malibu Shark Attack
+	Similitud: 0.273	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.269	==> Pelicula J = 1514718  The Wash
+============================
+Pelicula I = 35854402  The Midnight Game
+	Similitud: 0.59	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.52	==> Pelicula J = 2080825  The Legend of Hell House
+	Similitud: 0.375	==> Pelicula J = 2672672  Audrey Rose
+	Similitud: 0.341	==> Pelicula J = 19752168  Needful Things
+	Similitud: 0.326	==> Pelicula J = 23119616  Messages
+	Similitud: 0.287	==> Pelicula J = 33674932  Segunda mano
+	Similitud: 0.277	==> Pelicula J = 71975  Hellraiser
+============================
+Pelicula I = 4669663  A Room for Romeo Brass
+	Similitud: 0.464	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.372	==> Pelicula J = 19940419  Spectacular!
+	Similitud: 0.282	==> Pelicula J = 9424050  The Day the Fish Came Out
+============================
+Pelicula I = 2254896  Helen of Troy
+	Similitud: 0.454	==> Pelicula J = 13814165  Meet the Spartans
+	Similitud: 0.362	==> Pelicula J = 27260560  The Three Musketeers
+	Similitud: 0.306	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.305	==> Pelicula J = 32644388  King of the Coral Sea
+	Similitud: 0.293	==> Pelicula J = 934809  Operation Petticoat
+	Similitud: 0.287	==> Pelicula J = 5022225  Remake
+	Similitud: 0.282	==> Pelicula J = 5638049  Braddock: Missing in Action III
+	Similitud: 0.253	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.252	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+============================
+Pelicula I = 13814165  Meet the Spartans
+	Similitud: 0.454	==> Pelicula J = 2254896  Helen of Troy
+	Similitud: 0.3	==> Pelicula J = 17851597  The Nine Ages of Nakedness
+	Similitud: 0.281	==> Pelicula J = 19167990  A Scandal in Paris
+============================
+Pelicula I = 26024282  Black Belt
+	Similitud: 0.457	==> Pelicula J = 27652591  Impure Uniform: Writhing Thighs
+	Similitud: 0.438	==> Pelicula J = 26935757  Love Hotel
+	Similitud: 0.425	==> Pelicula J = 26263414  Blue Film: Estimation
+	Similitud: 0.331	==> Pelicula J = 16987257  The Last Dinosaur
+	Similitud: 0.26	==> Pelicula J = 9497885  964 Pinocchio
+============================
+Pelicula I = 5006100  Shaan
+	Similitud: 0.529	==> Pelicula J = 1629631  Karan Arjun
+	Similitud: 0.519	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.34	==> Pelicula J = 355807  Second Skin
+	Similitud: 0.338	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.269	==> Pelicula J = 3759090  Another Time, Another Place
+	Similitud: 0.264	==> Pelicula J = 770239  Mr. & Mrs. Bridge
+============================
+Pelicula I = 8007011  Money
+	Similitud: 0.681	==> Pelicula J = 27997093  The Crooked Web
+	Similitud: 0.465	==> Pelicula J = 71975  Hellraiser
+	Similitud: 0.405	==> Pelicula J = 24036824  Death Rage
+	Similitud: 0.338	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.326	==> Pelicula J = 2823903  The Sunchaser
+	Similitud: 0.311	==> Pelicula J = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.275	==> Pelicula J = 823939  Twilight
+	Similitud: 0.273	==> Pelicula J = 2774060  Trapped
+	Similitud: 0.267	==> Pelicula J = 29017970  Reichenbach Falls
+	Similitud: 0.264	==> Pelicula J = 2556577  Thieves' Highway
+	Similitud: 0.263	==> Pelicula J = 8519164  Sucker Free City
+============================
+Pelicula I = 6969487  Marlowe
+	Similitud: 0.391	==> Pelicula J = 1670656  8 Million Ways to Die
+	Similitud: 0.377	==> Pelicula J = 1596505  The Million Dollar Hotel
+	Similitud: 0.353	==> Pelicula J = 823939  Twilight
+	Similitud: 0.348	==> Pelicula J = 5565988  Gone Baby Gone
+	Similitud: 0.339	==> Pelicula J = 13450310  Dia de los Muertos
+============================
+Pelicula I = 4427187  Vacation in Reno
+	Similitud: 0.44	==> Pelicula J = 5777733  Woman Haters
+	Similitud: 0.412	==> Pelicula J = 16368684  The Babysitter
+	Similitud: 0.407	==> Pelicula J = 1166096  All the King's Men
+	Similitud: 0.406	==> Pelicula J = 26297740  Heart Beat
+	Similitud: 0.358	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.285	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.282	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.268	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.26	==> Pelicula J = 823939  Twilight
+	Similitud: 0.255	==> Pelicula J = 414985  Bugs and Thugs
+	Similitud: 0.251	==> Pelicula J = 1789118  Pay Day
+	Similitud: 0.25	==> Pelicula J = 15491650  Return to Lonesome Dove
+============================
+Pelicula I = 26245382  Vasantha Maligai
+	Similitud: 0.519	==> Pelicula J = 5006100  Shaan
+	Similitud: 0.445	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.321	==> Pelicula J = 3759090  Another Time, Another Place
+	Similitud: 0.305	==> Pelicula J = 19167990  A Scandal in Paris
+	Similitud: 0.294	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.284	==> Pelicula J = 20773812  Munde U.K. De
+	Similitud: 0.276	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.274	==> Pelicula J = 32644845  Good Morning, President
+	Similitud: 0.269	==> Pelicula J = 19087098  A Waste of Shame
+	Similitud: 0.264	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.259	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.255	==> Pelicula J = 34236417  Miss Priyambada
+	Similitud: 0.251	==> Pelicula J = 31323938  The Divided Sky
+============================
+Pelicula I = 12238051  The Land of the Wandering Souls
+	Similitud: 0.472	==> Pelicula J = 30599547  Frederick Douglass and the White Negro
+	Similitud: 0.461	==> Pelicula J = 9187433  Deuda
+	Similitud: 0.454	==> Pelicula J = 35099643  Banned From Television
+	Similitud: 0.414	==> Pelicula J = 30418893  Tantric Tourists
+	Similitud: 0.4	==> Pelicula J = 29725152  Trumpets' Republic
+	Similitud: 0.374	==> Pelicula J = 23286064  The Revenge of the Electric Car
+	Similitud: 0.26	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+============================
+Pelicula I = 8015443  Sounds Like
+	Similitud: 0.378	==> Pelicula J = 12096671  The Zero Boys
+	Similitud: 0.346	==> Pelicula J = 576204  Cousins
+============================
+Pelicula I = 5080159  Bank Shot
+	Similitud: 0.572	==> Pelicula J = 19062975  Harry and Walter Go to New York
+	Similitud: 0.419	==> Pelicula J = 13541124  Other People's Money
+	Similitud: 0.348	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.26	==> Pelicula J = 11585638  Came a Hot Friday
+============================
+Pelicula I = 12096671  The Zero Boys
+	Similitud: 0.378	==> Pelicula J = 8015443  Sounds Like
+	Similitud: 0.348	==> Pelicula J = 15263355  Two:Thirteen
+	Similitud: 0.347	==> Pelicula J = 71975  Hellraiser
+	Similitud: 0.282	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.263	==> Pelicula J = 6878966  Sister, Sister
+	Similitud: 0.263	==> Pelicula J = 33417649  Un sábado más
+	Similitud: 0.262	==> Pelicula J = 19679859  Checkpoint
+============================
+Pelicula I = 9990262  200 Pounds Beauty
+	Similitud: 0.47	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.442	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.358	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.354	==> Pelicula J = 781758  Little Women
+	Similitud: 0.325	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.322	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.31	==> Pelicula J = 576204  Cousins
+	Similitud: 0.3	==> Pelicula J = 32490842  Malibu Shark Attack
+	Similitud: 0.297	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.284	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.281	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.28	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.279	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.279	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.276	==> Pelicula J = 24818202  That Certain Feeling
+	Similitud: 0.272	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.267	==> Pelicula J = 26790743  Air: The Musical
+	Similitud: 0.264	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.259	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.256	==> Pelicula J = 15570329  Soothradharan
+	Similitud: 0.255	==> Pelicula J = 28761678  All Over the Town
+	Similitud: 0.254	==> Pelicula J = 345124  The Pope Must Die
+============================
+Pelicula I = 25896358  Happythankyoumoreplease
+	Similitud: 0.501	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.413	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.37	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.368	==> Pelicula J = 24344249  Tomorrow
+	Similitud: 0.343	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.336	==> Pelicula J = 27807569  Excited
+	Similitud: 0.31	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.295	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.294	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.275	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.258	==> Pelicula J = 9424050  The Day the Fish Came Out
+	Similitud: 0.255	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.255	==> Pelicula J = 576204  Cousins
+	Similitud: 0.255	==> Pelicula J = 16747410  Defendor
+============================
+Pelicula I = 9223332  The Divine Nymph
+	Similitud: 0.533	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.493	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.443	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.418	==> Pelicula J = 27361692  Rage
+	Similitud: 0.414	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.411	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.405	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.404	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.395	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.388	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.385	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.38	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.329	==> Pelicula J = 5022225  Remake
+	Similitud: 0.315	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.304	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.284	==> Pelicula J = 8519164  Sucker Free City
+	Similitud: 0.263	==> Pelicula J = 2051594  The Hour-Glass Sanatorium
+============================
+Pelicula I = 5565988  Gone Baby Gone
+	Similitud: 0.506	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.392	==> Pelicula J = 1670656  8 Million Ways to Die
+	Similitud: 0.348	==> Pelicula J = 6969487  Marlowe
+	Similitud: 0.33	==> Pelicula J = 823939  Twilight
+	Similitud: 0.297	==> Pelicula J = 1596505  The Million Dollar Hotel
+	Similitud: 0.27	==> Pelicula J = 1876167  The Clairvoyant
+	Similitud: 0.25	==> Pelicula J = 24633376  The Effect of Gamma Rays on Man-in-the-Moon Marigolds
+============================
+Pelicula I = 35735268  At the End of the Rainbow
+	Similitud: 0.474	==> Pelicula J = 6878966  Sister, Sister
+	Similitud: 0.295	==> Pelicula J = 6065705  Doctor Mordrid
+	Similitud: 0.262	==> Pelicula J = 6846215  Inkheart
+============================
+Pelicula I = 23119616  Messages
+	Similitud: 0.45	==> Pelicula J = 19752168  Needful Things
+	Similitud: 0.407	==> Pelicula J = 15263355  Two:Thirteen
+	Similitud: 0.399	==> Pelicula J = 33674932  Segunda mano
+	Similitud: 0.356	==> Pelicula J = 13450310  Dia de los Muertos
+	Similitud: 0.336	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.326	==> Pelicula J = 35854402  The Midnight Game
+	Similitud: 0.301	==> Pelicula J = 28335313  That Woman Opposite
+	Similitud: 0.299	==> Pelicula J = 27635803  Dead Air
+	Similitud: 0.295	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.271	==> Pelicula J = 32490842  Malibu Shark Attack
+============================
+Pelicula I = 8609183  Romeo and Juliet
+	Similitud: 0.494	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.475	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.464	==> Pelicula J = 4669663  A Room for Romeo Brass
+	Similitud: 0.463	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.46	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.453	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.452	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.422	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.417	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.414	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.412	==> Pelicula J = 27361692  Rage
+	Similitud: 0.412	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.406	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.405	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.398	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.365	==> Pelicula J = 5022225  Remake
+	Similitud: 0.254	==> Pelicula J = 28761678  All Over the Town
+============================
+Pelicula I = 934809  Operation Petticoat
+	Similitud: 0.386	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.335	==> Pelicula J = 2133961  Hostile Waters
+	Similitud: 0.293	==> Pelicula J = 2254896  Helen of Troy
+	Similitud: 0.274	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+	Similitud: 0.273	==> Pelicula J = 1514718  The Wash
+	Similitud: 0.273	==> Pelicula J = 18651829  Edipo Alcalde
+	Similitud: 0.267	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.265	==> Pelicula J = 26553782  Sound Off
+	Similitud: 0.256	==> Pelicula J = 18800331  Islands in the Stream
+============================
+Pelicula I = 15263355  Two:Thirteen
+	Similitud: 0.407	==> Pelicula J = 23119616  Messages
+	Similitud: 0.348	==> Pelicula J = 12096671  The Zero Boys
+	Similitud: 0.342	==> Pelicula J = 24036824  Death Rage
+	Similitud: 0.288	==> Pelicula J = 29017970  Reichenbach Falls
+	Similitud: 0.284	==> Pelicula J = 71975  Hellraiser
+	Similitud: 0.278	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.255	==> Pelicula J = 28335313  That Woman Opposite
+============================
+Pelicula I = 7662191  The Chance of a Lifetime
+	Similitud: 0.269	==> Pelicula J = 14503554  Three Smart Saps
+============================
+Pelicula I = 846311  Armed and Dangerous
+	Similitud: 0.272	==> Pelicula J = 3099586  Skyjacked
+	Similitud: 0.255	==> Pelicula J = 5777733  Woman Haters
+============================
+Pelicula I = 1727946  Beauty Shop
+	Similitud: 0.431	==> Pelicula J = 24818202  That Certain Feeling
+	Similitud: 0.4	==> Pelicula J = 345124  The Pope Must Die
+	Similitud: 0.388	==> Pelicula J = 26553782  Sound Off
+	Similitud: 0.349	==> Pelicula J = 28761678  All Over the Town
+	Similitud: 0.348	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.322	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.31	==> Pelicula J = 12848974  Let It Be Me
+	Similitud: 0.281	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.266	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.266	==> Pelicula J = 8835468  Shnei Kuni Leml
+	Similitud: 0.264	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.254	==> Pelicula J = 8922224  Frequently Asked Questions About Time Travel
+	Similitud: 0.253	==> Pelicula J = 33443303  Sweet 15
+	Similitud: 0.251	==> Pelicula J = 17628177  Apple Jack
+============================
+Pelicula I = 350321  Cherry 2000
+	Similitud: 0.38	==> Pelicula J = 8418367  Hair High
+============================
+Pelicula I = 11293276  Madurai Veeran
+	Similitud: 0.428	==> Pelicula J = 15570329  Soothradharan
+	Similitud: 0.425	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.36	==> Pelicula J = 12719672  Bahaddur Gandu
+	Similitud: 0.345	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.318	==> Pelicula J = 1629631  Karan Arjun
+	Similitud: 0.307	==> Pelicula J = 33417649  Un sábado más
+	Similitud: 0.293	==> Pelicula J = 29831230  Paap Ki Kamaee
+	Similitud: 0.284	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.259	==> Pelicula J = 5638049  Braddock: Missing in Action III
+	Similitud: 0.257	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.256	==> Pelicula J = 34236417  Miss Priyambada
+============================
+Pelicula I = 26263414  Blue Film: Estimation
+	Similitud: 0.99	==> Pelicula J = 26935757  Love Hotel
+	Similitud: 0.425	==> Pelicula J = 26024282  Black Belt
+	Similitud: 0.401	==> Pelicula J = 24341490  Lady Black Rose
+	Similitud: 0.394	==> Pelicula J = 27652591  Impure Uniform: Writhing Thighs
+============================
+Pelicula I = 5022225  Remake
+	Similitud: 0.704	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.569	==> Pelicula J = 27361692  Rage
+	Similitud: 0.541	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.497	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.481	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.476	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.456	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.452	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.448	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.446	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.425	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.395	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.365	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.329	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.287	==> Pelicula J = 2254896  Helen of Troy
+	Similitud: 0.261	==> Pelicula J = 28761678  All Over the Town
+============================
+Pelicula I = 23281301  The Toilers and the Wayfarers
+	Similitud: 0.56	==> Pelicula J = 19168185  9 Dead Gay Guys
+	Similitud: 0.265	==> Pelicula J = 5734570  Shiner
+============================
+Pelicula I = 15477338  Grand Canyonscope
+	Similitud: 0.474	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.349	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.346	==> Pelicula J = 25852344  Putty Tat Trouble
+	Similitud: 0.345	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.318	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.317	==> Pelicula J = 12848974  Let It Be Me
+	Similitud: 0.284	==> Pelicula J = 11668038  Stanley and Stella in: Breaking the Ice
+	Similitud: 0.284	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.281	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.267	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.258	==> Pelicula J = 17628177  Apple Jack
+	Similitud: 0.256	==> Pelicula J = 22982386  Artificially Speaking
+============================
+Pelicula I = 19303143  One Wild Ride
+	Similitud: 0.65	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.391	==> Pelicula J = 1077363  Making a Living
+	Similitud: 0.35	==> Pelicula J = 1960180  Kid Auto Races at Venice
+	Similitud: 0.34	==> Pelicula J = 1789118  Pay Day
+	Similitud: 0.333	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.3	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.296	==> Pelicula J = 9056967  The Bodyguard
+	Similitud: 0.273	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.273	==> Pelicula J = 11585638  Came a Hot Friday
+============================
+Pelicula I = 34954125  Le Poisson noyé
+	Similitud: 0.508	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.44	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.432	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.386	==> Pelicula J = 17628177  Apple Jack
+	Similitud: 0.367	==> Pelicula J = 2528901  Elevated
+	Similitud: 0.363	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.344	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.309	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.281	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.268	==> Pelicula J = 4427187  Vacation in Reno
+	Similitud: 0.265	==> Pelicula J = 23551760  Tegan the Vegan
+============================
+Pelicula I = 4360451  Code Breakers
+	Similitud: 0.572	==> Pelicula J = 19679859  Checkpoint
+	Similitud: 0.326	==> Pelicula J = 3769756  Wind
+	Similitud: 0.253	==> Pelicula J = 31939460  Mambazhakkalam
+============================
+Pelicula I = 960657  The Life and Death of Colonel Blimp
+	Similitud: 0.576	==> Pelicula J = 20773812  Munde U.K. De
+	Similitud: 0.404	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.378	==> Pelicula J = 18800331  Islands in the Stream
+	Similitud: 0.37	==> Pelicula J = 11003593  Kapò
+	Similitud: 0.289	==> Pelicula J = 23694916  Passport to Destiny
+	Similitud: 0.276	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.274	==> Pelicula J = 934809  Operation Petticoat
+	Similitud: 0.266	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.265	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.252	==> Pelicula J = 2254896  Helen of Troy
+============================
+Pelicula I = 67916  Strategic Air Command
+	Similitud: 0.415	==> Pelicula J = 13541124  Other People's Money
+	Similitud: 0.299	==> Pelicula J = 5667453  The Flight of the Phoenix
+============================
+Pelicula I = 30653283  Snehapoorvam Anna
+	Similitud: 0.477	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.442	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.425	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.424	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.38	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.368	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.331	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.308	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.296	==> Pelicula J = 15570329  Soothradharan
+	Similitud: 0.277	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.268	==> Pelicula J = 576204  Cousins
+	Similitud: 0.254	==> Pelicula J = 13392017  Nights in Rodanthe
+============================
+Pelicula I = 25818173  Drums of Love
+	Similitud: 0.397	==> Pelicula J = 32995501  The Life of a Jackeroo
+	Similitud: 0.282	==> Pelicula J = 355807  Second Skin
+	Similitud: 0.268	==> Pelicula J = 1960180  Kid Auto Races at Venice
+	Similitud: 0.257	==> Pelicula J = 1789118  Pay Day
+============================
+Pelicula I = 27713939  Macho Callahan
+	Similitud: 0.276	==> Pelicula J = 1001506  The Legend of the Lone Ranger
+	Similitud: 0.251	==> Pelicula J = 29763090  Revenge of the Virgins
+============================
+Pelicula I = 2133961  Hostile Waters
+	Similitud: 0.37	==> Pelicula J = 438402  Live from Baghdad
+	Similitud: 0.335	==> Pelicula J = 934809  Operation Petticoat
+	Similitud: 0.297	==> Pelicula J = 12555559  Half Moon Street
+	Similitud: 0.295	==> Pelicula J = 21650397  Doomsday Gun
+============================
+Pelicula I = 24633376  The Effect of Gamma Rays on Man-in-the-Moon Marigolds
+	Similitud: 0.479	==> Pelicula J = 19237560  The Fever
+	Similitud: 0.351	==> Pelicula J = 28335313  That Woman Opposite
+	Similitud: 0.308	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.267	==> Pelicula J = 1166096  All the King's Men
+	Similitud: 0.25	==> Pelicula J = 5565988  Gone Baby Gone
+============================
+Pelicula I = 2150739  Awaara
+	Similitud: 0.55	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.367	==> Pelicula J = 11253386  Professor
+	Similitud: 0.351	==> Pelicula J = 10639796  Aadmi Aur Insaan
+	Similitud: 0.297	==> Pelicula J = 80923  A Letter to Three Wives
+============================
+Pelicula I = 34281838  Uu Kodathara? Ulikki Padathara?
+	Similitud: 0.401	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.37	==> Pelicula J = 1629631  Karan Arjun
+	Similitud: 0.328	==> Pelicula J = 31748875  Sinbad and The Minotaur
+============================
+Pelicula I = 12760089  Oh, God! Book II
+	Similitud: 0.472	==> Pelicula J = 145640  The Gospel According to St. Matthew
+	Similitud: 0.399	==> Pelicula J = 1065214  Amadeus
+	Similitud: 0.268	==> Pelicula J = 1371900  Immortel
+============================
+Pelicula I = 1789118  Pay Day
+	Similitud: 0.749	==> Pelicula J = 1960180  Kid Auto Races at Venice
+	Similitud: 0.385	==> Pelicula J = 1077363  Making a Living
+	Similitud: 0.34	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.282	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.265	==> Pelicula J = 32995501  The Life of a Jackeroo
+	Similitud: 0.26	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.257	==> Pelicula J = 25818173  Drums of Love
+	Similitud: 0.251	==> Pelicula J = 4427187  Vacation in Reno
+============================
+Pelicula I = 2051594  The Hour-Glass Sanatorium
+	Similitud: 0.263	==> Pelicula J = 9223332  The Divine Nymph
+============================
+Pelicula I = 6805865  Sorry, Haters
+	Similitud: 0.341	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.277	==> Pelicula J = 12049835  Just Add Water
+	Similitud: 0.275	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.254	==> Pelicula J = 11553550  American Son
+============================
+Pelicula I = 18497116  Anak
+	Similitud: 0.368	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+============================
+Pelicula I = 20773812  Munde U.K. De
+	Similitud: 0.576	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+	Similitud: 0.317	==> Pelicula J = 10639796  Aadmi Aur Insaan
+	Similitud: 0.284	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.276	==> Pelicula J = 11253386  Professor
+	Similitud: 0.275	==> Pelicula J = 12897281  College Swing
+	Similitud: 0.268	==> Pelicula J = 27425045  Kalyanaraman
+	Similitud: 0.256	==> Pelicula J = 8835468  Shnei Kuni Leml
+============================
+Pelicula I = 1670656  8 Million Ways to Die
+	Similitud: 0.392	==> Pelicula J = 5565988  Gone Baby Gone
+	Similitud: 0.391	==> Pelicula J = 6969487  Marlowe
+	Similitud: 0.38	==> Pelicula J = 23955746  Fading of the Cries
+	Similitud: 0.3	==> Pelicula J = 823939  Twilight
+	Similitud: 0.286	==> Pelicula J = 1596505  The Million Dollar Hotel
+	Similitud: 0.264	==> Pelicula J = 8519164  Sucker Free City
+============================
+Pelicula I = 68082  Abbott and Costello Meet Frankenstein
+	Similitud: 0.531	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.425	==> Pelicula J = 2808281  The Batman vs. Dracula
+	Similitud: 0.313	==> Pelicula J = 2079686  Mommie Dearest
+============================
+Pelicula I = 26553782  Sound Off
+	Similitud: 0.388	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.384	==> Pelicula J = 28761678  All Over the Town
+	Similitud: 0.353	==> Pelicula J = 345124  The Pope Must Die
+	Similitud: 0.341	==> Pelicula J = 24818202  That Certain Feeling
+	Similitud: 0.272	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.265	==> Pelicula J = 934809  Operation Petticoat
+============================
+Pelicula I = 27635803  Dead Air
+	Similitud: 0.51	==> Pelicula J = 33674932  Segunda mano
+	Similitud: 0.493	==> Pelicula J = 13450310  Dia de los Muertos
+	Similitud: 0.375	==> Pelicula J = 19752168  Needful Things
+	Similitud: 0.372	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.311	==> Pelicula J = 101935  Network
+	Similitud: 0.305	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.299	==> Pelicula J = 23119616  Messages
+============================
+Pelicula I = 73438  Double Indemnity
+	Similitud: 0.482	==> Pelicula J = 3837141  Elevator to the Gallows
+	Similitud: 0.342	==> Pelicula J = 2210286  Whistle Stop
+	Similitud: 0.327	==> Pelicula J = 414985  Bugs and Thugs
+	Similitud: 0.316	==> Pelicula J = 27997093  The Crooked Web
+	Similitud: 0.297	==> Pelicula J = 2556577  Thieves' Highway
+	Similitud: 0.29	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.278	==> Pelicula J = 15263355  Two:Thirteen
+	Similitud: 0.268	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.267	==> Pelicula J = 2129381  Suspect
+	Similitud: 0.251	==> Pelicula J = 3600737  Jeopardy
+============================
+Pelicula I = 35570671  Lucignolo
+	Similitud: 0.502	==> Pelicula J = 29794326  His Picture in the Papers
+	Similitud: 0.407	==> Pelicula J = 34236417  Miss Priyambada
+	Similitud: 0.391	==> Pelicula J = 26780634  Le Havre
+	Similitud: 0.356	==> Pelicula J = 23962337  Le Père Noël est une ordure
+	Similitud: 0.338	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.312	==> Pelicula J = 25852344  Putty Tat Trouble
+============================
+Pelicula I = 30599547  Frederick Douglass and the White Negro
+	Similitud: 0.591	==> Pelicula J = 30418893  Tantric Tourists
+	Similitud: 0.536	==> Pelicula J = 29725152  Trumpets' Republic
+	Similitud: 0.501	==> Pelicula J = 23286064  The Revenge of the Electric Car
+	Similitud: 0.472	==> Pelicula J = 35099643  Banned From Television
+	Similitud: 0.472	==> Pelicula J = 12238051  The Land of the Wandering Souls
+	Similitud: 0.436	==> Pelicula J = 9187433  Deuda
+	Similitud: 0.365	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+============================
+Pelicula I = 28200672  Paduka Pattabhishekam
+	Similitud: 0.5	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.476	==> Pelicula J = 5022225  Remake
+	Similitud: 0.46	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.447	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.437	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.431	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.422	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.417	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.416	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.414	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.405	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.397	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.385	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.376	==> Pelicula J = 27361692  Rage
+	Similitud: 0.308	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.273	==> Pelicula J = 8508987  Little Longnose
+	Similitud: 0.255	==> Pelicula J = 12719672  Bahaddur Gandu
+============================
+Pelicula I = 6878966  Sister, Sister
+	Similitud: 0.474	==> Pelicula J = 35735268  At the End of the Rainbow
+	Similitud: 0.33	==> Pelicula J = 27731736  Red Riding Hood
+	Similitud: 0.295	==> Pelicula J = 19087098  A Waste of Shame
+	Similitud: 0.263	==> Pelicula J = 12096671  The Zero Boys
+	Similitud: 0.253	==> Pelicula J = 2129381  Suspect
+============================
+Pelicula I = 19094868  Dead Space: Downfall
+	Similitud: 0.327	==> Pelicula J = 26458693  Space Master X-7
+	Similitud: 0.25	==> Pelicula J = 22030168  Ai City
+============================
+Pelicula I = 1553031  Fight Back to School III
+	Similitud: 0.613	==> Pelicula J = 9362663  Sixty Million Dollar Man
+	Similitud: 0.464	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.418	==> Pelicula J = 13489189  Sex and Zen II
+	Similitud: 0.416	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.368	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.344	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.313	==> Pelicula J = 20333975  Lost and Found
+	Similitud: 0.292	==> Pelicula J = 27306334  Mr. Vampire II
+	Similitud: 0.272	==> Pelicula J = 26553782  Sound Off
+============================
+Pelicula I = 433414  Tremors
+	Similitud: 0.289	==> Pelicula J = 16987257  The Last Dinosaur
+	Similitud: 0.28	==> Pelicula J = 8418367  Hair High
+	Similitud: 0.279	==> Pelicula J = 6135427  Man-Thing
+	Similitud: 0.276	==> Pelicula J = 2905998  The Fallen Ones
+	Similitud: 0.266	==> Pelicula J = 32490842  Malibu Shark Attack
+============================
+Pelicula I = 14503554  Three Smart Saps
+	Similitud: 0.67	==> Pelicula J = 5777733  Woman Haters
+	Similitud: 0.309	==> Pelicula J = 345124  The Pope Must Die
+	Similitud: 0.269	==> Pelicula J = 7662191  The Chance of a Lifetime
+============================
+Pelicula I = 34749021  Disobedience
+	Similitud: 0.541	==> Pelicula J = 5022225  Remake
+	Similitud: 0.531	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.515	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.494	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.467	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.461	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.461	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.46	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.448	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.444	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.443	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.431	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.377	==> Pelicula J = 27361692  Rage
+	Similitud: 0.362	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.348	==> Pelicula J = 12317186  Hawayein
+	Similitud: 0.302	==> Pelicula J = 1960180  Kid Auto Races at Venice
+	Similitud: 0.257	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.254	==> Pelicula J = 30418893  Tantric Tourists
+============================
+Pelicula I = 18002503  Kalippattam
+	Similitud: 0.957	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.497	==> Pelicula J = 5022225  Remake
+	Similitud: 0.497	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.489	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.457	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.453	==> Pelicula J = 27361692  Rage
+	Similitud: 0.448	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.446	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.445	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.437	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.428	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.412	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.411	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.404	==> Pelicula J = 9223332  The Divine Nymph
+============================
+Pelicula I = 15859061  Periya Idathu Penn
+	Similitud: 0.52	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.511	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.503	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.489	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.467	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.46	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.458	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.458	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.452	==> Pelicula J = 5022225  Remake
+	Similitud: 0.416	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.405	==> Pelicula J = 27361692  Rage
+	Similitud: 0.401	==> Pelicula J = 34281838  Uu Kodathara? Ulikki Padathara?
+	Similitud: 0.399	==> Pelicula J = 12719672  Bahaddur Gandu
+	Similitud: 0.38	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.359	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.34	==> Pelicula J = 31939460  Mambazhakkalam
+	Similitud: 0.314	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.294	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.253	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.252	==> Pelicula J = 27731736  Red Riding Hood
+============================
+Pelicula I = 12776314  Shanghai Dreams
+	Similitud: 0.351	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.34	==> Pelicula J = 1208705  Look at Me
+	Similitud: 0.292	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.273	==> Pelicula J = 781758  Little Women
+	Similitud: 0.264	==> Pelicula J = 15844986  Day and Night
+============================
+Pelicula I = 3462620  The Land Before Time VII: The Stone of Cold Fire
+	Similitud: 0.347	==> Pelicula J = 6846215  Inkheart
+	Similitud: 0.301	==> Pelicula J = 16987257  The Last Dinosaur
+	Similitud: 0.279	==> Pelicula J = 9056967  The Bodyguard
+	Similitud: 0.279	==> Pelicula J = 2037975  Harry and the Hendersons
+	Similitud: 0.251	==> Pelicula J = 1740881  Krakatoa, East of Java
+============================
+Pelicula I = 8922224  Frequently Asked Questions About Time Travel
+	Similitud: 0.471	==> Pelicula J = 12049835  Just Add Water
+	Similitud: 0.384	==> Pelicula J = 26458693  Space Master X-7
+	Similitud: 0.376	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.353	==> Pelicula J = 16987257  The Last Dinosaur
+	Similitud: 0.323	==> Pelicula J = 9424050  The Day the Fish Came Out
+	Similitud: 0.322	==> Pelicula J = 29794326  His Picture in the Papers
+	Similitud: 0.254	==> Pelicula J = 1727946  Beauty Shop
+============================
+Pelicula I = 27398309  Ciguli Miguli
+	Similitud: 0.308	==> Pelicula J = 33674932  Segunda mano
+============================
+Pelicula I = 13489189  Sex and Zen II
+	Similitud: 0.507	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.44	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.418	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.395	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.38	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.289	==> Pelicula J = 20333975  Lost and Found
+	Similitud: 0.287	==> Pelicula J = 27306334  Mr. Vampire II
+	Similitud: 0.259	==> Pelicula J = 10620698  Shaolin Rescuers
+	Similitud: 0.254	==> Pelicula J = 36183483  The Lion Roars
+============================
+Pelicula I = 5667453  The Flight of the Phoenix
+	Similitud: 0.359	==> Pelicula J = 3099586  Skyjacked
+	Similitud: 0.299	==> Pelicula J = 67916  Strategic Air Command
+============================
+Pelicula I = 19168185  9 Dead Gay Guys
+	Similitud: 0.56	==> Pelicula J = 23281301  The Toilers and the Wayfarers
+	Similitud: 0.283	==> Pelicula J = 3807682  Confessions of a Window Cleaner
+============================
+Pelicula I = 349941  Being John Malkovich
+	Similitud: 0.259	==> Pelicula J = 25562315  Here
+============================
+Pelicula I = 25604628  The Sundowner
+	Similitud: 0.562	==> Pelicula J = 2528901  Elevated
+	Similitud: 0.548	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.545	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.462	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.432	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.388	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.379	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.372	==> Pelicula J = 17628177  Apple Jack
+	Similitud: 0.302	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.284	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.254	==> Pelicula J = 9056967  The Bodyguard
+============================
+Pelicula I = 101935  Network
+	Similitud: 0.311	==> Pelicula J = 27635803  Dead Air
+	Similitud: 0.257	==> Pelicula J = 25562315  Here
+============================
+Pelicula I = 28581081  Dropout
+	Similitud: 0.458	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.431	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.423	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.405	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.368	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.358	==> Pelicula J = 31748875  Sinbad and The Minotaur
+	Similitud: 0.274	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.272	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.265	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+============================
+Pelicula I = 11253386  Professor
+	Similitud: 0.573	==> Pelicula J = 10639796  Aadmi Aur Insaan
+	Similitud: 0.367	==> Pelicula J = 2150739  Awaara
+	Similitud: 0.298	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.276	==> Pelicula J = 20773812  Munde U.K. De
+	Similitud: 0.273	==> Pelicula J = 10873336  Blind Mountain
+============================
+Pelicula I = 2823903  The Sunchaser
+	Similitud: 0.326	==> Pelicula J = 8007011  Money
+	Similitud: 0.306	==> Pelicula J = 29017970  Reichenbach Falls
+	Similitud: 0.289	==> Pelicula J = 27997093  The Crooked Web
+	Similitud: 0.289	==> Pelicula J = 414985  Bugs and Thugs
+	Similitud: 0.281	==> Pelicula J = 823939  Twilight
+============================
+Pelicula I = 22030168  Ai City
+	Similitud: 0.25	==> Pelicula J = 19094868  Dead Space: Downfall
+============================
+Pelicula I = 11585638  Came a Hot Friday
+	Similitud: 0.273	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.262	==> Pelicula J = 3769756  Wind
+	Similitud: 0.26	==> Pelicula J = 5080159  Bank Shot
+============================
+Pelicula I = 26790743  Air: The Musical
+	Similitud: 0.413	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.369	==> Pelicula J = 8835468  Shnei Kuni Leml
+	Similitud: 0.365	==> Pelicula J = 35033607  Trapped in the Closet Chapters 1–12
+	Similitud: 0.351	==> Pelicula J = 23955746  Fading of the Cries
+	Similitud: 0.308	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.277	==> Pelicula J = 3151934  The Opposite Sex
+	Similitud: 0.267	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.265	==> Pelicula J = 28761678  All Over the Town
+============================
+Pelicula I = 27306334  Mr. Vampire II
+	Similitud: 0.511	==> Pelicula J = 5961506  The Forsaken
+	Similitud: 0.343	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.336	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.322	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.308	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.306	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.296	==> Pelicula J = 2808281  The Batman vs. Dracula
+	Similitud: 0.292	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.287	==> Pelicula J = 13489189  Sex and Zen II
+============================
+Pelicula I = 24818202  That Certain Feeling
+	Similitud: 0.553	==> Pelicula J = 345124  The Pope Must Die
+	Similitud: 0.431	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.341	==> Pelicula J = 26553782  Sound Off
+	Similitud: 0.316	==> Pelicula J = 28761678  All Over the Town
+	Similitud: 0.276	==> Pelicula J = 9990262  200 Pounds Beauty
+============================
+Pelicula I = 26935757  Love Hotel
+	Similitud: 0.99	==> Pelicula J = 26263414  Blue Film: Estimation
+	Similitud: 0.438	==> Pelicula J = 26024282  Black Belt
+	Similitud: 0.399	==> Pelicula J = 27652591  Impure Uniform: Writhing Thighs
+	Similitud: 0.392	==> Pelicula J = 24341490  Lady Black Rose
+============================
+Pelicula I = 8513914  Hacks
+	Similitud: 0.278	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.257	==> Pelicula J = 36590116  High Voltage
+============================
+Pelicula I = 29017970  Reichenbach Falls
+	Similitud: 0.485	==> Pelicula J = 24036824  Death Rage
+	Similitud: 0.306	==> Pelicula J = 2823903  The Sunchaser
+	Similitud: 0.305	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.291	==> Pelicula J = 823939  Twilight
+	Similitud: 0.288	==> Pelicula J = 15263355  Two:Thirteen
+	Similitud: 0.267	==> Pelicula J = 8007011  Money
+============================
+Pelicula I = 2080825  The Legend of Hell House
+	Similitud: 0.52	==> Pelicula J = 35854402  The Midnight Game
+	Similitud: 0.41	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.312	==> Pelicula J = 2672672  Audrey Rose
+	Similitud: 0.269	==> Pelicula J = 33674932  Segunda mano
+	Similitud: 0.266	==> Pelicula J = 27731736  Red Riding Hood
+============================
+Pelicula I = 20599861  Rock A Bye Pinky
+	Similitud: 0.548	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.514	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.508	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.465	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.449	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.388	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.381	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.366	==> Pelicula J = 17628177  Apple Jack
+	Similitud: 0.34	==> Pelicula J = 2528901  Elevated
+	Similitud: 0.333	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.294	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.282	==> Pelicula J = 4427187  Vacation in Reno
+============================
+Pelicula I = 6195949  Now You Know
+	Similitud: 0.467	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.413	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.401	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.396	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.388	==> Pelicula J = 27807569  Excited
+	Similitud: 0.369	==> Pelicula J = 576204  Cousins
+	Similitud: 0.333	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.324	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.308	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.3	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.287	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.28	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.279	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.274	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.27	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.268	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.268	==> Pelicula J = 3151934  The Opposite Sex
+	Similitud: 0.261	==> Pelicula J = 12049835  Just Add Water
+	Similitud: 0.259	==> Pelicula J = 26245382  Vasantha Maligai
+============================
+Pelicula I = 21650397  Doomsday Gun
+	Similitud: 0.578	==> Pelicula J = 438402  Live from Baghdad
+	Similitud: 0.344	==> Pelicula J = 5787216  And Starring Pancho Villa as Himself
+	Similitud: 0.297	==> Pelicula J = 2079686  Mommie Dearest
+	Similitud: 0.295	==> Pelicula J = 2133961  Hostile Waters
+============================
+Pelicula I = 161882  Cat Ballou
+	Similitud: 0.298	==> Pelicula J = 1001506  The Legend of the Lone Ranger
+	Similitud: 0.29	==> Pelicula J = 27731736  Red Riding Hood
+	Similitud: 0.284	==> Pelicula J = 12897281  College Swing
+============================
+Pelicula I = 15491650  Return to Lonesome Dove
+	Similitud: 0.356	==> Pelicula J = 1001506  The Legend of the Lone Ranger
+	Similitud: 0.327	==> Pelicula J = 13392017  Nights in Rodanthe
+	Similitud: 0.279	==> Pelicula J = 26297740  Heart Beat
+	Similitud: 0.25	==> Pelicula J = 4427187  Vacation in Reno
+============================
+Pelicula I = 15570329  Soothradharan
+	Similitud: 0.44	==> Pelicula J = 26205694  Meesa Madhavan
+	Similitud: 0.428	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.296	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.286	==> Pelicula J = 1629631  Karan Arjun
+	Similitud: 0.275	==> Pelicula J = 21448351  Magic Kid 2
+	Similitud: 0.267	==> Pelicula J = 33417649  Un sábado más
+	Similitud: 0.256	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.256	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.255	==> Pelicula J = 12624367  Sweet Liberty
+============================
+Pelicula I = 2059591  Jett Jackson: The Movie
+	Similitud: 0.309	==> Pelicula J = 5638049  Braddock: Missing in Action III
+	Similitud: 0.279	==> Pelicula J = 26205694  Meesa Madhavan
+	Similitud: 0.27	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.252	==> Pelicula J = 6846215  Inkheart
+============================
+Pelicula I = 15368904  The Last Supper
+	Similitud: 0.388	==> Pelicula J = 5734570  Shiner
+	Similitud: 0.264	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.256	==> Pelicula J = 355807  Second Skin
+============================
+Pelicula I = 10165697  Day of Independence
+	Similitud: 0.465	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.462	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.446	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.44	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.343	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.337	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.323	==> Pelicula J = 17628177  Apple Jack
+	Similitud: 0.319	==> Pelicula J = 2528901  Elevated
+	Similitud: 0.289	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.267	==> Pelicula J = 15477338  Grand Canyonscope
+============================
+Pelicula I = 22622597  The Wheel
+	Similitud: 0.531	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.507	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.481	==> Pelicula J = 5022225  Remake
+	Similitud: 0.461	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.45	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.441	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.418	==> Pelicula J = 27361692  Rage
+	Similitud: 0.412	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.411	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.406	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.405	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.388	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.381	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.359	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.305	==> Pelicula J = 29017970  Reichenbach Falls
+	Similitud: 0.269	==> Pelicula J = 26780634  Le Havre
+	Similitud: 0.266	==> Pelicula J = 32644845  Good Morning, President
+============================
+Pelicula I = 8508987  Little Longnose
+	Similitud: 0.392	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.337	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.336	==> Pelicula J = 12848974  Let It Be Me
+	Similitud: 0.316	==> Pelicula J = 31939460  Mambazhakkalam
+	Similitud: 0.296	==> Pelicula J = 4870723  Bob and Larry's How to Draw!
+	Similitud: 0.273	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.266	==> Pelicula J = 26205694  Meesa Madhavan
+	Similitud: 0.263	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.263	==> Pelicula J = 13023545  Bunyan and Babe
+	Similitud: 0.262	==> Pelicula J = 25852344  Putty Tat Trouble
+============================
+Pelicula I = 5638049  Braddock: Missing in Action III
+	Similitud: 0.398	==> Pelicula J = 27260560  The Three Musketeers
+	Similitud: 0.346	==> Pelicula J = 12719672  Bahaddur Gandu
+	Similitud: 0.33	==> Pelicula J = 29831230  Paap Ki Kamaee
+	Similitud: 0.309	==> Pelicula J = 2059591  Jett Jackson: The Movie
+	Similitud: 0.289	==> Pelicula J = 33417649  Un sábado más
+	Similitud: 0.282	==> Pelicula J = 2254896  Helen of Troy
+	Similitud: 0.26	==> Pelicula J = 26466092  Conan the Barbarian
+	Similitud: 0.259	==> Pelicula J = 11293276  Madurai Veeran
+============================
+Pelicula I = 29763090  Revenge of the Virgins
+	Similitud: 0.4	==> Pelicula J = 2532751  Legend of the Lost
+	Similitud: 0.37	==> Pelicula J = 1001506  The Legend of the Lone Ranger
+	Similitud: 0.279	==> Pelicula J = 23904823  Rope and Breasts
+	Similitud: 0.251	==> Pelicula J = 27713939  Macho Callahan
+============================
+Pelicula I = 3830101  A Sunday in the Country
+	Similitud: 0.417	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.309	==> Pelicula J = 3137571  Harakiri
+	Similitud: 0.265	==> Pelicula J = 19167990  A Scandal in Paris
+============================
+Pelicula I = 24666735  American Faust: From Condi to Neo-Condi
+	Similitud: 0.368	==> Pelicula J = 5388717  I'm Not There
+	Similitud: 0.365	==> Pelicula J = 30599547  Frederick Douglass and the White Negro
+	Similitud: 0.359	==> Pelicula J = 438402  Live from Baghdad
+	Similitud: 0.336	==> Pelicula J = 30418893  Tantric Tourists
+	Similitud: 0.316	==> Pelicula J = 35099643  Banned From Television
+	Similitud: 0.289	==> Pelicula J = 9187433  Deuda
+	Similitud: 0.274	==> Pelicula J = 23286064  The Revenge of the Electric Car
+	Similitud: 0.269	==> Pelicula J = 1166096  All the King's Men
+	Similitud: 0.26	==> Pelicula J = 12238051  The Land of the Wandering Souls
+	Similitud: 0.258	==> Pelicula J = 29725152  Trumpets' Republic
+============================
+Pelicula I = 23551760  Tegan the Vegan
+	Similitud: 0.405	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.392	==> Pelicula J = 8508987  Little Longnose
+	Similitud: 0.34	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.32	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.318	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.288	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.278	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.276	==> Pelicula J = 25852344  Putty Tat Trouble
+	Similitud: 0.269	==> Pelicula J = 21448351  Magic Kid 2
+	Similitud: 0.266	==> Pelicula J = 26205694  Meesa Madhavan
+	Similitud: 0.265	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.264	==> Pelicula J = 13023545  Bunyan and Babe
+	Similitud: 0.262	==> Pelicula J = 4870723  Bob and Larry's How to Draw!
+============================
+Pelicula I = 2808281  The Batman vs. Dracula
+	Similitud: 0.522	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.425	==> Pelicula J = 68082  Abbott and Costello Meet Frankenstein
+	Similitud: 0.316	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.3	==> Pelicula J = 1925273  The Fantastic Four
+	Similitud: 0.296	==> Pelicula J = 27306334  Mr. Vampire II
+============================
+Pelicula I = 9056967  The Bodyguard
+	Similitud: 0.624	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.393	==> Pelicula J = 18800331  Islands in the Stream
+	Similitud: 0.337	==> Pelicula J = 1596505  The Million Dollar Hotel
+	Similitud: 0.3	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.296	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.279	==> Pelicula J = 3462620  The Land Before Time VII: The Stone of Cold Fire
+	Similitud: 0.272	==> Pelicula J = 5777733  Woman Haters
+	Similitud: 0.254	==> Pelicula J = 25604628  The Sundowner
+============================
+Pelicula I = 1514718  The Wash
+	Similitud: 0.472	==> Pelicula J = 5961506  The Forsaken
+	Similitud: 0.278	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.273	==> Pelicula J = 934809  Operation Petticoat
+	Similitud: 0.269	==> Pelicula J = 9893064  Savage Streets
+	Similitud: 0.267	==> Pelicula J = 26466092  Conan the Barbarian
+	Similitud: 0.251	==> Pelicula J = 33417649  Un sábado más
+============================
+Pelicula I = 24341490  Lady Black Rose
+	Similitud: 0.519	==> Pelicula J = 23904823  Rope and Breasts
+	Similitud: 0.401	==> Pelicula J = 26263414  Blue Film: Estimation
+	Similitud: 0.392	==> Pelicula J = 26935757  Love Hotel
+============================
+Pelicula I = 5388717  I'm Not There
+	Similitud: 0.449	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.368	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+	Similitud: 0.273	==> Pelicula J = 1065214  Amadeus
+============================
+Pelicula I = 16747410  Defendor
+	Similitud: 0.285	==> Pelicula J = 13392017  Nights in Rodanthe
+	Similitud: 0.273	==> Pelicula J = 2532751  Legend of the Lost
+	Similitud: 0.261	==> Pelicula J = 1925273  The Fantastic Four
+	Similitud: 0.255	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.252	==> Pelicula J = 13023545  Bunyan and Babe
+============================
+Pelicula I = 414985  Bugs and Thugs
+	Similitud: 0.407	==> Pelicula J = 27997093  The Crooked Web
+	Similitud: 0.403	==> Pelicula J = 8519164  Sucker Free City
+	Similitud: 0.348	==> Pelicula J = 32644388  King of the Coral Sea
+	Similitud: 0.327	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.324	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.289	==> Pelicula J = 2823903  The Sunchaser
+	Similitud: 0.262	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.257	==> Pelicula J = 2774060  Trapped
+	Similitud: 0.255	==> Pelicula J = 4427187  Vacation in Reno
+	Similitud: 0.25	==> Pelicula J = 3837141  Elevator to the Gallows
+============================
+Pelicula I = 2957178  About Adam
+	Similitud: 0.343	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.326	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.306	==> Pelicula J = 576204  Cousins
+	Similitud: 0.303	==> Pelicula J = 27807569  Excited
+	Similitud: 0.303	==> Pelicula J = 19087098  A Waste of Shame
+	Similitud: 0.302	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.289	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.276	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.276	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.275	==> Pelicula J = 12049835  Just Add Water
+	Similitud: 0.27	==> Pelicula J = 770239  Mr. & Mrs. Bridge
+	Similitud: 0.27	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.268	==> Pelicula J = 23409028  Shall We Kiss?
+============================
+Pelicula I = 3769756  Wind
+	Similitud: 0.531	==> Pelicula J = 19679859  Checkpoint
+	Similitud: 0.326	==> Pelicula J = 4360451  Code Breakers
+	Similitud: 0.262	==> Pelicula J = 11585638  Came a Hot Friday
+============================
+Pelicula I = 26138280  Foreign Body
+	Similitud: 0.426	==> Pelicula J = 576204  Cousins
+	Similitud: 0.407	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.399	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.396	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.381	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.37	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.331	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.32	==> Pelicula J = 27807569  Excited
+	Similitud: 0.313	==> Pelicula J = 21672242  Merlin and the War of the Dragons
+	Similitud: 0.308	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.306	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.281	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.268	==> Pelicula J = 1906889  Threesome
+	Similitud: 0.267	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.263	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.257	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.256	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.255	==> Pelicula J = 11332969  Seasons Change
+============================
+Pelicula I = 2037975  Harry and the Hendersons
+	Similitud: 0.485	==> Pelicula J = 823939  Twilight
+	Similitud: 0.284	==> Pelicula J = 18521491  Midnight in Saint Petersburg
+	Similitud: 0.279	==> Pelicula J = 3462620  The Land Before Time VII: The Stone of Cold Fire
+	Similitud: 0.261	==> Pelicula J = 73439  Duck Amuck
+============================
+Pelicula I = 11412224  Zombie Strippers
+	Similitud: 0.301	==> Pelicula J = 8418367  Hair High
+	Similitud: 0.262	==> Pelicula J = 12003939  The 8th Plague
+	Similitud: 0.26	==> Pelicula J = 12315045  Dead Air
+============================
+Pelicula I = 31323938  The Divided Sky
+	Similitud: 0.55	==> Pelicula J = 2150739  Awaara
+	Similitud: 0.441	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.431	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.389	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.38	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.358	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.32	==> Pelicula J = 11332969  Seasons Change
+	Similitud: 0.276	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+	Similitud: 0.258	==> Pelicula J = 22162922  I Wanted Wings
+	Similitud: 0.257	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.257	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.251	==> Pelicula J = 26245382  Vasantha Maligai
+============================
+Pelicula I = 2774060  Trapped
+	Similitud: 0.325	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.307	==> Pelicula J = 3837141  Elevator to the Gallows
+	Similitud: 0.289	==> Pelicula J = 823939  Twilight
+	Similitud: 0.273	==> Pelicula J = 8007011  Money
+	Similitud: 0.273	==> Pelicula J = 3600737  Jeopardy
+	Similitud: 0.257	==> Pelicula J = 414985  Bugs and Thugs
+============================
+Pelicula I = 11380361  Secret Sunshine
+	Similitud: 0.267	==> Pelicula J = 2672672  Audrey Rose
+	Similitud: 0.26	==> Pelicula J = 10873336  Blind Mountain
+============================
+Pelicula I = 20333975  Lost and Found
+	Similitud: 0.659	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.336	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.314	==> Pelicula J = 33460500  The Woman Knight of Mirror Lake
+	Similitud: 0.313	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.313	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.312	==> Pelicula J = 25562315  Here
+	Similitud: 0.291	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.289	==> Pelicula J = 13489189  Sex and Zen II
+============================
+Pelicula I = 2532751  Legend of the Lost
+	Similitud: 0.414	==> Pelicula J = 13023545  Bunyan and Babe
+	Similitud: 0.4	==> Pelicula J = 29763090  Revenge of the Virgins
+	Similitud: 0.368	==> Pelicula J = 1001506  The Legend of the Lone Ranger
+	Similitud: 0.356	==> Pelicula J = 13392017  Nights in Rodanthe
+	Similitud: 0.311	==> Pelicula J = 4870723  Bob and Larry's How to Draw!
+	Similitud: 0.273	==> Pelicula J = 16747410  Defendor
+============================
+Pelicula I = 32490842  Malibu Shark Attack
+	Similitud: 0.325	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.311	==> Pelicula J = 9893064  Savage Streets
+	Similitud: 0.3	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.29	==> Pelicula J = 2905998  The Fallen Ones
+	Similitud: 0.271	==> Pelicula J = 23119616  Messages
+	Similitud: 0.266	==> Pelicula J = 433414  Tremors
+	Similitud: 0.255	==> Pelicula J = 33674932  Segunda mano
+============================
+Pelicula I = 36183483  The Lion Roars
+	Similitud: 0.659	==> Pelicula J = 20333975  Lost and Found
+	Similitud: 0.338	==> Pelicula J = 35570671  Lucignolo
+	Similitud: 0.323	==> Pelicula J = 29794326  His Picture in the Papers
+	Similitud: 0.303	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.301	==> Pelicula J = 23962337  Le Père Noël est une ordure
+	Similitud: 0.296	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.289	==> Pelicula J = 33460500  The Woman Knight of Mirror Lake
+	Similitud: 0.285	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.269	==> Pelicula J = 26780634  Le Havre
+	Similitud: 0.262	==> Pelicula J = 10873336  Blind Mountain
+	Similitud: 0.257	==> Pelicula J = 34236417  Miss Priyambada
+	Similitud: 0.254	==> Pelicula J = 13489189  Sex and Zen II
+============================
+Pelicula I = 13541124  Other People's Money
+	Similitud: 0.419	==> Pelicula J = 5080159  Bank Shot
+	Similitud: 0.415	==> Pelicula J = 67916  Strategic Air Command
+	Similitud: 0.41	==> Pelicula J = 19062975  Harry and Walter Go to New York
+============================
+Pelicula I = 3600737  Jeopardy
+	Similitud: 0.337	==> Pelicula J = 3837141  Elevator to the Gallows
+	Similitud: 0.273	==> Pelicula J = 2774060  Trapped
+	Similitud: 0.251	==> Pelicula J = 73438  Double Indemnity
+============================
+Pelicula I = 22129442  Moonnam Pakkam
+	Similitud: 0.493	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.477	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.457	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.456	==> Pelicula J = 5022225  Remake
+	Similitud: 0.45	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.438	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.426	==> Pelicula J = 27361692  Rage
+	Similitud: 0.423	==> Pelicula J = 27425045  Kalyanaraman
+	Similitud: 0.422	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.42	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.414	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.39	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.38	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.362	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.314	==> Pelicula J = 15859061  Periya Idathu Penn
+============================
+Pelicula I = 32644388  King of the Coral Sea
+	Similitud: 0.348	==> Pelicula J = 414985  Bugs and Thugs
+	Similitud: 0.331	==> Pelicula J = 27260560  The Three Musketeers
+	Similitud: 0.305	==> Pelicula J = 2254896  Helen of Troy
+	Similitud: 0.271	==> Pelicula J = 21672242  Merlin and the War of the Dragons
+	Similitud: 0.266	==> Pelicula J = 8519164  Sucker Free City
+	Similitud: 0.254	==> Pelicula J = 27997093  The Crooked Web
+============================
+Pelicula I = 10873336  Blind Mountain
+	Similitud: 0.477	==> Pelicula J = 19521134  My Mother is a Belly Dancer
+	Similitud: 0.38	==> Pelicula J = 13489189  Sex and Zen II
+	Similitud: 0.374	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.344	==> Pelicula J = 1553031  Fight Back to School III
+	Similitud: 0.336	==> Pelicula J = 27306334  Mr. Vampire II
+	Similitud: 0.315	==> Pelicula J = 33460500  The Woman Knight of Mirror Lake
+	Similitud: 0.303	==> Pelicula J = 15844986  Day and Night
+	Similitud: 0.273	==> Pelicula J = 11253386  Professor
+	Similitud: 0.262	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.26	==> Pelicula J = 11380361  Secret Sunshine
+	Similitud: 0.253	==> Pelicula J = 15859061  Periya Idathu Penn
+============================
+Pelicula I = 5777733  Woman Haters
+	Similitud: 0.67	==> Pelicula J = 14503554  Three Smart Saps
+	Similitud: 0.46	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.44	==> Pelicula J = 4427187  Vacation in Reno
+	Similitud: 0.377	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.301	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.3	==> Pelicula J = 3807682  Confessions of a Window Cleaner
+	Similitud: 0.298	==> Pelicula J = 1077363  Making a Living
+	Similitud: 0.291	==> Pelicula J = 2210286  Whistle Stop
+	Similitud: 0.272	==> Pelicula J = 9056967  The Bodyguard
+	Similitud: 0.255	==> Pelicula J = 846311  Armed and Dangerous
+============================
+Pelicula I = 5961506  The Forsaken
+	Similitud: 0.511	==> Pelicula J = 27306334  Mr. Vampire II
+	Similitud: 0.472	==> Pelicula J = 1514718  The Wash
+	Similitud: 0.259	==> Pelicula J = 12315045  Dead Air
+============================
+Pelicula I = 8519164  Sucker Free City
+	Similitud: 0.435	==> Pelicula J = 27997093  The Crooked Web
+	Similitud: 0.403	==> Pelicula J = 414985  Bugs and Thugs
+	Similitud: 0.337	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.284	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.266	==> Pelicula J = 32644388  King of the Coral Sea
+	Similitud: 0.264	==> Pelicula J = 1670656  8 Million Ways to Die
+	Similitud: 0.263	==> Pelicula J = 8007011  Money
+	Similitud: 0.259	==> Pelicula J = 2556577  Thieves' Highway
+============================
+Pelicula I = 22982386  Artificially Speaking
+	Similitud: 0.402	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.394	==> Pelicula J = 17628177  Apple Jack
+	Similitud: 0.388	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.388	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.367	==> Pelicula J = 2528901  Elevated
+	Similitud: 0.344	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.343	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.327	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.288	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.259	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.256	==> Pelicula J = 15477338  Grand Canyonscope
+============================
+Pelicula I = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.583	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.515	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.511	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.507	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.505	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.475	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.451	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.445	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.399	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.395	==> Pelicula J = 27361692  Rage
+	Similitud: 0.395	==> Pelicula J = 5022225  Remake
+	Similitud: 0.385	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.385	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.38	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.368	==> Pelicula J = 18497116  Anak
+	Similitud: 0.34	==> Pelicula J = 5734570  Shiner
+	Similitud: 0.275	==> Pelicula J = 31939460  Mambazhakkalam
+	Similitud: 0.269	==> Pelicula J = 28761678  All Over the Town
+	Similitud: 0.255	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+============================
+Pelicula I = 781758  Little Women
+	Similitud: 0.354	==> Pelicula J = 9990262  200 Pounds Beauty
+	Similitud: 0.348	==> Pelicula J = 19087098  A Waste of Shame
+	Similitud: 0.3	==> Pelicula J = 19237560  The Fever
+	Similitud: 0.273	==> Pelicula J = 12776314  Shanghai Dreams
+	Similitud: 0.256	==> Pelicula J = 33443303  Sweet 15
+	Similitud: 0.253	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.251	==> Pelicula J = 13392017  Nights in Rodanthe
+============================
+Pelicula I = 3151934  The Opposite Sex
+	Similitud: 0.359	==> Pelicula J = 80923  A Letter to Three Wives
+	Similitud: 0.349	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.319	==> Pelicula J = 576204  Cousins
+	Similitud: 0.286	==> Pelicula J = 1881893  Monster-in-Law
+	Similitud: 0.277	==> Pelicula J = 26790743  Air: The Musical
+	Similitud: 0.268	==> Pelicula J = 6195949  Now You Know
+	Similitud: 0.251	==> Pelicula J = 19940419  Spectacular!
+============================
+Pelicula I = 35033607  Trapped in the Closet Chapters 1–12
+	Similitud: 0.554	==> Pelicula J = 25852344  Putty Tat Trouble
+	Similitud: 0.373	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.365	==> Pelicula J = 26790743  Air: The Musical
+	Similitud: 0.285	==> Pelicula J = 8835468  Shnei Kuni Leml
+	Similitud: 0.273	==> Pelicula J = 19940419  Spectacular!
+	Similitud: 0.266	==> Pelicula J = 4870723  Bob and Larry's How to Draw!
+============================
+Pelicula I = 355807  Second Skin
+	Similitud: 0.356	==> Pelicula J = 5734570  Shiner
+	Similitud: 0.34	==> Pelicula J = 5006100  Shaan
+	Similitud: 0.316	==> Pelicula J = 33417649  Un sábado más
+	Similitud: 0.287	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.282	==> Pelicula J = 25818173  Drums of Love
+	Similitud: 0.273	==> Pelicula J = 3759090  Another Time, Another Place
+	Similitud: 0.256	==> Pelicula J = 15368904  The Last Supper
+============================
+Pelicula I = 24344249  Tomorrow
+	Similitud: 0.368	==> Pelicula J = 25896358  Happythankyoumoreplease
+	Similitud: 0.281	==> Pelicula J = 2556577  Thieves' Highway
+	Similitud: 0.263	==> Pelicula J = 2129381  Suspect
+============================
+Pelicula I = 5875034  The Kingdom
+	Similitud: 0.463	==> Pelicula J = 438402  Live from Baghdad
+	Similitud: 0.406	==> Pelicula J = 18800331  Islands in the Stream
+	Similitud: 0.401	==> Pelicula J = 31748875  Sinbad and The Minotaur
+	Similitud: 0.386	==> Pelicula J = 934809  Operation Petticoat
+	Similitud: 0.352	==> Pelicula J = 19679859  Checkpoint
+	Similitud: 0.332	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.282	==> Pelicula J = 12096671  The Zero Boys
+	Similitud: 0.278	==> Pelicula J = 1514718  The Wash
+	Similitud: 0.266	==> Pelicula J = 960657  The Life and Death of Colonel Blimp
+============================
+Pelicula I = 30418893  Tantric Tourists
+	Similitud: 0.591	==> Pelicula J = 30599547  Frederick Douglass and the White Negro
+	Similitud: 0.541	==> Pelicula J = 9187433  Deuda
+	Similitud: 0.529	==> Pelicula J = 29725152  Trumpets' Republic
+	Similitud: 0.46	==> Pelicula J = 35099643  Banned From Television
+	Similitud: 0.46	==> Pelicula J = 23286064  The Revenge of the Electric Car
+	Similitud: 0.414	==> Pelicula J = 12238051  The Land of the Wandering Souls
+	Similitud: 0.336	==> Pelicula J = 24666735  American Faust: From Condi to Neo-Condi
+	Similitud: 0.284	==> Pelicula J = 12317186  Hawayein
+	Similitud: 0.254	==> Pelicula J = 34749021  Disobedience
+============================
+Pelicula I = 1065214  Amadeus
+	Similitud: 0.52	==> Pelicula J = 145640  The Gospel According to St. Matthew
+	Similitud: 0.399	==> Pelicula J = 12760089  Oh, God! Book II
+	Similitud: 0.273	==> Pelicula J = 5388717  I'm Not There
+	Similitud: 0.254	==> Pelicula J = 19167990  A Scandal in Paris
+============================
+Pelicula I = 32644845  Good Morning, President
+	Similitud: 0.292	==> Pelicula J = 1001506  The Legend of the Lone Ranger
+	Similitud: 0.283	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.274	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.266	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.26	==> Pelicula J = 25805385  White Wedding
+	Similitud: 0.259	==> Pelicula J = 3644151  If I Had A Million
+============================
+Pelicula I = 36590116  High Voltage
+	Similitud: 0.407	==> Pelicula J = 1925273  The Fantastic Four
+	Similitud: 0.348	==> Pelicula J = 5080159  Bank Shot
+	Similitud: 0.337	==> Pelicula J = 8519164  Sucker Free City
+	Similitud: 0.324	==> Pelicula J = 9893064  Savage Streets
+	Similitud: 0.312	==> Pelicula J = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.292	==> Pelicula J = 29831230  Paap Ki Kamaee
+	Similitud: 0.268	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.267	==> Pelicula J = 27997093  The Crooked Web
+	Similitud: 0.265	==> Pelicula J = 19062975  Harry and Walter Go to New York
+	Similitud: 0.262	==> Pelicula J = 414985  Bugs and Thugs
+	Similitud: 0.257	==> Pelicula J = 8513914  Hacks
+============================
+Pelicula I = 3644151  If I Had A Million
+	Similitud: 0.46	==> Pelicula J = 5777733  Woman Haters
+	Similitud: 0.411	==> Pelicula J = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.358	==> Pelicula J = 4427187  Vacation in Reno
+	Similitud: 0.348	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.322	==> Pelicula J = 2210286  Whistle Stop
+	Similitud: 0.321	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.297	==> Pelicula J = 11003593  Kapò
+	Similitud: 0.295	==> Pelicula J = 22162922  I Wanted Wings
+	Similitud: 0.287	==> Pelicula J = 23694916  Passport to Destiny
+	Similitud: 0.283	==> Pelicula J = 1876167  The Clairvoyant
+	Similitud: 0.282	==> Pelicula J = 2055366  Dracula's Daughter
+	Similitud: 0.273	==> Pelicula J = 3837141  Elevator to the Gallows
+	Similitud: 0.273	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.26	==> Pelicula J = 1789118  Pay Day
+	Similitud: 0.259	==> Pelicula J = 32644845  Good Morning, President
+	Similitud: 0.256	==> Pelicula J = 12897281  College Swing
+	Similitud: 0.251	==> Pelicula J = 19397838  Hi'-Neighbor!
+============================
+Pelicula I = 770239  Mr. & Mrs. Bridge
+	Similitud: 0.307	==> Pelicula J = 13392017  Nights in Rodanthe
+	Similitud: 0.27	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.264	==> Pelicula J = 5006100  Shaan
+	Similitud: 0.255	==> Pelicula J = 19087098  A Waste of Shame
+============================
+Pelicula I = 10620698  Shaolin Rescuers
+	Similitud: 0.531	==> Pelicula J = 19936431  Mermaid Got Married
+	Similitud: 0.394	==> Pelicula J = 26735976  Ichi
+	Similitud: 0.283	==> Pelicula J = 33460500  The Woman Knight of Mirror Lake
+	Similitud: 0.259	==> Pelicula J = 13489189  Sex and Zen II
+============================
+Pelicula I = 3759090  Another Time, Another Place
+	Similitud: 0.483	==> Pelicula J = 17851597  The Nine Ages of Nakedness
+	Similitud: 0.321	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.319	==> Pelicula J = 22162922  I Wanted Wings
+	Similitud: 0.318	==> Pelicula J = 13392017  Nights in Rodanthe
+	Similitud: 0.294	==> Pelicula J = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.273	==> Pelicula J = 355807  Second Skin
+	Similitud: 0.269	==> Pelicula J = 5006100  Shaan
+	Similitud: 0.255	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+============================
+Pelicula I = 29794326  His Picture in the Papers
+	Similitud: 0.502	==> Pelicula J = 35570671  Lucignolo
+	Similitud: 0.428	==> Pelicula J = 26780634  Le Havre
+	Similitud: 0.42	==> Pelicula J = 23962337  Le Père Noël est une ordure
+	Similitud: 0.358	==> Pelicula J = 34236417  Miss Priyambada
+	Similitud: 0.323	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.322	==> Pelicula J = 8922224  Frequently Asked Questions About Time Travel
+	Similitud: 0.278	==> Pelicula J = 1077363  Making a Living
+============================
+Pelicula I = 27296947  Mortu Nega
+	Similitud: 0.299	==> Pelicula J = 5787216  And Starring Pancho Villa as Himself
+============================
+Pelicula I = 17628177  Apple Jack
+	Similitud: 0.394	==> Pelicula J = 22982386  Artificially Speaking
+	Similitud: 0.386	==> Pelicula J = 34954125  Le Poisson noyé
+	Similitud: 0.384	==> Pelicula J = 24465586  La Conchiglia
+	Similitud: 0.372	==> Pelicula J = 25604628  The Sundowner
+	Similitud: 0.366	==> Pelicula J = 20599861  Rock A Bye Pinky
+	Similitud: 0.323	==> Pelicula J = 10165697  Day of Independence
+	Similitud: 0.301	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.278	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.27	==> Pelicula J = 2528901  Elevated
+	Similitud: 0.258	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.253	==> Pelicula J = 20204625  Grampy's Indoor Outing
+	Similitud: 0.251	==> Pelicula J = 1727946  Beauty Shop
+============================
+Pelicula I = 6065705  Doctor Mordrid
+	Similitud: 0.334	==> Pelicula J = 26466092  Conan the Barbarian
+	Similitud: 0.334	==> Pelicula J = 6846215  Inkheart
+	Similitud: 0.323	==> Pelicula J = 26458693  Space Master X-7
+	Similitud: 0.295	==> Pelicula J = 35735268  At the End of the Rainbow
+============================
+Pelicula I = 3807682  Confessions of a Window Cleaner
+	Similitud: 0.3	==> Pelicula J = 5777733  Woman Haters
+	Similitud: 0.283	==> Pelicula J = 19168185  9 Dead Gay Guys
+============================
+Pelicula I = 2663296  The Duellists
+	Similitud: 0.477	==> Pelicula J = 27260560  The Three Musketeers
+============================
+Pelicula I = 16898172  Walking Tall: Final Chapter
+	Similitud: 0.338	==> Pelicula J = 8007011  Money
+	Similitud: 0.325	==> Pelicula J = 2774060  Trapped
+	Similitud: 0.324	==> Pelicula J = 414985  Bugs and Thugs
+	Similitud: 0.312	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.31	==> Pelicula J = 24036824  Death Rage
+	Similitud: 0.307	==> Pelicula J = 3099586  Skyjacked
+	Similitud: 0.29	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.273	==> Pelicula J = 9893064  Savage Streets
+	Similitud: 0.271	==> Pelicula J = 823939  Twilight
+	Similitud: 0.268	==> Pelicula J = 3837141  Elevator to the Gallows
+	Similitud: 0.261	==> Pelicula J = 33417649  Un sábado más
+============================
+Pelicula I = 6135427  Man-Thing
+	Similitud: 0.287	==> Pelicula J = 1925273  The Fantastic Four
+	Similitud: 0.279	==> Pelicula J = 433414  Tremors
+============================
+Pelicula I = 1528430  Beavis and Butt-head Do America
+============================
+Pelicula I = 3585054  We're No Angels
+============================
+Pelicula I = 8835468  Shnei Kuni Leml
+	Similitud: 0.369	==> Pelicula J = 26790743  Air: The Musical
+	Similitud: 0.326	==> Pelicula J = 10639796  Aadmi Aur Insaan
+	Similitud: 0.285	==> Pelicula J = 35033607  Trapped in the Closet Chapters 1–12
+	Similitud: 0.266	==> Pelicula J = 1727946  Beauty Shop
+	Similitud: 0.263	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.256	==> Pelicula J = 20773812  Munde U.K. De
+============================
+Pelicula I = 27425045  Kalyanaraman
+	Similitud: 0.423	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.286	==> Pelicula J = 12624367  Sweet Liberty
+	Similitud: 0.268	==> Pelicula J = 20773812  Munde U.K. De
+	Similitud: 0.253	==> Pelicula J = 25805385  White Wedding
+============================
+Pelicula I = 23962337  Le Père Noël est une ordure
+	Similitud: 0.42	==> Pelicula J = 29794326  His Picture in the Papers
+	Similitud: 0.356	==> Pelicula J = 35570671  Lucignolo
+	Similitud: 0.355	==> Pelicula J = 34236417  Miss Priyambada
+	Similitud: 0.343	==> Pelicula J = 26780634  Le Havre
+	Similitud: 0.301	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.278	==> Pelicula J = 25852344  Putty Tat Trouble
+============================
+Pelicula I = 12719672  Bahaddur Gandu
+	Similitud: 0.498	==> Pelicula J = 29831230  Paap Ki Kamaee
+	Similitud: 0.456	==> Pelicula J = 33417649  Un sábado más
+	Similitud: 0.399	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.36	==> Pelicula J = 11293276  Madurai Veeran
+	Similitud: 0.346	==> Pelicula J = 5638049  Braddock: Missing in Action III
+	Similitud: 0.334	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.258	==> Pelicula J = 1629631  Karan Arjun
+	Similitud: 0.258	==> Pelicula J = 6963236  Kshatriya
+	Similitud: 0.255	==> Pelicula J = 28200672  Paduka Pattabhishekam
+============================
+Pelicula I = 12897281  College Swing
+	Similitud: 0.315	==> Pelicula J = 345124  The Pope Must Die
+	Similitud: 0.309	==> Pelicula J = 22162922  I Wanted Wings
+	Similitud: 0.284	==> Pelicula J = 161882  Cat Ballou
+	Similitud: 0.275	==> Pelicula J = 20773812  Munde U.K. De
+	Similitud: 0.256	==> Pelicula J = 3644151  If I Had A Million
+============================
+Pelicula I = 11668038  Stanley and Stella in: Breaking the Ice
+	Similitud: 0.453	==> Pelicula J = 24844921  Porky's Party
+	Similitud: 0.307	==> Pelicula J = 9811512  Pantry Panic
+	Similitud: 0.289	==> Pelicula J = 13023545  Bunyan and Babe
+	Similitud: 0.284	==> Pelicula J = 15477338  Grand Canyonscope
+	Similitud: 0.266	==> Pelicula J = 20204625  Grampy's Indoor Outing
+============================
+Pelicula I = 9497885  964 Pinocchio
+	Similitud: 0.266	==> Pelicula J = 23409028  Shall We Kiss?
+	Similitud: 0.26	==> Pelicula J = 26024282  Black Belt
+============================
+Pelicula I = 26780634  Le Havre
+	Similitud: 0.428	==> Pelicula J = 29794326  His Picture in the Papers
+	Similitud: 0.425	==> Pelicula J = 34236417  Miss Priyambada
+	Similitud: 0.391	==> Pelicula J = 35570671  Lucignolo
+	Similitud: 0.343	==> Pelicula J = 23962337  Le Père Noël est une ordure
+	Similitud: 0.269	==> Pelicula J = 36183483  The Lion Roars
+	Similitud: 0.269	==> Pelicula J = 22622597  The Wheel
+============================
+Pelicula I = 17851597  The Nine Ages of Nakedness
+	Similitud: 0.483	==> Pelicula J = 3759090  Another Time, Another Place
+	Similitud: 0.371	==> Pelicula J = 3365397  The Last Remake of Beau Geste
+	Similitud: 0.319	==> Pelicula J = 9362663  Sixty Million Dollar Man
+	Similitud: 0.3	==> Pelicula J = 13814165  Meet the Spartans
+	Similitud: 0.269	==> Pelicula J = 12049835  Just Add Water
+============================
+Pelicula I = 1001506  The Legend of the Lone Ranger
+	Similitud: 0.37	==> Pelicula J = 29763090  Revenge of the Virgins
+	Similitud: 0.368	==> Pelicula J = 2532751  Legend of the Lost
+	Similitud: 0.356	==> Pelicula J = 15491650  Return to Lonesome Dove
+	Similitud: 0.298	==> Pelicula J = 161882  Cat Ballou
+	Similitud: 0.292	==> Pelicula J = 32644845  Good Morning, President
+	Similitud: 0.276	==> Pelicula J = 27713939  Macho Callahan
+============================
+Pelicula I = 19087098  A Waste of Shame
+	Similitud: 0.35	==> Pelicula J = 3118146  The Attic: The Hiding of Anne Frank
+	Similitud: 0.348	==> Pelicula J = 781758  Little Women
+	Similitud: 0.347	==> Pelicula J = 26297740  Heart Beat
+	Similitud: 0.314	==> Pelicula J = 19167990  A Scandal in Paris
+	Similitud: 0.303	==> Pelicula J = 2957178  About Adam
+	Similitud: 0.295	==> Pelicula J = 6878966  Sister, Sister
+	Similitud: 0.269	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.255	==> Pelicula J = 770239  Mr. & Mrs. Bridge
+============================
+Pelicula I = 1960180  Kid Auto Races at Venice
+	Similitud: 0.749	==> Pelicula J = 1789118  Pay Day
+	Similitud: 0.466	==> Pelicula J = 1077363  Making a Living
+	Similitud: 0.35	==> Pelicula J = 19303143  One Wild Ride
+	Similitud: 0.302	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.268	==> Pelicula J = 25818173  Drums of Love
+	Similitud: 0.26	==> Pelicula J = 5787216  And Starring Pancho Villa as Himself
+============================
+Pelicula I = 9424050  The Day the Fish Came Out
+	Similitud: 0.323	==> Pelicula J = 8922224  Frequently Asked Questions About Time Travel
+	Similitud: 0.304	==> Pelicula J = 23694916  Passport to Destiny
+	Similitud: 0.286	==> Pelicula J = 1740881  Krakatoa, East of Java
+	Similitud: 0.282	==> Pelicula J = 4669663  A Room for Romeo Brass
+	Similitud: 0.273	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.258	==> Pelicula J = 25896358  Happythankyoumoreplease
+============================
+Pelicula I = 904335  Clockwise
+	Similitud: 0.459	==> Pelicula J = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.264	==> Pelicula J = 19062975  Harry and Walter Go to New York
+============================
+Pelicula I = 1596505  The Million Dollar Hotel
+	Similitud: 0.465	==> Pelicula J = 18800331  Islands in the Stream
+	Similitud: 0.377	==> Pelicula J = 6969487  Marlowe
+	Similitud: 0.337	==> Pelicula J = 9056967  The Bodyguard
+	Similitud: 0.297	==> Pelicula J = 5565988  Gone Baby Gone
+	Similitud: 0.286	==> Pelicula J = 1670656  8 Million Ways to Die
+	Similitud: 0.269	==> Pelicula J = 823939  Twilight
+============================
+Pelicula I = 27260560  The Three Musketeers
+	Similitud: 0.477	==> Pelicula J = 2663296  The Duellists
+	Similitud: 0.398	==> Pelicula J = 5638049  Braddock: Missing in Action III
+	Similitud: 0.362	==> Pelicula J = 2254896  Helen of Troy
+	Similitud: 0.331	==> Pelicula J = 32644388  King of the Coral Sea
+============================
+Pelicula I = 25562315  Here
+	Similitud: 0.312	==> Pelicula J = 20333975  Lost and Found
+	Similitud: 0.299	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.259	==> Pelicula J = 8418367  Hair High
+	Similitud: 0.259	==> Pelicula J = 349941  Being John Malkovich
+	Similitud: 0.257	==> Pelicula J = 101935  Network
+============================
+Pelicula I = 18521491  Midnight in Saint Petersburg
+	Similitud: 0.403	==> Pelicula J = 1906889  Threesome
+	Similitud: 0.325	==> Pelicula J = 823939  Twilight
+	Similitud: 0.284	==> Pelicula J = 2037975  Harry and the Hendersons
+============================
+Pelicula I = 5734570  Shiner
+	Similitud: 0.388	==> Pelicula J = 15368904  The Last Supper
+	Similitud: 0.384	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.356	==> Pelicula J = 355807  Second Skin
+	Similitud: 0.34	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.265	==> Pelicula J = 23281301  The Toilers and the Wayfarers
+============================
+Pelicula I = 19062975  Harry and Walter Go to New York
+	Similitud: 0.572	==> Pelicula J = 5080159  Bank Shot
+	Similitud: 0.41	==> Pelicula J = 13541124  Other People's Money
+	Similitud: 0.265	==> Pelicula J = 36590116  High Voltage
+	Similitud: 0.264	==> Pelicula J = 904335  Clockwise
+============================
+Pelicula I = 26205694  Meesa Madhavan
+	Similitud: 0.44	==> Pelicula J = 15570329  Soothradharan
+	Similitud: 0.42	==> Pelicula J = 21448351  Magic Kid 2
+	Similitud: 0.379	==> Pelicula J = 31939460  Mambazhakkalam
+	Similitud: 0.297	==> Pelicula J = 19397838  Hi'-Neighbor!
+	Similitud: 0.279	==> Pelicula J = 2059591  Jett Jackson: The Movie
+	Similitud: 0.266	==> Pelicula J = 23551760  Tegan the Vegan
+	Similitud: 0.266	==> Pelicula J = 8508987  Little Longnose
+============================
+Pelicula I = 29270619  Rhythm in the Air
+	Similitud: 0.413	==> Pelicula J = 26790743  Air: The Musical
+	Similitud: 0.405	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.377	==> Pelicula J = 5777733  Woman Haters
+	Similitud: 0.373	==> Pelicula J = 35033607  Trapped in the Closet Chapters 1–12
+	Similitud: 0.338	==> Pelicula J = 2210286  Whistle Stop
+	Similitud: 0.321	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.298	==> Pelicula J = 11253386  Professor
+	Similitud: 0.277	==> Pelicula J = 30653283  Snehapoorvam Anna
+	Similitud: 0.271	==> Pelicula J = 19940419  Spectacular!
+	Similitud: 0.263	==> Pelicula J = 8835468  Shnei Kuni Leml
+	Similitud: 0.259	==> Pelicula J = 9990262  200 Pounds Beauty
+============================
+Pelicula I = 3137571  Harakiri
+	Similitud: 0.365	==> Pelicula J = 26735976  Ichi
+	Similitud: 0.309	==> Pelicula J = 3830101  A Sunday in the Country
+	Similitud: 0.3	==> Pelicula J = 20964509  Ghost Chase
+============================
+Pelicula I = 26458693  Space Master X-7
+	Similitud: 0.384	==> Pelicula J = 8922224  Frequently Asked Questions About Time Travel
+	Similitud: 0.327	==> Pelicula J = 19094868  Dead Space: Downfall
+	Similitud: 0.323	==> Pelicula J = 6065705  Doctor Mordrid
+	Similitud: 0.305	==> Pelicula J = 3849638  Resurrection of the Little Match Girl
+	Similitud: 0.258	==> Pelicula J = 1371900  Immortel
+============================
+Pelicula I = 27361692  Rage
+	Similitud: 0.623	==> Pelicula J = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.569	==> Pelicula J = 5022225  Remake
+	Similitud: 0.474	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.453	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.426	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.418	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.418	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.412	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.405	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.395	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.388	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.377	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.376	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.37	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.272	==> Pelicula J = 28761678  All Over the Town
+============================
+Pelicula I = 27731736  Red Riding Hood
+	Similitud: 0.33	==> Pelicula J = 6878966  Sister, Sister
+	Similitud: 0.29	==> Pelicula J = 161882  Cat Ballou
+	Similitud: 0.276	==> Pelicula J = 22541174  Conjurer
+	Similitud: 0.266	==> Pelicula J = 2080825  The Legend of Hell House
+	Similitud: 0.254	==> Pelicula J = 19752168  Needful Things
+	Similitud: 0.252	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.251	==> Pelicula J = 13450310  Dia de los Muertos
+============================
+Pelicula I = 27652591  Impure Uniform: Writhing Thighs
+	Similitud: 0.457	==> Pelicula J = 26024282  Black Belt
+	Similitud: 0.399	==> Pelicula J = 26935757  Love Hotel
+	Similitud: 0.394	==> Pelicula J = 26263414  Blue Film: Estimation
+	Similitud: 0.322	==> Pelicula J = 23904823  Rope and Breasts
+	Similitud: 0.314	==> Pelicula J = 26735976  Ichi
+	Similitud: 0.308	==> Pelicula J = 16987257  The Last Dinosaur
+============================
+Pelicula I = 22162922  I Wanted Wings
+	Similitud: 0.347	==> Pelicula J = 1126798  Goodbye, Mr. Chips
+	Similitud: 0.319	==> Pelicula J = 3759090  Another Time, Another Place
+	Similitud: 0.309	==> Pelicula J = 12897281  College Swing
+	Similitud: 0.295	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.264	==> Pelicula J = 29123823  Dancing at the Harvest Moon
+	Similitud: 0.263	==> Pelicula J = 1906889  Threesome
+	Similitud: 0.258	==> Pelicula J = 31323938  The Divided Sky
+	Similitud: 0.253	==> Pelicula J = 11332969  Seasons Change
+============================
+Pelicula I = 1906889  Threesome
+	Similitud: 0.403	==> Pelicula J = 18521491  Midnight in Saint Petersburg
+	Similitud: 0.315	==> Pelicula J = 19554764  Born Romantic
+	Similitud: 0.3	==> Pelicula J = 7777717  Whipped
+	Similitud: 0.268	==> Pelicula J = 26138280  Foreign Body
+	Similitud: 0.263	==> Pelicula J = 22162922  I Wanted Wings
+	Similitud: 0.262	==> Pelicula J = 231486  Sweet Home Alabama
+	Similitud: 0.256	==> Pelicula J = 11332969  Seasons Change
+============================
+Pelicula I = 23955746  Fading of the Cries
+	Similitud: 0.38	==> Pelicula J = 1670656  8 Million Ways to Die
+	Similitud: 0.351	==> Pelicula J = 26790743  Air: The Musical
+	Similitud: 0.329	==> Pelicula J = 12315045  Dead Air
+============================
+Pelicula I = 2129381  Suspect
+	Similitud: 0.308	==> Pelicula J = 12555559  Half Moon Street
+	Similitud: 0.267	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.263	==> Pelicula J = 24344249  Tomorrow
+	Similitud: 0.259	==> Pelicula J = 7543025  Everything You Want
+	Similitud: 0.256	==> Pelicula J = 13450310  Dia de los Muertos
+	Similitud: 0.253	==> Pelicula J = 6878966  Sister, Sister
+============================
+Pelicula I = 1371900  Immortel
+	Similitud: 0.288	==> Pelicula J = 145640  The Gospel According to St. Matthew
+	Similitud: 0.268	==> Pelicula J = 12760089  Oh, God! Book II
+	Similitud: 0.258	==> Pelicula J = 26458693  Space Master X-7
+============================
+Pelicula I = 14384703  Storm Center
+============================
+Pelicula I = 9105018  Maw`ed Ma` al-Hayat
+	Similitud: 0.704	==> Pelicula J = 5022225  Remake
+	Similitud: 0.623	==> Pelicula J = 27361692  Rage
+	Similitud: 0.503	==> Pelicula J = 15859061  Periya Idathu Penn
+	Similitud: 0.5	==> Pelicula J = 28200672  Paduka Pattabhishekam
+	Similitud: 0.497	==> Pelicula J = 18002503  Kalippattam
+	Similitud: 0.478	==> Pelicula J = 19876554  Sleeping with the Devil
+	Similitud: 0.465	==> Pelicula J = 26038444  Kaliyoonjal
+	Similitud: 0.461	==> Pelicula J = 34749021  Disobedience
+	Similitud: 0.452	==> Pelicula J = 8609183  Romeo and Juliet
+	Similitud: 0.438	==> Pelicula J = 22129442  Moonnam Pakkam
+	Similitud: 0.418	==> Pelicula J = 18050595  We Live Again
+	Similitud: 0.412	==> Pelicula J = 22622597  The Wheel
+	Similitud: 0.399	==> Pelicula J = 30519399  Circle of Violence: A Family Drama
+	Similitud: 0.315	==> Pelicula J = 9223332  The Divine Nymph
+	Similitud: 0.283	==> Pelicula J = 26735976  Ichi
+============================
+Pelicula I = 19167990  A Scandal in Paris
+	Similitud: 0.314	==> Pelicula J = 19087098  A Waste of Shame
+	Similitud: 0.305	==> Pelicula J = 26245382  Vasantha Maligai
+	Similitud: 0.283	==> Pelicula J = 2079686  Mommie Dearest
+	Similitud: 0.281	==> Pelicula J = 13814165  Meet the Spartans
+	Similitud: 0.265	==> Pelicula J = 3830101  A Sunday in the Country
+	Similitud: 0.254	==> Pelicula J = 1065214  Amadeus
+============================
+Pelicula I = 2210286  Whistle Stop
+	Similitud: 0.342	==> Pelicula J = 73438  Double Indemnity
+	Similitud: 0.338	==> Pelicula J = 29270619  Rhythm in the Air
+	Similitud: 0.322	==> Pelicula J = 3644151  If I Had A Million
+	Similitud: 0.291	==> Pelicula J = 5777733  Woman Haters
+============================
+Pelicula I = 23904823  Rope and Breasts
+	Similitud: 0.519	==> Pelicula J = 24341490  Lady Black Rose
+	Similitud: 0.322	==> Pelicula J = 27652591  Impure Uniform: Writhing Thighs
+	Similitud: 0.279	==> Pelicula J = 29763090  Revenge of the Virgins
+============================
+Pelicula I = 20964509  Ghost Chase
+	Similitud: 0.3	==> Pelicula J = 3137571  Harakiri
+============================
+Pelicula I = 31748875  Sinbad and The Minotaur
+	Similitud: 0.401	==> Pelicula J = 5875034  The Kingdom
+	Similitud: 0.358	==> Pelicula J = 28581081  Dropout
+	Similitud: 0.328	==> Pelicula J = 34281838  Uu Kodathara? Ulikki Padathara?
