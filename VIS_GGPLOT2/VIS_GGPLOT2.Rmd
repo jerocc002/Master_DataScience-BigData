@@ -1,0 +1,823 @@
+---
+coding: utf-8
+lang: es
+title: "Trabajo de Visualización y Análisis Gráfico con ggplot."
+subtitle: "Máster en Data Science y Big Data - Universidad de Sevilla, 2017."
+author: "Jerónimo Carranza Carranza"
+date: "28 de octubre de 2017"
+output:
+  pdf_document:
+    fig_caption: yes
+    fig_height: 4
+    fig_width: 7
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+  html_document:
+    fig_caption: yes
+    fig_height: 4
+    fig_width: 7
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead[LO,LE]{}
+- \fancyhead[RO,RE]{}
+- \fancyhead[CO,CE]{Datos SEVICI - Análisis gráfico.}
+- \fancyfoot[LE,RO]{}
+- \fancyfoot[CE,CO]{\thepage}
+- \fancyfoot[RE,LO]{}
+- \renewcommand{\headrulewidth}{0.2pt}
+- \renewcommand{\footrulewidth}{0.2pt}
+- \usepackage{float}
+- \floatplacement{figure}{H}
+---
+\listoftables
+\listoffigures
+\newpage
+
+```{r setup, include=FALSE}
+# options(width=70)
+knitr::opts_chunk$set(comment = "##"
+                      , warning = FALSE
+                      , message = FALSE
+                      , echo = FALSE
+                      , tidy = FALSE
+                      , size="small"
+                      )
+```
+
+
+```{r}
+library(RPostgreSQL)
+library(tidyverse)
+library(dbplyr)
+library(knitr)
+library(sp)
+library(sf)
+library(ggplot2)
+library(ggcorrplot)
+library(ggspatial)
+library(lubridate)
+library(scales)
+library(factoextra)
+library(reshape2)
+library(igraph)
+library(ggraph)
+library(ggdendro)
+
+```
+
+
+# Introducción. Descripción del conjunto de datos.
+
+Los datos que se van a utilizar en este trabajo corresponden a los datos ofrecidos por la empresa JCDecaux en su página web para las ciudades (27) en las que opera los servicios de bicicletas compartidas, y que han sido recopilados por la Universidad de Huelva, durante un año, mediante la captura de datos instantáneos ofrecidos en el servicio web de JCDecaux. Concretamente nos centramos en los datos de la ciudad de Sevilla. Se dispone de dos tipos de datos:
+
+
+## Datos estáticos
+
+Los denominados datos estáticos hacen referencia a las características de las estaciones. Contiene los siguientes datos para un total de 260 estaciones:
+
+Table: Datos estáticos
+
+Campo:          | Descripción:
+----------------|------------------------------------------------------
+Number          | Número de la estación
+Name            | Nombre de la estación
+Address         | Dirección
+Latitude        | Latitud (grados WGS84)
+Longitude       | Longitud (grados WGS84)
+
+
+## Datos dinámicos
+
+Los datos dinámicos hacen referencia a la disponibilidad y uso del servicio para cada una de las estaciones incluyendo la siguiente información:
+
+Table: Datos dinámicos
+
+Campo:           | Descripción: 
+-----------------|---------------------------------------------------------
+id               | Id registro autonumérico
+status           | Estado de la estación; OPEN o CLOSED
+contract         | Contrato, en nuestro caso; Seville
+num              | Número de la estación
+last_update      | Momento de última actualización
+add_date         | Fecha-Hora en fracciones de 5 minutos
+stands           | Número de estacionamientos operativos en la estación
+availablestands  | Número de estacionamientos disponibles
+availablebikes   | Número de bicicletas operativas y disponibles
+
+El número de estacionamientos operativos para cada estación se ha comprobado que es constante, por lo que se trata entre los datos estáticos.
+
+Los datos originales, descritos hasta aquí, se han reorganizado de diversas formas para los diversos pretratamientos y tratamientos realizados. Salvo evidencia al respecto se describirá la organización concreta de los datos utilizados para cada uno de los gráficos o grupos de gráficos que siguen.
+
+
+# Localización de estaciones
+
+```{r}
+#seviesta = read.csv('Seville.csv', header = TRUE, sep = ',', dec = '.')
+seviesta = read_csv('Seville.csv')
+head(seviesta)
+
+seviesta_sp = seviesta
+coordinates(seviesta_sp) = c('Longitude','Latitude')
+class(seviesta_sp)
+proj4string(seviesta_sp) = CRS("+init=epsg:4326")
+
+seviesta_sf = st_as_sf(seviesta_sp)
+class(seviesta_sf)
+head(seviesta_sf)
+st_bbox(seviesta_sf)
+
+```
+
+
+```{r fig.cap='Localización de estaciones SEVICI', fig.width=7, fig.height=9}
+
+ggosm(type = 'hikebike', quiet = TRUE) + 
+  geom_spatial(seviesta_sp, color='red', alpha=0.6, size=0.5) +
+  labs(x="",y="") + coord_map() + theme_bw()
+
+```
+
+```{r fig.cap='Localización de estaciones SEVICI con Identificadores', fig.width=7, fig.height=9}
+
+ggosm(type = 'cartolight', quiet = TRUE) + 
+  geom_spatial(seviesta_sp, color='red', alpha=0.1, size=2.5) +
+  labs(x="",y="") + coord_map() + 
+  geom_text(data=seviesta, aes(Longitude, Latitude, label=Number), 
+            check_overlap = TRUE, size=2.0, 
+            fontface = "italic", 
+            angle=0, vjust=0.2, color='blue', alpha=0.6) + 
+  theme_bw()
+
+```
+
+# Datos faltantes
+
+```{r}
+sevicip5m = read_csv2('sevicip5min_01.csv')
+sevicip5m[1:5,1:10]
+
+```
+
+```{r}
+sevicip5m %>% group_by(hueco) %>% summarise(n=n())
+
+```
+
+La variable _hueco_ indica si es un hueco global (1) o no (0), es decir, si no existe ningún dato para ninguna estación en ese momento (p5min)(1) o existe al menos una con datos (0).
+
+```{r}
+L5min = sevicip5m[,1:2]
+```
+
+```{r}
+L5min$DIA = as.Date(L5min$p5min)
+L5min$HORAM = hour(L5min$p5min) + minute(L5min$p5min)/60
+L5min$HORA = hour(L5min$p5min)
+L5min$MES = format(L5min$DIA, "%m")
+L5min$DSEM = format(L5min$DIA,"%a")
+L5min$DSEMN = wday(L5min$DIA)
+
+head(L5min)
+```
+
+```{r fig.cap='Datos faltantes. Huecos Globales por Fecha y Hora', fig.width=7, fig.height=9}
+
+L5min %>% group_by(DIA, HORA) %>% summarise(HUECOS = sum(hueco)) %>% 
+  filter(HUECOS>0) %>%
+  ggplot(aes(x=HORA,y=DIA))+ 
+    geom_tile(aes(fill=HUECOS))+
+    scale_fill_gradientn(colors = c('black','red'))+
+    labs(x="Hora", y="Fecha")+
+    scale_y_date(date_breaks = "1 month", labels = date_format("%Y-%m"))+
+    scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))
+
+```
+
+```{r fig.cap='Datos faltantes. Huecos Globales por Fecha'}
+
+L5min %>% group_by(DIA) %>% summarise(HUECOS = sum(hueco)) %>% 
+  filter(HUECOS>0) %>%
+    ggplot(aes(DIA,HUECOS,label=DIA))+
+      geom_point(shape = 21, colour = "red", size = 3, stroke = 0.5)+
+      geom_line(colour = "orange",linetype = 2, size=0.4)+
+      geom_text(check_overlap = TRUE, angle=0, size=2.5, vjust=-1)+
+      labs(x="Fecha", y="Número de Huecos")
+
+```
+
+```{r fig.cap='Datos faltantes. Huecos Globales por Hora'}
+
+L5min %>% group_by(HORA) %>% summarise(HUECOS = sum(hueco)) %>% 
+  filter(HUECOS>0) %>%
+    ggplot(aes(HORA,HUECOS,label=HUECOS))+
+      geom_point(shape = 21, colour = "blue", size = 3, stroke = 0.5)+
+      geom_line(colour = "orange",linetype = 2, size=0.4)+
+      geom_text(check_overlap = TRUE, angle=0, size=2.5, vjust=-2)+
+      labs(x="Hora", y="Número de Huecos")
+
+```
+
+```{r fig.cap='Datos faltantes. Huecos Globales por Mes'}
+
+L5min %>% group_by(MES) %>% summarise(HUECOS = sum(hueco)) %>% 
+  filter(HUECOS>0) %>%
+    ggplot(aes(MES,HUECOS,group = 1,label=HUECOS))+
+      geom_point(shape = 21, colour = "green", size = 3, stroke = 0.5)+
+      geom_line(colour = "orange",linetype = 2, size=0.4)+
+      geom_text(check_overlap = TRUE, angle=0, size=2.5, vjust=-2)+
+      labs(x="Mes", y="Número de Huecos")
+
+```
+
+```{r fig.cap='Datos faltantes. Huecos Globales por Día de la Semana'}
+
+L5min %>% group_by(DSEMN) %>% summarise(HUECOS = sum(hueco)) %>% 
+  filter(HUECOS>0) %>%
+    ggplot(aes(factor(DSEMN,labels = c('D','L','M','X','J','V','S')),
+           HUECOS,group = 1,label=HUECOS))+
+      geom_col(fill = 'orange')+
+      geom_text(check_overlap = TRUE, angle=0, size=2.5, vjust=1)+
+      labs(x="Día de la Semana", y="Número de Huecos")
+```
+
+# Datos anómalos
+
+Para el análisis de datos anómales se utiliza la estructura original de datos en la BD _sevidata_ en la que también se incluyen algunas vistas materializadas (tablas tmp) para facilitar un acceso más rápido a algunos datos.
+
+```{r}
+con = dbConnect(drv = dbDriver("PostgreSQL"), dbname = "sevici", user = "postgres")
+```
+
+```{r}
+# Función general para facilitar respuesta rápida
+# a costa de disco
+#
+dbQueryIf = function(qname,conn,query){
+  if(!qname %in% dbListTables(conn))
+    dbSendStatement(conn, 
+      paste0('CREATE TABLE IF NOT EXISTS ', qname, ' AS ', query))
+  dbGetQuery(conn, paste0('SELECT * FROM ',qname,';'))
+}
+
+```
+
+```{r}
+if (!"resumen_datos_anomalos_por_estacion" %in% ls()){
+ resumen_datos_anomalos_por_estacion = 
+  dbQueryIf('resumen_datos_anomalos_por_estacion',con,
+  'SELECT num, ok, count(id) as N
+    FROM sevidata group by num, ok order by num, ok;')
+}
+
+```
+
+
+Entre los datos anómalos se consideran las siguientes situaciones:
+
+a) Número de estacionamientos disponibles mayor que operativos
+b) Número de bicicletas disponibles mayor que estacionamientos operativos
+c) Suma de estacionamientos disponibles y bicicletas disponibles mayor que el número de estacionamientos
+operativos.
+d) Suma de estacionamientos disponibles y bicicletas disponibles menor que el número de estacionamientos
+operativos.
+
+Se codifican dichas situaciones en la tabla sevidata en el campo ok con los siguientes valores:
+a) –> ok = 3 b) –> ok = 4 c) –> ok = 5 d) –> ok = 6
+
+```{r}
+
+resumen_tabla_ok = spread(resumen_datos_anomalos_por_estacion, 
+                          ok, n, sep = '_', fill = 0)
+
+resumen_tabla_ok = mutate(resumen_tabla_ok, 
+                          TotOK_2_6 = ok_2+ok_3+ok_4+ok_5+ok_6,
+                          Total = ok_1 + TotOK_2_6)
+
+resumen_tabla_ok_suma = summarise_all(resumen_tabla_ok,funs(sum))
+```
+
+```{r}
+kable(resumen_tabla_ok_suma[,2:9], caption = 'Resumen de datos anómalos')
+```
+
+Valor ok | Descripción
+---------|------------------------------
+ok_1     | Sin incidencia aparente
+ok_2     | Dato duplicado
+ok_3     | Estacionamientos disponibles > Est. operativos
+ok_4     | Bicicletas disponibles > Est. operativos
+ok_5     | Estacionamientos + Bicicletas disponibles > Est. operativos 
+ok_6     | Estacionamientos + Bicicletas disponibles < Est. operativos 
+
+
+```{r fig.cap='Datos anómalos. Estacionamientos disponibles > Est. Operativos'}
+ggplot(resumen_tabla_ok[resumen_tabla_ok$ok_3 > 0,], aes(num, ok_3, label=num))+
+  geom_point(shape = 21, colour = "red", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de registros con incidencia")
+```
+
+
+```{r fig.cap='Datos anómalos. Bicicletas disponibles > Est. Operativos'}
+ggplot(resumen_tabla_ok[resumen_tabla_ok$ok_4 > 0,], aes(num, ok_4, label=num))+
+  geom_point(shape = 21, colour = "orange", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de registros con incidencia")
+```
+
+
+```{r fig.cap='Datos anómalos. Estacionamientos + Bicicletas disponibles > Est. Operativos'}
+ggplot(resumen_tabla_ok[resumen_tabla_ok$ok_5 > 0,], aes(num, ok_5, label=num))+
+  geom_point(shape = 21, colour = "blue", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de registros con incidencia")
+```
+
+
+```{r fig.cap='Datos anómalos. Estacionamientos + Bicicletas disponibles < Est. Operativos'}
+ggplot(resumen_tabla_ok[resumen_tabla_ok$ok_6 > 0,], aes(num, ok_6, label=num))+
+  geom_point(shape = 21, colour = "green", size = 3, stroke = 0.5)+
+  geom_text(check_overlap = TRUE, angle=0, size=1.8, vjust=-2)+
+  labs(x="Estación", y="Número de registros con incidencia")
+```
+
+
+# Análisis de datos válidos globales
+
+```{r}
+if (!"datos_validos_globales" %in% ls()){
+ datos_validos_globales = 
+  dbQueryIf('datos_validos_globales',con,
+  'SELECT add_date as p5min, count(num) as nn, sum(availablestands) as ss,
+    sum(availablebikes) as sb
+    FROM sevidata WHERE ok = 1 GROUP BY add_date ORDER BY add_date;')
+}
+
+```
+
+```{r}
+head(datos_validos_globales)
+```
+
+
+```{r fig.cap='Datos válidos globales. Distribución de Estacionamientos y Bicis disponibles.'}
+
+ggplot(datos_validos_globales)+
+  # geom_histogram(aes(ss)) +
+  geom_histogram(aes(ss), color = 'orange', alpha = 0.1) +
+  geom_histogram(aes(sb), color = 'blue', alpha = 0.1) +
+  annotate('text', x=2500, y=25000, label='Bicis disponibles', color='orange') +
+  annotate('text', x=1700, y=35000, label='Estacionamientos disponibles',
+           color='blue') +
+  labs(x="Número", y="Frecuencia")
+
+```
+
+
+```{r fig.cap='Datos válidos globales. Número de estaciones disponibles.', fig.width=7,fig.height=2}
+
+ggplot(datos_validos_globales)+
+  geom_line(aes(p5min, nn), colour = "red")+
+  labs(x="Tiempo", y="Disponibles")
+```
+
+
+```{r fig.cap='Datos válidos globales. Estacionamientos disponibles.'}
+
+ggplot(datos_validos_globales)+
+  geom_line(aes(p5min, ss), colour = "blue")+
+  labs(x="Tiempo", y="Disponibles")
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis disponibles.'}
+
+ggplot(datos_validos_globales)+
+  geom_line(aes(p5min, sb), colour = "orange")+
+  labs(x="Tiempo", y="Disponibles")
+```
+
+El número de estacionamientos disponibles es asimilable al número de bicis circulantes, y a la vista del gráfico, parece existir un número de bicis circulantes muy superior al de bicis disponibles a lo largo de todo el periodo. Fenómeno con una aparente tendencia a su reducción.
+
+
+```{r fig.cap='Datos válidos globales. Diferencia Bicis circulantes y Bicis disponibles.'}
+
+ggplot(datos_validos_globales)+
+  geom_line(aes(p5min, ss-sb), colour = "green")+
+  geom_smooth(aes(p5min, ss-sb), method = lm, colour = "red")
+  labs(x="Tiempo", y="Diferencia")
+```
+
+
+## Análisis según días de la semana
+
+```{r}
+datos_validos_globales$dsem = factor(wday(datos_validos_globales$p5min), 
+                                     labels = c('D','L','M','X','J','V','S'))
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis circulantes según día de la semana.'}
+
+ggplot(datos_validos_globales)+
+  geom_boxplot(aes(dsem, ss, group=dsem), colour = 'blue')+
+  labs(x="Día de la semana", y="Bicis circulantes")
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis disponibles según día de la semana.'}
+
+ggplot(datos_validos_globales)+
+  geom_boxplot(aes(dsem, sb, group=dsem), colour = 'orange')+
+  labs(x="Día de la semana", y="Bicis disponibles")
+```
+
+
+```{r}
+datos_validos_globales %>% group_by(dsem) %>% 
+  summarise(median=median(ss),mean = mean(ss), 
+            min=min(ss), max=max(ss), sd=sd(ss)) %>% 
+  arrange(median,mean) %>% 
+  kable(caption = 'Bicis circulantes por día de la semana. Estadística básica.')
+
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis circulantes por día de la semana. Estadística básica. Mediana, Máximo y Mínimo.'}
+
+datos_validos_globales %>% group_by(dsem) %>% 
+  summarise(median=median(ss),mean = mean(ss), 
+            min=min(ss), max=max(ss), sd=sd(ss)) %>% 
+  arrange(median,mean) %>% 
+  ggplot(ymin=2000) + 
+    geom_crossbar(aes(x=dsem,y=median,ymax=max,ymin=min), color = 'blue')+
+    labs(x="Día de la semana", y="Bicis circulantes")
+
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis circulantes por día de la semana. Media +/- 2·Desviación'}
+
+datos_validos_globales %>% group_by(dsem) %>% 
+  summarise(median=median(ss),mean = mean(ss), 
+            min=min(ss), max=max(ss), sd=sd(ss)) %>% 
+  arrange(median,mean) %>% 
+  ggplot() + 
+    geom_pointrange(aes(x=dsem,y=mean,ymax=mean+2*sd,ymin=mean-2*sd),
+                    color='orange')+
+    labs(x="Día de la semana", y="Bicis circulantes")
+
+```
+
+
+## Análisis según hora del día
+
+```{r}
+datos_validos_globales$hora = hour(datos_validos_globales$p5min)
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis circulantes según hora del día.'}
+
+ggplot(datos_validos_globales)+
+  geom_boxplot(aes(hora, ss, group=hora), color = 'blue')+
+  scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))+
+  labs(x="Hora del día", y="Bicis circulantes")
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis disponibles según hora del día.'}
+
+ggplot(datos_validos_globales)+
+  geom_boxplot(aes(hora, sb, group=hora), color = 'orange')+
+  scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))+
+  labs(x="Hora del día", y="Bicis disponibles")
+```
+
+
+```{r}
+datos_validos_globales %>% group_by(hora) %>% 
+  summarise(median=median(ss),mean = mean(ss), 
+            min=min(ss), max=max(ss), sd=sd(ss)) %>% 
+  arrange(median,mean) %>% 
+  kable(caption = 'Bicis circulantes por hora del día. Estadística básica.')
+
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis circulantes por hora del día. Estadística básica. Mediana, Máximo y Mínimo'}
+
+datos_validos_globales %>% group_by(hora) %>% 
+  summarise(median=median(ss),mean = mean(ss), 
+            min=min(ss), max=max(ss), sd=sd(ss)) %>% 
+  arrange(median,mean) %>% 
+  ggplot() + 
+    geom_crossbar(aes(x=hora,y=median,ymax=max,ymin=min), color = 'blue')+
+    scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))+
+    labs(x="Hora del Día", y="Bicis circulantes")
+
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis circulantes por hora del día. Estadística básica. Media +/- 2·Desviación'}
+
+datos_validos_globales %>% group_by(hora) %>% 
+  summarise(median=median(ss),mean = mean(ss), 
+            min=min(ss), max=max(ss), sd=sd(ss)) %>% 
+  arrange(median,mean) %>% 
+  ggplot() + 
+    geom_pointrange(aes(x=hora,y=mean,ymax=mean+2*sd,ymin=mean-2*sd), color='orange')+
+    scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))+
+    labs(x="Hora del Día", y="Bicis circulantes")
+
+```
+
+
+## Análisis según hora del día y día de la semana
+
+
+```{r fig.cap='Datos válidos globales. Bicis circulantes según hora del día y día de la semana.'}
+
+datos_validos_globales %>% group_by(dsem, hora) %>% 
+  summarise(median=median(ss),mean = mean(ss), 
+            min=min(ss), max=max(ss), sd=sd(ss)) %>% 
+  arrange(median,mean) %>% 
+  ggplot()+
+    geom_tile(aes(x=hora, y=dsem, fill=median))+
+    scale_fill_gradientn(colors = c('cyan','green','yellow','red'))+
+    scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))+
+    labs(y="Día de la semana", x="Hora del día")
+```
+
+
+```{r fig.cap='Datos válidos globales. Bicis disponibles según hora del día y día de la semana.'}
+
+datos_validos_globales %>% group_by(dsem, hora) %>% 
+  summarise(median=median(sb),mean = mean(sb), 
+            min=min(sb), max=max(sb), sd=sd(sb)) %>% 
+  arrange(median,mean) %>% 
+  ggplot()+
+    geom_tile(aes(x=hora, y=dsem, fill=median))+
+    scale_fill_gradientn(colors = c('cyan','green','yellow','red'))+
+    scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22)) +
+    labs(y="Día de la semana", x="Hora del día")
+```
+
+
+# Análisis de datos válidos por estaciones
+
+Presentamos a continuación los resultados visuales del análisis de los datos válidos de las estaciones.
+
+
+## Análisis de correlación entre estaciones
+
+Representamos la matriz de correlación (Pearson) entre estaciones para la variable número de estacionamientos disponibles por estación. 
+
+```{r}
+sevici_scorr = cor(select(sevicip5m,starts_with('s')), use = 'complete')
+```
+
+
+Segregamos la matriz de correlación en un dataframe con todos los pares y el valor de correlación para su tratamiento posterior como grafo (con nodos geoposicionados). 
+
+```{r}
+sevici_scorr_melted = tbl_df(melt(sevici_scorr))
+sevici_scorr_melted <- mutate(sevici_scorr_melted, 
+       from = as.integer(substr(Var1,2,5)),
+       to = as.integer(substr(Var2,2,5))) 
+sevici_scorr_melted <- sevici_scorr_melted[,c(4,5,3,1,2)]
+```
+
+```{r}
+sevici_scorr_melted
+```
+
+
+```{r fig.cap='Datos válidos estaciones. Matriz de correlación (|corr|>0.5) entre estaciones.'}
+sevici_scorr_melted %>% filter(abs(value)>0.5) %>% 
+  ggplot(aes(x=from, y=to, fill=value)) + 
+  scale_fill_gradientn(colors = rainbow(6)) +
+    geom_tile()
+```
+
+
+```{r}
+g <- sevici_scorr_melted %>% filter(abs(value)>0.5) %>% filter(to > from) %>%
+  graph_from_data_frame(directed=FALSE, vertices = seviesta)
+```
+
+
+```{r}
+g$layout = cbind(V(g)$Longitude,V(g)$Latitude)
+```
+
+
+```{r fig.cap='Datos válidos estaciones. Grafo espacial de correlaciones |corr|> 0.5.', fig.width=7, fig.height=9}
+
+ggraph(g, fullpage = TRUE) + 
+  geom_osm(type = 'cartolight', quiet = TRUE) +
+  geom_node_point(color='black', size=0.5, alpha=0.5) +
+  geom_edge_arc(aes(color = value), edge_alpha = 0.6, curvature = 0.2) +
+  scale_edge_color_gradient2(low="red",high="blue",mid="white",midpoint=0) +
+  labs(x="",y="") + coord_map() + theme_bw()
+
+```
+
+
+```{r}
+sumcorrp <- sevici_scorr_melted %>% filter(value>0.5) %>% filter(value<1) %>% 
+  group_by(from) %>% summarise(sump = sum(value)) %>% select(Number = from, sump) %>%
+  inner_join(seviesta, by = 'Number')
+
+sumcorrn <- sevici_scorr_melted %>% filter(value < -0.5) %>% 
+  group_by(from) %>% summarise(sumn = sum(value)) %>% select(Number = from, sumn) %>%
+  inner_join(seviesta, by = 'Number')
+
+```
+
+
+```{r fig.cap='Datos válidos estaciones. Suma de correlaciones positivas por estación  (corr>0.5).', fig.width=7, fig.height=9}
+
+ggraph(g, fullpage = TRUE) + 
+  geom_osm(type = 'cartolight', quiet = TRUE) +
+  geom_node_point(color='black', size=0.5, alpha=0.5) +
+  geom_edge_arc(aes(color = value), edge_alpha = 0.3, curvature = 0.2) +
+  scale_edge_color_gradient2(low="red",high="blue",mid="white",midpoint=0) +
+  geom_point(data=sumcorrp, aes(Longitude, Latitude, color=sump), 
+             size=2.5, alpha=0.5) + 
+  scale_color_gradientn(colours=c('green','cyan','blue')) +
+  labs(x="",y="") + coord_map() + theme_bw()
+
+```
+
+
+```{r fig.cap='Datos válidos estaciones. Suma de correlaciones negativas por estación (corr<-0.5).', fig.width=7, fig.height=9}
+
+ggraph(g, fullpage = TRUE) + 
+  geom_osm(type = 'cartolight', quiet = TRUE) +
+  geom_node_point(color='black', size=0.5, alpha=0.5) +
+  geom_edge_arc(aes(color = value), edge_alpha = 0.3, curvature = 0.2) +
+  scale_edge_color_gradient2(low="red",high="blue",mid="white",midpoint=0) +
+  geom_point(data=sumcorrn, aes(Longitude, Latitude, color=sumn), 
+             size=2.5, alpha=0.4) + 
+  scale_color_gradientn(colours=c('red','orange','green')) +
+  labs(x="",y="") + coord_map() + theme_bw()
+
+```
+
+
+## Clasificación de las estaciones
+
+Utilizamos la matriz de correlación como base para la clasificación de las estaciones.
+Para ello en primer lugar convertimos los coeficientes de correlación en disimilaridades y éstas son tratadas como distancias.
+
+
+```{r}
+sdisim_01 = 1 - sevici_scorr
+sdist_01 = as.dist(sdisim_01)
+clus_01 = hclust(sdist_01)
+```
+
+```{r}
+summary(clus_01)
+```
+
+```{r}
+dclus_01 = dendro_data(clus_01, type="rectangle") 
+```
+
+```{r fig.cap='Datos válidos estaciones. Dendrograma de estaciones basado en correlación.', fig.width=7, fig.height=9}
+
+ggplot() + 
+  geom_segment(data=segment(dclus_01), 
+               aes(x=x, y=y, xend=xend, yend=yend), size = 0.2) + 
+  geom_text(data=label(dclus_01), aes(x=x, y=y, label=label, hjust=2), size=1.5) +
+  geom_hline(aes(yintercept=1.27), color='red', size = 0.2) +
+  coord_flip() + labs(x="",y="") +
+  theme(axis.line.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.title.y=element_blank(),
+        panel.background=element_rect(fill="white"),
+        panel.grid=element_blank())
+
+```
+
+```{r}
+clus_01_class = tbl_df(cutree(clus_01, h = 1.27))
+clus_01_class <- seviesta %>% arrange(Number) %>% bind_cols(clus_01_class)
+# clus_01_class = bind_cols(clus_01_class, seviesta)
+```
+
+
+```{r fig.cap='Datos válidos estaciones. Clasificación de estaciones.', fig.width=7, fig.height=9}
+
+ggraph(g, fullpage = TRUE) + 
+  geom_osm(type = 'cartolight', quiet = TRUE) +
+  geom_node_point(color='black', size=0.5, alpha=0.5) +
+  geom_point(data=clus_01_class, aes(Longitude, Latitude, 
+                                     color=as.factor(value)), 
+             size=3, alpha=0.6) + 
+  scale_color_manual(name = 'Clase',
+                     values = c('blue', 'cyan', 'green', 
+                                'dark green','yellow',
+                                'orange','red','brown', 'black')) +
+  labs(x="",y="") + coord_map() + theme_bw()
+
+```
+
+
+```{r}
+if (!"resumen_por_estacion_dsem_hora" %in% ls()){
+ resumen_por_estacion_dsem_hora = 
+  dbQueryIf('resumen_por_estacion_dsem_hora', con,
+  'SELECT EXTRACT(ISODOW FROM add_date) as dsem, 
+        EXTRACT(HOUR FROM add_date) as hora,
+        num,
+        count(*) as n,
+        avg(availablestands) as avgs,
+        avg(availablebikes) as avgb,
+        stddev(availablestands) as stds,
+        stddev(availablebikes) as stdb,
+        min(availablestands) as mins,
+        min(availablebikes) as minb,
+        max(availablestands) as maxs,
+        max(availablebikes) as maxb
+  FROM sevidata WHERE ok = 1 GROUP BY dsem, hora, num;'
+  )
+}
+
+```
+
+```{r}
+resumen_por_estacion_dsem_hora = tbl_df(
+  resumen_por_estacion_dsem_hora %>% 
+    inner_join(clus_01_class, by = c('num' = 'Number')))
+
+```
+
+```{r}
+resumen_por_estacion_dsem_hora$dsem = factor(resumen_por_estacion_dsem_hora$dsem, 
+       labels = c('L','M','X','J','V','S','D'))
+
+```
+
+```{r}
+resumen_clase_dsem_hora = resumen_por_estacion_dsem_hora %>% 
+  group_by(dsem, hora, value) %>% 
+  summarise(mean = mean(avgs), min=min(avgs), max=max(avgs), sd=sd(avgs))
+
+```
+
+<!-- ```{r fig.cap='Datos estaciones. Estacionamientos disponibles por clase de estación, hora del día y día de la semana.', fig.width=7, fig.height=9} -->
+
+<!-- ggplot(data=resumen_clase_dsem_hora)+ -->
+<!--     geom_tile(aes(x=hora, y=as.factor(dsem), fill=mean/max)) + -->
+<!--     scale_fill_gradientn(colors = c('cyan','green','yellow','red'))+ -->
+<!--     scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))+ -->
+<!--     labs(y="Día de la semana", x="Hora del día") + -->
+<!--     facet_wrap( ~ value) +  -->
+<!--     theme(legend.position = 'bottom') -->
+<!-- ``` -->
+
+
+```{r fig.cap='Datos estaciones. Estacionamientos disponibles por clase de estación, hora del día y día de la semana.', fig.width=7, fig.height=9}
+
+ggplot(resumen_clase_dsem_hora)+
+    geom_tile(aes(y=as.factor(hora), x=as.factor(dsem), fill=mean/max)) +
+    scale_fill_gradientn(colors = c('cyan','green','yellow','red'))+
+    # scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22))+
+    labs(x="Día de la semana", y="Hora del día") +
+    facet_grid(~ value) + 
+    theme(legend.position = 'bottom')
+```
+
+
+```{r fig.width=7, fig.height=1.5}
+
+for (i in 1:8) {
+  plt = ggplot(resumen_clase_dsem_hora %>% filter(value == i))+
+    geom_tile(aes(x=as.factor(hora), y=as.factor(dsem), fill=mean/max)) +
+    scale_fill_gradientn(colors = c('cyan','green','yellow','red'))+
+    labs(y="Día de la semana", x="Hora del día",
+         subtitle=paste('Clase ',i))
+  print(plt)
+}
+
+```
+
+```{r fig.cap='Datos estaciones. Estacionamientos disponibles por hora del día y día de la semana. Patrones por clase de estación.', fig.width=7, fig.height=1.5}
+
+ggplot(resumen_clase_dsem_hora %>% filter(value == 9))+
+    geom_tile(aes(x=as.factor(hora), y=as.factor(dsem), fill=mean/max)) +
+    scale_fill_gradientn(colors = c('cyan','green','yellow','red'))+
+    labs(y="Día de la semana", x="Hora del día",
+         subtitle=paste('Clase ',9))
+
+```
+
