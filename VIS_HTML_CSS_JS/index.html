@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="utf-8">
+    <title>Datos Sevici: Patrones Espacio-Temporales del Uso de Bicis en Sevilla</title>
+	<!-- Fonts Google -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Acme|Roboto"> 
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+	integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+	crossorigin=""> 
+	<!-- Estilos CSS -->	
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div id="Gral" class="gral">
+<header id="Header">
+	<p>Datos Sevici: Patrones Espacio-Temporales del Uso de Bicis en Sevilla<p>
+</header>
+<nav id="Tabs" class="tabs">
+	<button class="tab clicked" onclick="openTab(event, 'Estaciones')">Estaciones</button>
+	<button class="tab" onclick="openTab(event, 'Clases')">Clases</button>
+	<button class="tab" onclick="openTab(event, 'Patrones')">Patrones</button>
+	<button class="tab" onclick="openTab(event, 'Dinámica')">Dinámica</button>
+</nav>
+<section id="Estaciones" class="tabContent">	
+	<div id="map" class="map" ></div>
+	<div id="intro" class="info" >
+		<h3>Introducción</h3>
+		<p>
+			Los datos que se van a utilizar en este trabajo corresponden a
+			los datos ofrecidos por la empresa JCDecaux en su página web para
+			las ciudades (27) en las que opera los servicios de bicicletas 
+			compartidas, y que han sido recopilados por la Universidad de Huelva, 
+			durante un año, mediante la captura de datos instantáneos ofrecidos en 
+			el servicio web de JCDecaux. Concretamente nos centramos en los datos 
+			de la ciudad de Sevilla. Se dispone de dos tipos de datos:<br><br>
+		</p>
+		<h4>Datos estáticos</h4>
+		<p>
+			Los denominados datos estáticos hacen referencia a las características 
+			de las estaciones. Contiene los siguientes datos para un total de 260 estaciones: <br>
+			- 	Number:    Número de la estación <br>
+			- 	Name:      Nombre de la estación <br>
+			- 	Address:   Dirección <br>
+			- 	Latitude:  Latitud (grados WGS84) <br>
+			- 	Longitude: Longitud (grados WGS84) <br><br>
+		</p>
+		<h4>Datos dinámicos</h4>
+		<p>
+			Los datos dinámicos hacen referencia a la disponibilidad y uso del 
+			servicio para cada una de las estaciones incluyendo la siguiente información:<br>
+			-	id               : Id registro autonumérico<br>
+			-	status           : Estado de la estación; OPEN o CLOSED<br>
+			-	contract         : Contrato, en nuestro caso; Seville<br>
+			-	num              : Número de la estación<br>
+			-	last_update      : Momento de última actualización<br>
+			-	add_date         : Fecha-Hora en fracciones de 5 minutos<br>
+			-	stands           : Número de estacionamientos operativos en la estación<br>
+			-	availablestands  : Número de estacionamientos disponibles<br>
+			-	availablebikes   : Número de bicicletas operativas y disponibles<br>
+			El número de estacionamientos operativos para cada estación se 
+			ha comprobado que es constante, por lo que se trata entre los datos estáticos, 
+			y se representa en el mapa adjunto.
+		</p>
+	</div>
+</section>
+<section id="Clases" class="tabContent" style="display:none">
+	<div id="InfoClases" class="info" >
+		<h3>Clasificación</h3>
+		<p>
+			A partir de los datos válidos de las estaciones se ha calculado
+			la matriz de correlación (Pearson) entre estaciones para la variable número
+			de estacionamientos disponibles. Esta variable es también asimilable, de alguna forma,
+			a la contribución de la estación al número total de bicicletas en uso.
+			La matriz se representa como grafo geoposicionado de las correlaciones en valor absoluto 
+			mayores de 0.5 en los arcos y la suma de las mismas sobre los nodos implicados. 
+			<br><br>
+			Se utiliza la matriz de correlación como base para la clasificación 
+			de las estaciones. Para ello en primer lugar se convierten los coeficientes 
+			de correlación en disimilaridades (1-corr) y éstas son tratadas como distancias.
+			El dendrograma de clasificación de estaciones se ha segmentado generando cinco clases.
+			<br><br>
+		</p>
+		</div>
+	<figure id="Dendro">
+			<img src="img/plot_dendro_cut.png">
+			<figcaption>Dendrograma de estaciones basado en correlación. </figcaption>
+	</figure>
+	<div id="PlotMaps" class="plotmaps">
+		<figure id="Fig1">
+			<img src="img/plot_map_corr_pos.png">
+			<figcaption>Mapa suma de correlaciones positivas por estación  (corr>0.5). </figcaption>
+		</figure>
+		<figure id="Fig2">
+			<img src="img/plot_map_corr_neg.png">
+			<figcaption>Mapa suma de correlaciones negativas por estación  (corr<-0.5). </figcaption>
+		</figure>
+		<figure id="Fig3">
+			<img src="img/plot_map_clases.png">
+			<figcaption>Mapa de estaciones clasificadas. </figcaption>
+		</figure>
+	</div>
+</section>
+<section id="Patrones" class="tabContent" style="display:none">
+	<div id="InfoPatrones" class="info">
+		<h3>Patrones</h3>
+		<p>
+			La distribución por día de la semana y hora del día de la 
+			fracción media de estacionamientos disponibles (mean/max) 
+			entre las distintas clases de estaciones muestra:
+			<br><br>
+			1) Los patrones para las clases 3 y 4 son claramente complementarios, 
+			correspondiendo la clase 4 a estaciones con concentración de valores
+			altos (+huecos) entre las 8:00 y las 13:00 horas entre Lunes y Viernes
+			y la 3 a estaciones con máximos de madrugada y noche todos los días de
+			la semana. Lo que se correspondería a desplazamientos entre
+			residencia (4) y trabajo o estudio (3).  
+			<br><br>
+			2) Los patrones para las clases 1 y 5, por un lado, y 2 por otro muestran
+			también cierta complementariedad, no tan clara en este caso, y con un
+			más patente segundo periodo de valores altos (+huecos) en la tarde para 1 y 
+			tarde-noche para 5.
+			...
+		</p>	
+	</div>
+	<figure id="plot_patrones_clases_clases">
+		<img src="img/plot_patrones_clases_clases.png">
+		<figcaption>Fracción de Estacionamientos disponibles. Patrones por clase de estación. </figcaption>
+	</figure>
+	<div id="PlotPatrones" class="plotgrafs">
+		<figure id="plot_patrones_clases">
+			<img src="img/plot_patrones_clases.png">
+			<figcaption>Fracción de Estacionamientos disponibles. Patrones por clase de estación. </figcaption>
+		</figure>
+		<figure id="plot_map_clases">
+			<img src="img/plot_map_clases.png">
+			<figcaption>Mapa de estaciones clasificadas. </figcaption>
+		</figure>
+	</div>
+</section>
+<footer id="Footer">
+	<span class="copyright">&copy; Jerónimo Carranza Carranza, 2017 - 
+		<script> document.write((new Date()).getFullYear()); </script>
+    </span>
+</footer>
+</div>
+	<!-- Leaflet JS -->
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+		integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+		crossorigin="">
+	</script>
+	<!-- Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.1.2/dist/esri-leaflet.js"
+    integrity="sha512-ouokQ1RIIoqPTZKwlapdxHO5VWFoAi8wE+SwhSX89Ifac0w3p+H2da4oqHvRsBTIpNLewzAZU7gRVDFXyXcfjA=="
+    crossorigin=""></script>
+	<!-- Extension GeoCSV: https://github.com/joker-x/Leaflet.geoCSV -->
+	<script src="lib/leaflet.geocsv.js"></script>	
+	<!-- jquery lib -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
+	<!-- Codigo JS -->    
+    <script src="codigo.js"></script>
+</body>
+</html>
