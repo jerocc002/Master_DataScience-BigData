@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="5899e697-ae72-413e-b05f-4ee0a8b5dc91">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine2">
+        <node name="add1" position="11.00,11.00" prototype="math.add"/>
+        <node name="add2" position="14.00,11.00" prototype="math.add"/>
+        <node name="avgs" position="-1.00,8.00" prototype="data.lookup">
+            <port name="key" type="string" value="avgs"/>
+        </node>
+        <node name="clase_int1" position="-4.00,13.00" prototype="math.integer"/>
+        <node name="colorize1" position="10.00,19.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#f2930000"/>
+            <port name="strokeWidth" type="float" value="0.2"/>
+        </node>
+        <node name="colorize2" position="15.00,20.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#ffffff00"/>
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="colorize3" position="-2.00,22.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="colorize4" position="1.00,22.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#ffffd8b1"/>
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="combine1" position="20.00,15.00" prototype="list.combine"/>
+        <node name="combine2" position="5.00,26.00" prototype="list.combine"/>
+        <node name="combine3" position="-3.00,24.00" prototype="list.combine"/>
+        <node name="concatenate1" position="-7.00,15.00" prototype="string.concatenate">
+            <port name="string2" type="string" value=" - "/>
+            <port name="string4" type="string" value=":00"/>
+        </node>
+        <node name="concatenate2" position="-6.00,21.00" prototype="string.concatenate">
+            <port name="string2" type="string" value=" %"/>
+        </node>
+        <node name="connect1" position="20.00,17.00" prototype="corevector.connect"/>
+        <node name="convert_range2" position="2.00,15.00" prototype="math.convert_range">
+            <port name="target_start" type="float" value="128.0"/>
+            <port name="target_end" type="float" value="0.0"/>
+            <port name="method" type="string" value="wrap"/>
+        </node>
+        <node name="divide1" position="11.00,12.00" prototype="math.divide">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="divide2" position="14.00,12.00" prototype="math.divide">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="divide3" position="-6.00,2.00" prototype="math.divide"/>
+        <node name="divide4" position="2.00,10.00" prototype="math.divide"/>
+        <node name="dsem" position="-7.00,12.00" prototype="data.lookup">
+            <port name="key" type="string" value="dsem"/>
+        </node>
+        <node name="ellipse1" position="10.00,17.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="floor1" position="-8.00,3.00" prototype="math.floor"/>
+        <node name="format_number1" position="-6.00,20.00" prototype="string.format_number">
+            <port name="format" type="string" value="%.0f"/>
+        </node>
+        <node name="frame1" position="-6.00,0.00" prototype="core.frame"/>
+        <node name="grid1" position="-3.00,18.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="1"/>
+            <port name="rows" type="int" value="8"/>
+            <port name="width" type="float" value="100.0"/>
+            <port name="height" type="float" value="100.0"/>
+            <port name="position" type="point" value="203.00,125.00"/>
+        </node>
+        <node name="grid2" position="-9.00,18.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="1"/>
+            <port name="rows" type="int" value="9"/>
+            <port name="width" type="float" value="100.0"/>
+            <port name="height" type="float" value="100.0"/>
+            <port name="position" type="point" value="250.00,130.00"/>
+        </node>
+        <node name="hora" position="-4.00,12.00" prototype="data.lookup">
+            <port name="key" type="string" value="hora"/>
+        </node>
+        <node name="hsb_color1" position="7.00,14.00" prototype="color.hsb_color">
+            <port name="saturation" type="float" value="254.0"/>
+            <port name="brightness" type="float" value="254.0"/>
+        </node>
+        <node name="hsb_color2" position="0.00,20.00" prototype="color.hsb_color">
+            <port name="saturation" type="float" value="254.0"/>
+            <port name="brightness" type="float" value="254.0"/>
+        </node>
+        <node name="inercia" position="-3.00,0.00" prototype="math.number">
+            <port name="value" type="float" value="10.0"/>
+        </node>
+        <node name="latitude" position="14.00,2.00" prototype="data.lookup">
+            <port name="key" type="string" value="latitude"/>
+        </node>
+        <node name="longitude" position="10.00,2.00" prototype="data.lookup">
+            <port name="key" type="string" value="longitude"/>
+        </node>
+        <node name="make_point1" position="18.00,13.00" prototype="corevector.make_point"/>
+        <node name="make_point2" position="19.00,12.00" prototype="corevector.make_point"/>
+        <node name="make_point3" position="24.00,12.00" prototype="corevector.make_point"/>
+        <node name="make_point4" position="23.00,13.00" prototype="corevector.make_point"/>
+        <node name="mapcenter" position="12.00,14.00" prototype="corevector.make_point"/>
+        <node name="max1" position="15.00,7.00" prototype="math.max"/>
+        <node name="max2" position="20.00,7.00" prototype="math.max"/>
+        <node name="max4" position="3.00,12.00" prototype="math.max"/>
+        <node name="min1" position="18.00,6.00" prototype="math.min"/>
+        <node name="min2" position="23.00,6.00" prototype="math.min"/>
+        <node name="min4" position="0.00,12.00" prototype="math.min"/>
+        <node name="mod2" position="-8.00,5.00" prototype="math.mod">
+            <port name="value2" type="float" value="168.0"/>
+        </node>
+        <node name="multiply2" position="-8.00,8.00" prototype="math.multiply">
+            <port name="value2" type="float" value="260.0"/>
+        </node>
+        <node name="n" position="-2.00,3.00" prototype="list.count"/>
+        <node name="negate1" position="14.00,3.00" prototype="math.negate"/>
+        <node name="position" position="10.00,6.00" prototype="corevector.make_point"/>
+        <node name="range1" position="0.00,19.00" prototype="math.range">
+            <port name="start" type="float" value="128.0"/>
+            <port name="end" type="float" value="0.0"/>
+            <port name="step" type="float" value="-17.0"/>
+        </node>
+        <node name="range2" position="-6.00,19.00" prototype="math.range">
+            <port name="start" type="float" value="16.0"/>
+            <port name="end" type="float" value="97.0"/>
+            <port name="step" type="float" value="10.0"/>
+        </node>
+        <node name="rect1" position="-3.00,20.00" prototype="corevector.rect">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="rect2" position="1.00,21.00" prototype="corevector.rect">
+            <port name="position" type="point" value="220.00,125.00"/>
+            <port name="width" type="float" value="70.0"/>
+            <port name="height" type="float" value="125.0"/>
+        </node>
+        <node name="scale1" position="10.00,16.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="500000.00,500000.00"/>
+        </node>
+        <node name="scale3" position="15.00,19.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="520000.00,520000.00"/>
+        </node>
+        <node name="sevidata_csv" position="-7.00,-1.00" prototype="data.import_csv">
+            <port name="file" type="string" value="sevidata.csv"/>
+            <port name="delimiter" type="string" value="semicolon"/>
+            <port name="number_separator" type="string" value="comma"/>
+        </node>
+        <node name="seviesta_csv" position="6.00,-1.00" prototype="data.import_csv">
+            <port name="file" type="string" value="/home/usu1/Documentos/Formacion/UniSE-DataScience&amp;BigData/cont/VIS/VIS_11_Evaluacion/VIS_EVAL_03_NodeBox/seviesta.csv"/>
+        </node>
+        <node name="slice1" position="-7.00,10.00" prototype="list.slice">
+            <port name="size" type="int" value="260"/>
+        </node>
+        <node name="stands" position="2.00,2.00" prototype="data.lookup">
+            <port name="key" type="string" value="stands"/>
+        </node>
+        <node name="textpath1" position="4.00,19.00" prototype="corevector.textpath">
+            <port name="align" type="string" value="RIGHT"/>
+            <port name="position" type="point" value="250.00,220.00"/>
+        </node>
+        <node name="textpath2" position="7.00,19.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="Visualización dinámica de la fracción de estacionamientos disponibles "/>
+            <port name="font_size" type="float" value="16.0"/>
+            <port name="position" type="point" value="0.00,260.00"/>
+        </node>
+        <node name="textpath3" position="7.00,20.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="por día de la semana y hora del día en las estaciones de Sevici"/>
+            <port name="font_size" type="float" value="16.0"/>
+            <port name="position" type="point" value="0.00,280.00"/>
+        </node>
+        <node name="textpath4" position="-6.00,22.00" prototype="corevector.textpath">
+            <port name="font_size" type="float" value="12.0"/>
+            <port name="align" type="string" value="RIGHT"/>
+        </node>
+        <conn input="latitude.list" output="seviesta_csv"/>
+        <conn input="longitude.list" output="seviesta_csv"/>
+        <conn input="n.list" output="seviesta_csv"/>
+        <conn input="colorize1.shape" output="ellipse1"/>
+        <conn input="scale1.shape" output="position"/>
+        <conn input="scale1.origin" output="mapcenter"/>
+        <conn input="ellipse1.position" output="scale1"/>
+        <conn input="negate1.value" output="latitude"/>
+        <conn input="position.y" output="negate1"/>
+        <conn input="position.x" output="longitude"/>
+        <conn input="colorize1.fill" output="hsb_color1"/>
+        <conn input="min1.values" output="longitude"/>
+        <conn input="min2.values" output="negate1"/>
+        <conn input="max1.values" output="longitude"/>
+        <conn input="max2.values" output="negate1"/>
+        <conn input="add1.value1" output="min1"/>
+        <conn input="add1.value2" output="max1"/>
+        <conn input="add2.value1" output="min2"/>
+        <conn input="add2.value2" output="max2"/>
+        <conn input="divide1.value1" output="add1"/>
+        <conn input="divide2.value1" output="add2"/>
+        <conn input="mapcenter.x" output="divide1"/>
+        <conn input="mapcenter.y" output="divide2"/>
+        <conn input="combine1.list1" output="make_point1"/>
+        <conn input="combine1.list2" output="make_point2"/>
+        <conn input="make_point1.x" output="min1"/>
+        <conn input="make_point1.y" output="min2"/>
+        <conn input="make_point2.x" output="min1"/>
+        <conn input="make_point2.y" output="max2"/>
+        <conn input="make_point3.x" output="max1"/>
+        <conn input="make_point3.y" output="max2"/>
+        <conn input="make_point4.x" output="max1"/>
+        <conn input="make_point4.y" output="min2"/>
+        <conn input="combine1.list3" output="make_point3"/>
+        <conn input="combine1.list4" output="make_point4"/>
+        <conn input="connect1.points" output="combine1"/>
+        <conn input="scale3.origin" output="mapcenter"/>
+        <conn input="scale3.shape" output="connect1"/>
+        <conn input="colorize2.shape" output="scale3"/>
+        <conn input="combine2.list1" output="colorize1"/>
+        <conn input="combine2.list2" output="colorize2"/>
+        <conn input="slice1.start_index" output="multiply2"/>
+        <conn input="divide3.value1" output="frame1"/>
+        <conn input="divide3.value2" output="inercia"/>
+        <conn input="floor1.value" output="divide3"/>
+        <conn input="avgs.list" output="slice1"/>
+        <conn input="stands.list" output="seviesta_csv"/>
+        <conn input="divide4.value1" output="avgs"/>
+        <conn input="divide4.value2" output="stands"/>
+        <conn input="min4.values" output="divide4"/>
+        <conn input="max4.values" output="divide4"/>
+        <conn input="convert_range2.value" output="divide4"/>
+        <conn input="convert_range2.source_start" output="min4"/>
+        <conn input="convert_range2.source_end" output="max4"/>
+        <conn input="hsb_color1.hue" output="convert_range2"/>
+        <conn input="slice1.size" output="n"/>
+        <conn input="hora.list" output="slice1"/>
+        <conn input="dsem.list" output="slice1"/>
+        <conn input="clase_int1.value" output="hora"/>
+        <conn input="concatenate1.string1" output="dsem"/>
+        <conn input="concatenate1.string3" output="clase_int1"/>
+        <conn input="textpath1.text" output="concatenate1"/>
+        <conn input="combine2.list3" output="textpath1"/>
+        <conn input="multiply2.value2" output="n"/>
+        <conn input="slice1.list" output="sevidata_csv"/>
+        <conn input="mod2.value1" output="floor1"/>
+        <conn input="multiply2.value1" output="mod2"/>
+        <conn input="combine2.list4" output="textpath2"/>
+        <conn input="combine2.list5" output="textpath3"/>
+        <conn input="rect1.position" output="grid1"/>
+        <conn input="textpath4.position" output="grid2"/>
+        <conn input="colorize3.shape" output="rect1"/>
+        <conn input="colorize3.fill" output="hsb_color2"/>
+        <conn input="hsb_color2.hue" output="range1"/>
+        <conn input="format_number1.value" output="range2"/>
+        <conn input="concatenate2.string1" output="format_number1"/>
+        <conn input="textpath4.text" output="concatenate2"/>
+        <conn input="colorize4.shape" output="rect2"/>
+        <conn input="combine3.list2" output="colorize3"/>
+        <conn input="combine2.list6" output="combine3"/>
+        <conn input="combine3.list1" output="colorize4"/>
+        <conn input="combine3.list3" output="textpath4"/>
+    </node>
+</ndbx>
